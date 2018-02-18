@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Auth\DefaultPasswordHasher;    
 
 /**
  * Users Model
@@ -76,6 +77,8 @@ class UsersTable extends Table
             ->notEmpty('username')
             ->add('username', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
+
+
         $validator
             ->notEmpty('password', __("You must specify your password."))
             ->notEmpty('password_confirm', __("You must specify your password (confirmation)."))
@@ -91,6 +94,55 @@ class UsersTable extends Table
                     'message' => __("Your password confirm must match with your password.")
                 ]
             ]);
+
+        $validator
+                ->add('old_password','custom',[
+                    'rule' => function($value, $context){
+                        $user = $this->get($context['data']['id']);
+                        if($user)
+                        {
+                            if((new CakeAuthDefaultPasswordHasher)->check($value, $user->password))
+                            {
+                                return true;
+                            }
+                        }
+                        return false;
+                    },
+                    'message' => 'Your old password does not match the entered password!',
+                ])
+                ->notEmpty('old_password');
+        
+        $validator
+                ->add('new_password',[
+                    'length' => [
+                        'rule' => ['lengthBetween', 8, 20],
+                        'message' => 'Please enter atleast 4 characters in password your password.'
+                    ]
+                ])
+                ->add('new_password',[
+                    'match' => [
+                        'rule' => ['compareWith','confirm_password'],
+                        'message' => 'Sorry! Password dose not match. Please try again!'
+                    ]
+                ])
+                ->notEmpty('new_password');
+
+        $validator
+                ->add('password_confirm',[
+                    'length' => [
+                        'rule' => ['lengthBetween', 8, 20],
+                        'message' => 'Please enter atleast 4 characters in password your password.'
+                    ]
+                ])
+                ->add('password_confirm',[
+                    'match' => [
+                        'rule' => ['compareWith','new_password'],
+                        'message' => 'Sorry! Password dose not match. Please try again!'
+                    ]
+                ])
+                ->notEmpty('confirm_password');          
+
+////////////////////////////////////////////////////////////////////////////////////
 
         $validator
             ->email('email')
@@ -191,8 +243,8 @@ class UsersTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules)
-    {
+    public function buildRules(RulesChecker $rules){
+
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
 
@@ -200,25 +252,31 @@ class UsersTable extends Table
     }
 
 
-    public function findToken(Query $query, array $opt)
-    {
+    public function findToken(Query $query, array $opt){
 
         return $query
             ->Where(['active' => 0])
             ->where(['token'=> $opt["token"]]);
     }
 
-
-    public function findEmail(Query $query, array $opt)
-    {
+    public function findEmail(Query $query, array $opt){
         return $query
             ->where(['email'=> $opt["email"]]);
     }
 
-
-    public function findPasswordToken(Query $query, array $opt)
-    {
+    public function findPasswordToken(Query $query, array $opt){
         return $query
             ->where(['password_code '=> $opt["token"]]);
     }
+
+    public function findRoles(Query $query, array $opt){
+        return       
+        $query->SELECT(['count' => $query->func()->count('*')]) 
+              ->innerJoinWith('Roles.Permissions', function ($q) use ($opt) {            
+                     return $q->where(['Permissions.view' => $opt["view"]])
+                              ->where(['Permissions.contoller' => $opt["controller"]]);
+        })      
+            ->WHERE(['Users.id'=> $opt["id"]]);
+    }
+
 }

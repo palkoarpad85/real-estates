@@ -71,9 +71,11 @@
             'type'=>'submit',
             'class'=> 'btn btn-primary btn-block btn-flat'
         )); ?>
-
     </div>
-
+    
+    <?=  $this->Html->link(__('Login'),
+                          '/users/login',
+                         ['class' => ' btn btn-sm btn-block btn-primary']);?>
 
 <?php echo $this->Form->end(); ?>
 

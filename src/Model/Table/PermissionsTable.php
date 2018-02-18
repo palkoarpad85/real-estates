@@ -35,7 +35,7 @@ class PermissionsTable extends Table
         parent::initialize($config);
 
         $this->setTable('permissions');
-        $this->setDisplayField('id');
+        $this->setDisplayField('view');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

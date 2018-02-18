@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\I18n\I18n;
 /**
  * Roles Controller
  *
@@ -12,6 +14,16 @@ use App\Controller\AppController;
  */
 class RolesController extends AppController
 {
+
+
+
+    public function beforeFilter(Event $event)
+    {
+          //  $this->Auth->allow(['index','view','add','edit']);
+    }
+
+
+   
 
     /**
      * Index method

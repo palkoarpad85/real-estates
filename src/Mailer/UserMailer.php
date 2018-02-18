@@ -34,19 +34,32 @@ class UserMailer extends Mailer
 
     /**
      * @param $data
-     *
-    *function forgotpassword($data)
-    *{
+     **/
+    function forgotpassword($data)
+    {
 
-      *  $this->to($data['user']['email'])
-       *     ->from($data["form"])
-        *    ->profile('default')
-         *   ->emailFormat('html')
-          *  ->template('forgotpassword','welcome')
-           * ->setLayout('welcome')
-            *->viewVars(['data'=>$data])
-            *->subject(sprintf(__('Ingatlan ')));
+        $this->to($data['user']['email'])
+        ->from($data["form"])
+        ->profile('default')
+        ->emailFormat('html')
+        ->template($data['template'],'users')
+        ->viewVars(['data'=>$data])
+        ->subject(sprintf($data['subject']));
 
-    }*/
+    }
+
+    function changePasswordEmail($data)
+    {
+
+        $this->to($data['user']['email'])
+        ->from($data["form"])
+        ->profile('default')
+        ->emailFormat('html')
+        ->template($data['template'],'users')
+        ->viewVars(['data'=>$data])
+        ->subject(sprintf($data['subject']));
+
+    }
+
 }
 

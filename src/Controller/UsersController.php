@@ -9,6 +9,7 @@ use Cake\Mailer\MailerAwareTrait;
 use Cake\Utility\Inflector;
 use Cake\Core\Configure;
 use Cake\Auth\DefaultPasswordHasher;
+use Cake\ORM\TableRegistry;
 
 /**
  * Users Controller
@@ -25,7 +26,7 @@ class UsersController extends AppController
     {
         $this->now = new Time();
 
-      //      $this->Auth->allow(['login','register','add','index','verify','forgotPassword']);
+        $this->Auth->allow(['login','register','resetpassword','changepassword','index','view','verify','forgotPassword']);
     }
 
 
@@ -37,11 +38,11 @@ class UsersController extends AppController
     {
 
         $this->viewBuilder()->setLayout('login');
+
         if ($this->request->is('post')) {
             if (!isset($this->request->params['_csrfToken']) || ($this->request->params['_csrfToken'] != $this->request->cookies['csrfToken'])) {
                 $this->Security->blackHoleCallback = '__blackhole';
             } else {
-
                 $user = $this->Auth->identify();
                 if ($user !=null && $user["active"] == true) {
                     $this->Auth->setUser($user);
@@ -59,8 +60,7 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function register()
-    {
+    public function register(){
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
@@ -165,6 +165,116 @@ class UsersController extends AppController
 
         }
     }
+    /**Forgot password */
+
+    public function forgotpassword(){
+
+        if($this->request->is('post')){
+            $data["email"] = $this->request->getdata()["email"];
+            $user = $this->Users->find('Email', $data)->first();
+                if ($user != null)
+                {
+                    if($user){
+                        $user->last_login_ip=$this->request->clientIp();
+                        $user->last_login=$this->now;
+                        $user->token=null;
+                        $user->modified=$this->now;
+                        $user->modified_by=$user->id;
+                        $user->password_reset_count++;
+                        $token = $user['username'].$user['email'].Configure::read('User.verify_token_length');
+                        $user->password_code = base64_encode((new DefaultPasswordHasher)->hash($token));
+                        if ($this->Users->save($user) && $this->sendEmail($user,"forgotpassword")) {
+                            $this->Flash->success(__('The email was succesfully sent.'));
+                        }
+                        return $this->redirect(['controller'=>'realestates','action' => 'index']);
+                    }
+                    else{
+                        $this->Flash->error(__('ERROR Please, try again.'));
+                    }
+                }
+                else{
+                    $this->Flash->error(__('The email address was not found in the database.'));
+                }
+        }
+        
+
+    }
+    /** changepassword */
+
+    public function changepassword($tok = null){
+        if (!empty($tok)) {
+
+           $token["token"] = $tok;
+           $user  = $this->Users->find('PasswordToken', $token)->first();
+            
+            if ($user) {
+                
+                if (!empty($this->request->data)) {
+                    $user = $this->Users->patchEntity($user, [
+                        'password' => $this->request->data['new_password'],
+                        'new_password' => $this->request->data['new_password'],
+                        'confirm_password' => $this->request->data['confirm_password']
+                            ]
+                    );              
+
+                    $user->last_login_ip=$this->request->clientIp();
+                    $user->last_login=$this->now;
+                    $user->password_code=null;
+                    $user->modified=$this->now;
+                    $user->modified_by=$user->id;
+                    
+
+                    if ($this->Users->save($user)) {
+                        $this->Flash->success('Your password has been changed successfully');
+                        $emaildata = ['name' => $user->first_name, 'email' => $user->email];
+                        $this->sendEmail($user,"changePasswordEmail");
+                        $this->redirect(['action' => 'index']);
+                    } else {
+                        $this->Flash->error('Error changing password. Please try again!');
+                    }
+                }
+            } else {
+                $this->Flash->error('Sorry your password token has been expired.');
+            }
+        } else {
+            $this->Flash->error('Error loading password reset.');
+        }
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
+    }
+
+    /**Reset password */
+    function resetpassword(){
+
+        $user = $this->Users->get($this->Auth->user('id'));
+        
+        if(!empty($this->request->data))
+        {
+            $user = $this->Users->patchEntity($user, [
+                    'old_password'      => $this->request->data['old_password'],
+                    'password'          => $this->request->data['new_password'],
+                    'new_password'      => $this->request->data['new_password'],
+                    'confirm_password'  => $this->request->data['password_confirm']
+                ]
+                
+            );
+            
+            if($this->Users->save($user))
+            {
+                $this->Flash->success('Your password has been changed successfully');
+                //Email code
+                $this->redirect(['action'=>'index']);
+            }
+            else
+            {
+                $this->Flash->error('Error changing password. Please try again!');
+            }
+            
+        }
+        
+        $this->set('user',$user);
+
+    }
 
     /**
      * Index method
@@ -203,8 +313,7 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null){
         $user = $this->Users->get($id, [
             'contain' => ['Phones', 'Roles']
         ]);
@@ -229,8 +338,8 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null){
+
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
@@ -247,8 +356,8 @@ class UsersController extends AppController
      * @param $type
      * @return bool
      */
-    private function sendEmail($user,$type)
-    {
+    private function sendEmail($user,$type){
+
         $data["user"]     = $user;
         $data["form"]     = Configure::read('Site.send_email');
         $data["template"] = $type;
@@ -262,4 +371,5 @@ class UsersController extends AppController
          return false;
     }
 
+    
 }

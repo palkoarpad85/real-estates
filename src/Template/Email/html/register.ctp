@@ -15,7 +15,7 @@
 ) ?>
 <hr>
 
-<?php echo \Cake\Core\Configure::read('Site.full_url'); ?>
+<?php echo \Cake\Core\Configure::read('Site.site'); ?>
 <hr>
 
 

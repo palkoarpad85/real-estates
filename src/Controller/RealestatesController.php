@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
+use Cake\I18n\Time;
 
 /**
  * Realestates Controller
@@ -12,6 +14,15 @@ use App\Controller\AppController;
  */
 class RealestatesController extends AppController
 {
+
+
+
+    public function beforeFilter(Event $event)
+    {
+        $this->now = new Time();
+
+        $this->Auth->allow(['add','index']);
+    }
 
     /**
      * Index method
@@ -24,7 +35,7 @@ class RealestatesController extends AppController
             'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings']
         ];
         $realestates = $this->paginate($this->Realestates);
-
+        
         $this->set(compact('realestates'));
     }
 
