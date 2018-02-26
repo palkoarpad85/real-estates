@@ -1,36 +1,63 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Permission $permission
+ * @var \App\Model\Entity\Category $category
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $permission->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $permission->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Permissions'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="permissions form large-9 medium-8 columns content">
-    <?= $this->Form->create($permission) ?>
-    <fieldset>
-        <legend><?= __('Edit Permission') ?></legend>
-        <?php
-            echo $this->Form->control('active');
-            echo $this->Form->control('view');
-            echo $this->Form->control('contoller');
-            echo $this->Form->control('created_by');
-            echo $this->Form->control('modified_by');
-            echo $this->Form->control('roles._ids', ['options' => $roles]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+    <?php $this->layout = 'admin';?>
+    <div class="categories form large-9 medium-8 columns content">
+        
+            <section class="content-header">
+                <h2>
+                    <?=__('Edit a ') . __($this->name)?>
+                </h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-tachometer-alt'></i> Home"),
+                                        ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
+                                        ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-outdent'></i> ".$this->name),
+                                        ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
+                                        ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?= __("<i class='fas fa-plus'></i> Edit ".$this->name)?>
+                        </li>
+                    </ol>
+                </nav>
+            </section>
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?=$this->Flash->render();?>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div class="hr-divider hr-divider-panel">
+                                    <h3 class="hr-divider-content hr-divider-heading">
+                                        <?=__( 'Edit a '.$this->name)?>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <?=$this->Form->create($entity)?>
+                                    <div class="form-group">
+                                        <div class="col-sm-5">
+                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Hungary')])?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">                                     
+                                            <?=$this->I18n->i18nInput($entity, 'name', ['class' => 'form-control']);?>                                    
+                                    
+                                    <div class="form-group ">
+                                  <?=$this->Form->button(__( '{0} Save '.$this->name, '<i class="fa fa-plus"></i>'), ['class' => ' btn btn-success'])?>
+                                </div><?=$this->Form->end()?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

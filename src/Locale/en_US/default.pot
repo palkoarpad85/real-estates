@@ -1,0 +1,2382 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2018-02-24 09:39+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AppController.php:50
+msgid "Did you really think you are allowed to see that?"
+msgstr ""
+
+#: Controller/CategoriesController.php:74;98
+msgid "The category has been saved."
+msgstr ""
+
+#: Controller/CategoriesController.php:78;102
+msgid "The category could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/CategoriesController.php:119
+msgid "The category has been deleted."
+msgstr ""
+
+#: Controller/CategoriesController.php:121
+msgid "The category could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ConditionofpropertiesController.php:55;79
+msgid "The conditionofproperty has been saved."
+msgstr ""
+
+#: Controller/ConditionofpropertiesController.php:59;83
+msgid "The conditionofproperty could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ConditionofpropertiesController.php:100
+msgid "The conditionofproperty has been deleted."
+msgstr ""
+
+#: Controller/ConditionofpropertiesController.php:102
+msgid "The conditionofproperty could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ConveniencegradesController.php:55;79
+msgid "The conveniencegrade has been saved."
+msgstr ""
+
+#: Controller/ConveniencegradesController.php:59;83
+msgid "The conveniencegrade could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ConveniencegradesController.php:100
+msgid "The conveniencegrade has been deleted."
+msgstr ""
+
+#: Controller/ConveniencegradesController.php:102
+msgid "The conveniencegrade could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/HeatingtypesController.php:55;79
+msgid "The heatingtype has been saved."
+msgstr ""
+
+#: Controller/HeatingtypesController.php:59;83
+msgid "The heatingtype could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/HeatingtypesController.php:100
+msgid "The heatingtype has been deleted."
+msgstr ""
+
+#: Controller/HeatingtypesController.php:102
+msgid "The heatingtype could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ImagesController.php:58;83
+msgid "The image has been saved."
+msgstr ""
+
+#: Controller/ImagesController.php:62;87
+msgid "The image could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ImagesController.php:105
+msgid "The image has been deleted."
+msgstr ""
+
+#: Controller/ImagesController.php:107
+msgid "The image could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ParkingsController.php:55;79
+msgid "The parking has been saved."
+msgstr ""
+
+#: Controller/ParkingsController.php:59;83
+msgid "The parking could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ParkingsController.php:100
+msgid "The parking has been deleted."
+msgstr ""
+
+#: Controller/ParkingsController.php:102
+msgid "The parking could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PermissionsController.php:79;104
+msgid "The permission has been saved."
+msgstr ""
+
+#: Controller/PermissionsController.php:83;108
+msgid "The permission could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PermissionsController.php:126
+msgid "The permission has been deleted."
+msgstr ""
+
+#: Controller/PermissionsController.php:128
+msgid "The permission could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PermissionsRolesController.php:58;84
+msgid "The permissions role has been saved."
+msgstr ""
+
+#: Controller/PermissionsRolesController.php:62;88
+msgid "The permissions role could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PermissionsRolesController.php:107
+msgid "The permissions role has been deleted."
+msgstr ""
+
+#: Controller/PermissionsRolesController.php:109
+msgid "The permissions role could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PhonesController.php:55;81
+msgid "The phone has been saved."
+msgstr ""
+
+#: Controller/PhonesController.php:59;85
+msgid "The phone could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PhonesController.php:104
+msgid "The phone has been deleted."
+msgstr ""
+
+#: Controller/PhonesController.php:106
+msgid "The phone could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PhonesRealestatesController.php:58;84
+msgid "The phones realestate has been saved."
+msgstr ""
+
+#: Controller/PhonesRealestatesController.php:62;88
+msgid "The phones realestate could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PhonesRealestatesController.php:107
+msgid "The phones realestate has been deleted."
+msgstr ""
+
+#: Controller/PhonesRealestatesController.php:109
+msgid "The phones realestate could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PhonesUsersController.php:58;84
+msgid "The phones user has been saved."
+msgstr ""
+
+#: Controller/PhonesUsersController.php:62;88
+msgid "The phones user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/PhonesUsersController.php:107
+msgid "The phones user has been deleted."
+msgstr ""
+
+#: Controller/PhonesUsersController.php:109
+msgid "The phones user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/RealestatesController.php:69;101
+msgid "The realestate has been saved."
+msgstr ""
+
+#: Controller/RealestatesController.php:73;105
+msgid "The realestate could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/RealestatesController.php:130
+msgid "The realestate has been deleted."
+msgstr ""
+
+#: Controller/RealestatesController.php:132
+msgid "The realestate could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/RolesController.php:67;93
+msgid "The role has been saved."
+msgstr ""
+
+#: Controller/RolesController.php:71;97
+msgid "The role could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/RolesController.php:116
+msgid "The role has been deleted."
+msgstr ""
+
+#: Controller/RolesController.php:118
+msgid "The role could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/RolesUsersController.php:58;84
+msgid "The roles user has been saved."
+msgstr ""
+
+#: Controller/RolesUsersController.php:62;88
+msgid "The roles user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/RolesUsersController.php:107
+msgid "The roles user has been deleted."
+msgstr ""
+
+#: Controller/RolesUsersController.php:109
+msgid "The roles user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/TypesController.php:55;79
+msgid "The type has been saved."
+msgstr ""
+
+#: Controller/TypesController.php:59;83
+msgid "The type could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/TypesController.php:100
+msgid "The type has been deleted."
+msgstr ""
+
+#: Controller/TypesController.php:102
+msgid "The type could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:51;160
+msgid "Username or password is incorrect"
+msgstr ""
+
+#: Controller/UsersController.php:90;323
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:94;327
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:107;130
+msgid "The verify token is incorrect"
+msgstr ""
+
+#: Controller/UsersController.php:116
+msgid "Verify token is incorrect"
+msgstr ""
+
+#: Controller/UsersController.php:153
+msgid "The registration succesfully."
+msgstr ""
+
+#: Controller/UsersController.php:157;192
+msgid "ERROR Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:187
+msgid "The email was succesfully sent."
+msgstr ""
+
+#: Controller/UsersController.php:196
+msgid "The email address was not found in the database."
+msgstr ""
+
+#: Controller/UsersController.php:346
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:348
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:364
+msgid "Ingatlan"
+msgstr ""
+
+#: Model/Table/UsersTable.php:83
+msgid "You must specify your password."
+msgstr ""
+
+#: Model/Table/UsersTable.php:84
+msgid "You must specify your password (confirmation)."
+msgstr ""
+
+#: Model/Table/UsersTable.php:88
+msgid "Your password (confirmation) must be between {0} and {1} characters."
+msgstr ""
+
+#: Model/Table/UsersTable.php:94
+msgid "Your password confirm must match with your password."
+msgstr ""
+
+#: Template/Categories/add.ctp:9
+#: Template/Categories/edit.ctp:9
+#: Template/Categories/index.ctp:54;66
+#: Template/Categories/view.ctp:9;89
+#: Template/Conditionofproperties/add.ctp:9
+#: Template/Conditionofproperties/edit.ctp:9
+#: Template/Conditionofproperties/index.ctp:9;25
+#: Template/Conditionofproperties/view.ctp:9
+#: Template/Conveniencegrades/add.ctp:9
+#: Template/Conveniencegrades/edit.ctp:9
+#: Template/Conveniencegrades/index.ctp:9;25
+#: Template/Conveniencegrades/view.ctp:9
+#: Template/Heatingtypes/add.ctp:9
+#: Template/Heatingtypes/edit.ctp:9
+#: Template/Heatingtypes/index.ctp:9;25
+#: Template/Heatingtypes/view.ctp:9
+#: Template/Images/add.ctp:9
+#: Template/Images/edit.ctp:9
+#: Template/Images/index.ctp:9;28
+#: Template/Images/view.ctp:9
+#: Template/Parkings/add.ctp:9
+#: Template/Parkings/edit.ctp:9
+#: Template/Parkings/index.ctp:9;27
+#: Template/Parkings/view.ctp:9;89
+#: Template/Permissions/edit.ctp:9
+#: Template/Permissions/index.ctp:9;28
+#: Template/Permissions/view.ctp:9;66
+#: Template/PermissionsRoles/add.ctp:9
+#: Template/PermissionsRoles/edit.ctp:9
+#: Template/PermissionsRoles/index.ctp:9;25
+#: Template/PermissionsRoles/view.ctp:9
+#: Template/Phones/add.ctp:9
+#: Template/Phones/edit.ctp:9
+#: Template/Phones/index.ctp:9;29
+#: Template/Phones/view.ctp:9;91;167
+#: Template/PhonesRealestates/add.ctp:9
+#: Template/PhonesRealestates/edit.ctp:9
+#: Template/PhonesRealestates/index.ctp:9;25
+#: Template/PhonesRealestates/view.ctp:9
+#: Template/PhonesUsers/add.ctp:9
+#: Template/PhonesUsers/edit.ctp:9
+#: Template/PhonesUsers/index.ctp:9;25
+#: Template/PhonesUsers/view.ctp:9
+#: Template/Realestates/add.ctp:9
+#: Template/Realestates/edit.ctp:9
+#: Template/Realestates/index.ctp:9;69
+#: Template/Realestates/view.ctp:9;186;220
+#: Template/Roles/add.ctp:9
+#: Template/Roles/edit.ctp:9
+#: Template/Roles/index.ctp:9;29
+#: Template/Roles/view.ctp:9;65;115
+#: Template/RolesUsers/add.ctp:9
+#: Template/RolesUsers/edit.ctp:9
+#: Template/RolesUsers/index.ctp:9;25
+#: Template/RolesUsers/view.ctp:9
+#: Template/Types/add.ctp:9
+#: Template/Types/edit.ctp:9
+#: Template/Types/index.ctp:9;27
+#: Template/Types/view.ctp:9;89
+#: Template/Users/edit.ctp:9
+#: Template/Users/index.ctp:9;45
+#: Template/Users/view.ctp:9;130;163;223
+msgid "Actions"
+msgstr ""
+
+#: Template/Categories/add.ctp:10
+#: Template/Categories/edit.ctp:16
+#: Template/Categories/view.ctp:12
+#: Template/Realestates/add.ctp:15
+#: Template/Realestates/edit.ctp:21
+#: Template/Realestates/index.ctp:15
+#: Template/Realestates/view.ctp:18
+msgid "List Categories"
+msgstr ""
+
+#: Template/Categories/add.ctp:11
+#: Template/Categories/edit.ctp:17
+#: Template/Categories/view.ctp:14
+#: Template/Images/add.ctp:11
+#: Template/Images/edit.ctp:17
+#: Template/Images/index.ctp:11
+#: Template/Images/view.ctp:14
+#: Template/Parkings/add.ctp:11
+#: Template/Parkings/edit.ctp:17
+#: Template/Parkings/index.ctp:11
+#: Template/Parkings/view.ctp:14
+#: Template/Phones/add.ctp:11
+#: Template/Phones/edit.ctp:17
+#: Template/Phones/index.ctp:11
+#: Template/Phones/view.ctp:14
+#: Template/PhonesRealestates/add.ctp:13
+#: Template/PhonesRealestates/edit.ctp:19
+#: Template/PhonesRealestates/index.ctp:13
+#: Template/PhonesRealestates/view.ctp:16
+#: Template/Realestates/add.ctp:10
+#: Template/Realestates/edit.ctp:16
+#: Template/Realestates/view.ctp:12
+#: Template/Types/add.ctp:11
+#: Template/Types/edit.ctp:17
+#: Template/Types/index.ctp:11
+#: Template/Types/view.ctp:14
+#: Template/Users/edit.ctp:17
+#: Template/Users/index.ctp:11
+#: Template/Users/view.ctp:14
+msgid "List Realestates"
+msgstr ""
+
+#: Template/Categories/add.ctp:12
+#: Template/Categories/edit.ctp:18
+#: Template/Categories/view.ctp:15
+#: Template/Images/add.ctp:12
+#: Template/Images/edit.ctp:18
+#: Template/Images/index.ctp:12
+#: Template/Images/view.ctp:15
+#: Template/Parkings/add.ctp:12
+#: Template/Parkings/edit.ctp:18
+#: Template/Parkings/index.ctp:12
+#: Template/Parkings/view.ctp:15
+#: Template/Phones/add.ctp:12
+#: Template/Phones/edit.ctp:18
+#: Template/Phones/index.ctp:12
+#: Template/Phones/view.ctp:15
+#: Template/PhonesRealestates/add.ctp:14
+#: Template/PhonesRealestates/edit.ctp:20
+#: Template/PhonesRealestates/index.ctp:14
+#: Template/PhonesRealestates/view.ctp:17
+#: Template/Realestates/index.ctp:10
+#: Template/Realestates/view.ctp:13
+#: Template/Types/add.ctp:12
+#: Template/Types/edit.ctp:18
+#: Template/Types/index.ctp:12
+#: Template/Types/view.ctp:15
+#: Template/Users/edit.ctp:18
+#: Template/Users/index.ctp:12
+#: Template/Users/view.ctp:15
+msgid "New Realestate"
+msgstr ""
+
+#: Template/Categories/add.ctp:18
+msgid "Add Category"
+msgstr ""
+
+#: Template/Categories/add.ctp:26
+#: Template/Categories/edit.ctp:32
+#: Template/Conditionofproperties/add.ctp:24
+#: Template/Conditionofproperties/edit.ctp:30
+#: Template/Conveniencegrades/add.ctp:24
+#: Template/Conveniencegrades/edit.ctp:30
+#: Template/Heatingtypes/add.ctp:24
+#: Template/Heatingtypes/edit.ctp:30
+#: Template/Images/add.ctp:27
+#: Template/Images/edit.ctp:33
+#: Template/Parkings/add.ctp:26
+#: Template/Parkings/edit.ctp:32
+#: Template/Permissions/add.ctp:63
+#: Template/Permissions/edit.ctp:34
+#: Template/PermissionsRoles/add.ctp:26
+#: Template/PermissionsRoles/edit.ctp:32
+#: Template/Phones/add.ctp:30
+#: Template/Phones/edit.ctp:36
+#: Template/PhonesRealestates/add.ctp:26
+#: Template/PhonesRealestates/edit.ctp:32
+#: Template/PhonesUsers/add.ctp:26
+#: Template/PhonesUsers/edit.ctp:32
+#: Template/Realestates/add.ctp:70
+#: Template/Realestates/edit.ctp:76
+#: Template/Roles/add.ctp:30
+#: Template/Roles/edit.ctp:36
+#: Template/RolesUsers/add.ctp:26
+#: Template/RolesUsers/edit.ctp:32
+#: Template/Types/add.ctp:26
+#: Template/Types/edit.ctp:32
+#: Template/Users/changepassword.ctp:8
+#: Template/Users/edit.ctp:54
+#: View/Helper/FormHelper.php:1927
+msgid "Submit"
+msgstr ""
+
+#: Template/Categories/edit.ctp:11
+#: Template/Categories/view.ctp:130
+#: Template/Conditionofproperties/edit.ctp:11
+#: Template/Conditionofproperties/index.ctp:41
+#: Template/Conveniencegrades/edit.ctp:11
+#: Template/Conveniencegrades/index.ctp:41
+#: Template/Heatingtypes/edit.ctp:11
+#: Template/Heatingtypes/index.ctp:41
+#: Template/Images/edit.ctp:11
+#: Template/Images/index.ctp:45
+#: Template/Parkings/edit.ctp:11
+#: Template/Parkings/index.ctp:43
+#: Template/Parkings/view.ctp:130
+#: Template/Permissions/edit.ctp:11
+#: Template/Permissions/index.ctp:45
+#: Template/Permissions/view.ctp:80
+#: Template/PermissionsRoles/edit.ctp:11
+#: Template/PermissionsRoles/index.ctp:37
+#: Template/Phones/edit.ctp:11
+#: Template/Phones/index.ctp:45
+#: Template/Phones/view.ctp:132;197
+#: Template/PhonesRealestates/edit.ctp:11
+#: Template/PhonesRealestates/index.ctp:37
+#: Template/PhonesUsers/edit.ctp:11
+#: Template/PhonesUsers/index.ctp:37
+#: Template/Realestates/edit.ctp:11
+#: Template/Realestates/index.ctp:111
+#: Template/Realestates/view.ctp:200;235
+#: Template/Roles/edit.ctp:11
+#: Template/Roles/index.ctp:45
+#: Template/Roles/view.ctp:80;145
+#: Template/RolesUsers/edit.ctp:11
+#: Template/RolesUsers/index.ctp:37
+#: Template/Types/edit.ctp:11
+#: Template/Types/index.ctp:43
+#: Template/Types/view.ctp:130
+#: Template/Users/edit.ctp:11
+#: Template/Users/index.ctp:75
+#: Template/Users/view.ctp:144;177;264
+msgid "Delete"
+msgstr ""
+
+#: Template/Categories/edit.ctp:13
+#: Template/Categories/view.ctp:11;130
+#: Template/Conditionofproperties/edit.ctp:13
+#: Template/Conditionofproperties/index.ctp:41
+#: Template/Conditionofproperties/view.ctp:11
+#: Template/Conveniencegrades/edit.ctp:13
+#: Template/Conveniencegrades/index.ctp:41
+#: Template/Conveniencegrades/view.ctp:11
+#: Template/Element/table.ctp:48
+#: Template/Heatingtypes/edit.ctp:13
+#: Template/Heatingtypes/index.ctp:41
+#: Template/Heatingtypes/view.ctp:11
+#: Template/Images/edit.ctp:13
+#: Template/Images/index.ctp:45
+#: Template/Images/view.ctp:11
+#: Template/Parkings/edit.ctp:13
+#: Template/Parkings/index.ctp:43
+#: Template/Parkings/view.ctp:11;130
+#: Template/Permissions/edit.ctp:13
+#: Template/Permissions/index.ctp:45
+#: Template/Permissions/view.ctp:11;80
+#: Template/PermissionsRoles/edit.ctp:13
+#: Template/PermissionsRoles/index.ctp:37
+#: Template/PermissionsRoles/view.ctp:11
+#: Template/Phones/edit.ctp:13
+#: Template/Phones/index.ctp:45
+#: Template/Phones/view.ctp:11;132;197
+#: Template/PhonesRealestates/edit.ctp:13
+#: Template/PhonesRealestates/index.ctp:37
+#: Template/PhonesRealestates/view.ctp:11
+#: Template/PhonesUsers/edit.ctp:13
+#: Template/PhonesUsers/index.ctp:37
+#: Template/PhonesUsers/view.ctp:11
+#: Template/Realestates/edit.ctp:13
+#: Template/Realestates/index.ctp:111
+#: Template/Realestates/view.ctp:11;200;235
+#: Template/Roles/edit.ctp:13
+#: Template/Roles/index.ctp:45
+#: Template/Roles/view.ctp:11;80;145
+#: Template/RolesUsers/edit.ctp:13
+#: Template/RolesUsers/index.ctp:37
+#: Template/RolesUsers/view.ctp:11
+#: Template/Types/edit.ctp:13
+#: Template/Types/index.ctp:43
+#: Template/Types/view.ctp:11;130
+#: Template/Users/edit.ctp:13
+#: Template/Users/index.ctp:75
+#: Template/Users/view.ctp:11;144;177;264
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Categories/edit.ctp:24
+#: Template/Categories/view.ctp:10
+msgid "Edit Category"
+msgstr ""
+
+#: Template/Categories/index.ctp:6
+msgid "List"
+msgstr ""
+
+#: Template/Categories/index.ctp:10
+msgid "<i class='fa fa-tachometer-alt'></i> Home"
+msgstr ""
+
+#: Template/Categories/index.ctp:14
+msgid "<i class='fa fa-outdent'></i> Categories"
+msgstr ""
+
+#: Template/Categories/index.ctp:23
+#: Template/Permissions/add.ctp:21;26;35
+msgid "Add"
+msgstr ""
+
+#: Template/Categories/index.ctp:50;62
+msgid "Id <i class='fa fa-sort'></i>"
+msgstr ""
+
+#: Template/Categories/index.ctp:51;63
+msgid "Active <i class='fa fa-sort'></i>"
+msgstr ""
+
+#: Template/Categories/index.ctp:52;64
+msgid "Hu_name <i class='fa fa-sort'></i>"
+msgstr ""
+
+#: Template/Categories/index.ctp:53;65
+msgid "Eng_name <i class='fa fa-sort'></i>"
+msgstr ""
+
+#: Template/Categories/index.ctp:73
+#: Template/Conditionofproperties/index.ctp:49
+#: Template/Conveniencegrades/index.ctp:49
+#: Template/Heatingtypes/index.ctp:49
+#: Template/Images/index.ctp:53
+#: Template/Parkings/index.ctp:51
+#: Template/Permissions/index.ctp:53
+#: Template/PermissionsRoles/index.ctp:45
+#: Template/Phones/index.ctp:53
+#: Template/PhonesRealestates/index.ctp:45
+#: Template/PhonesUsers/index.ctp:45
+#: Template/Realestates/index.ctp:119
+#: Template/Roles/index.ctp:53
+#: Template/RolesUsers/index.ctp:45
+#: Template/Types/index.ctp:51
+#: Template/Users/index.ctp:83
+msgid "first"
+msgstr ""
+
+#: Template/Categories/index.ctp:74
+#: Template/Conditionofproperties/index.ctp:50
+#: Template/Conveniencegrades/index.ctp:50
+#: Template/Heatingtypes/index.ctp:50
+#: Template/Images/index.ctp:54
+#: Template/Parkings/index.ctp:52
+#: Template/Permissions/index.ctp:54
+#: Template/PermissionsRoles/index.ctp:46
+#: Template/Phones/index.ctp:54
+#: Template/PhonesRealestates/index.ctp:46
+#: Template/PhonesUsers/index.ctp:46
+#: Template/Realestates/index.ctp:120
+#: Template/Roles/index.ctp:54
+#: Template/RolesUsers/index.ctp:46
+#: Template/Types/index.ctp:52
+#: Template/Users/index.ctp:84
+msgid "previous"
+msgstr ""
+
+#: Template/Categories/index.ctp:76
+#: Template/Conditionofproperties/index.ctp:52
+#: Template/Conveniencegrades/index.ctp:52
+#: Template/Heatingtypes/index.ctp:52
+#: Template/Images/index.ctp:56
+#: Template/Parkings/index.ctp:54
+#: Template/Permissions/index.ctp:56
+#: Template/PermissionsRoles/index.ctp:48
+#: Template/Phones/index.ctp:56
+#: Template/PhonesRealestates/index.ctp:48
+#: Template/PhonesUsers/index.ctp:48
+#: Template/Realestates/index.ctp:122
+#: Template/Roles/index.ctp:56
+#: Template/RolesUsers/index.ctp:48
+#: Template/Types/index.ctp:54
+#: Template/Users/index.ctp:86
+msgid "next"
+msgstr ""
+
+#: Template/Categories/index.ctp:77
+#: Template/Conditionofproperties/index.ctp:53
+#: Template/Conveniencegrades/index.ctp:53
+#: Template/Heatingtypes/index.ctp:53
+#: Template/Images/index.ctp:57
+#: Template/Parkings/index.ctp:55
+#: Template/Permissions/index.ctp:57
+#: Template/PermissionsRoles/index.ctp:49
+#: Template/Phones/index.ctp:57
+#: Template/PhonesRealestates/index.ctp:49
+#: Template/PhonesUsers/index.ctp:49
+#: Template/Realestates/index.ctp:123
+#: Template/Roles/index.ctp:57
+#: Template/RolesUsers/index.ctp:49
+#: Template/Types/index.ctp:55
+#: Template/Users/index.ctp:87
+msgid "last"
+msgstr ""
+
+#: Template/Categories/index.ctp:79
+#: Template/Conditionofproperties/index.ctp:55
+#: Template/Conveniencegrades/index.ctp:55
+#: Template/Heatingtypes/index.ctp:55
+#: Template/Images/index.ctp:59
+#: Template/Parkings/index.ctp:57
+#: Template/Permissions/index.ctp:59
+#: Template/PermissionsRoles/index.ctp:51
+#: Template/Phones/index.ctp:59
+#: Template/PhonesRealestates/index.ctp:51
+#: Template/PhonesUsers/index.ctp:51
+#: Template/Realestates/index.ctp:125
+#: Template/Roles/index.ctp:59
+#: Template/RolesUsers/index.ctp:51
+#: Template/Types/index.ctp:57
+#: Template/Users/index.ctp:89
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr ""
+
+#: Template/Categories/view.ctp:11
+msgid "Delete Category"
+msgstr ""
+
+#: Template/Categories/view.ctp:13
+#: Template/Realestates/add.ctp:16
+#: Template/Realestates/edit.ctp:22
+#: Template/Realestates/index.ctp:16
+#: Template/Realestates/view.ctp:19
+msgid "New Category"
+msgstr ""
+
+#: Template/Categories/view.ctp:22
+#: Template/Conditionofproperties/view.ctp:20
+#: Template/Conveniencegrades/view.ctp:20
+#: Template/Heatingtypes/view.ctp:20
+#: Template/Images/view.ctp:26
+#: Template/Parkings/view.ctp:22
+#: Template/Permissions/view.ctp:61
+#: Template/Realestates/view.ctp:215
+#: Template/Roles/view.ctp:24
+#: Template/Types/view.ctp:22
+#: Template/Users/view.ctp:158
+msgid "Name"
+msgstr ""
+
+#: Template/Categories/view.ctp:26;55
+#: Template/Conditionofproperties/view.ctp:24
+#: Template/Conveniencegrades/view.ctp:24
+#: Template/Heatingtypes/view.ctp:24
+#: Template/Images/view.ctp:38
+#: Template/Parkings/view.ctp:26;55
+#: Template/Permissions/view.ctp:30;59
+#: Template/PermissionsRoles/view.ctp:32
+#: Template/Phones/view.ctp:28;57;144
+#: Template/PhonesRealestates/view.ctp:32
+#: Template/PhonesUsers/view.ctp:32
+#: Template/Realestates/view.ctp:90;179;212
+#: Template/Roles/view.ctp:28;57;92
+#: Template/RolesUsers/view.ctp:32
+#: Template/Types/view.ctp:26;55
+#: Template/Users/view.ctp:78;123;156;189
+msgid "Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:30;86
+#: Template/Conditionofproperties/view.ctp:28
+#: Template/Conveniencegrades/view.ctp:28
+#: Template/Heatingtypes/view.ctp:28
+#: Template/Images/view.ctp:30
+#: Template/Parkings/view.ctp:30;86
+#: Template/Permissions/view.ctp:34;63
+#: Template/Phones/view.ctp:32;88;164
+#: Template/Realestates/view.ctp:134;183;217
+#: Template/Roles/view.ctp:32;62;112
+#: Template/Types/view.ctp:30;86
+#: Template/Users/view.ctp:70;127;160;220
+msgid "Created By"
+msgstr ""
+
+#: Template/Categories/view.ctp:34;88
+#: Template/Conditionofproperties/view.ctp:32
+#: Template/Conveniencegrades/view.ctp:32
+#: Template/Heatingtypes/view.ctp:32
+#: Template/Images/view.ctp:34
+#: Template/Parkings/view.ctp:34;88
+#: Template/Permissions/view.ctp:38;65
+#: Template/Phones/view.ctp:36;90;166
+#: Template/Realestates/view.ctp:138;185;219
+#: Template/Roles/view.ctp:36;64;114
+#: Template/Types/view.ctp:34;88
+#: Template/Users/view.ctp:74;129;162;222
+msgid "Modified By"
+msgstr ""
+
+#: Template/Categories/view.ctp:38;85
+#: Template/Conditionofproperties/view.ctp:36
+#: Template/Conveniencegrades/view.ctp:36
+#: Template/Heatingtypes/view.ctp:36
+#: Template/Images/view.ctp:42
+#: Template/Parkings/view.ctp:38;85
+#: Template/Permissions/view.ctp:42;62
+#: Template/Phones/view.ctp:40;87;163
+#: Template/Realestates/view.ctp:150;182;216
+#: Template/Roles/view.ctp:40;61;111
+#: Template/Types/view.ctp:38;85
+#: Template/Users/view.ctp:98;126;159;219
+msgid "Created"
+msgstr ""
+
+#: Template/Categories/view.ctp:42;87
+#: Template/Conditionofproperties/view.ctp:40
+#: Template/Conveniencegrades/view.ctp:40
+#: Template/Heatingtypes/view.ctp:40
+#: Template/Images/view.ctp:46
+#: Template/Parkings/view.ctp:42;87
+#: Template/Permissions/view.ctp:46;64
+#: Template/Phones/view.ctp:44;89;165
+#: Template/Realestates/view.ctp:154;184;218
+#: Template/Roles/view.ctp:44;63;113
+#: Template/Types/view.ctp:42;87
+#: Template/Users/view.ctp:102;128;161;221
+msgid "Modified"
+msgstr ""
+
+#: Template/Categories/view.ctp:46;84
+#: Template/Conditionofproperties/view.ctp:44
+#: Template/Conveniencegrades/view.ctp:44
+#: Template/Heatingtypes/view.ctp:44
+#: Template/Images/view.ctp:50
+#: Template/Parkings/view.ctp:46;84
+#: Template/Permissions/view.ctp:50;60
+#: Template/Phones/view.ctp:48;86;162
+#: Template/Realestates/view.ctp:166;180;214
+#: Template/Roles/view.ctp:48;58;110
+#: Template/Types/view.ctp:46;84
+#: Template/Users/view.ctp:106;124;157;218
+msgid "Active"
+msgstr ""
+
+#: Template/Categories/view.ctp:47
+#: Template/Conditionofproperties/view.ctp:45
+#: Template/Conveniencegrades/view.ctp:45
+#: Template/Element/table.ctp:4
+#: Template/Heatingtypes/view.ctp:45
+#: Template/Images/view.ctp:51
+#: Template/Parkings/view.ctp:47
+#: Template/Permissions/view.ctp:51
+#: Template/Phones/view.ctp:49
+#: Template/Realestates/view.ctp:159;163;167
+#: Template/Roles/view.ctp:49
+#: Template/Types/view.ctp:47
+#: Template/Users/view.ctp:107
+msgid "Yes"
+msgstr ""
+
+#: Template/Categories/view.ctp:47
+#: Template/Conditionofproperties/view.ctp:45
+#: Template/Conveniencegrades/view.ctp:45
+#: Template/Element/table.ctp:6
+#: Template/Heatingtypes/view.ctp:45
+#: Template/Images/view.ctp:51
+#: Template/Parkings/view.ctp:47
+#: Template/Permissions/view.ctp:51
+#: Template/Phones/view.ctp:49
+#: Template/Realestates/view.ctp:159;163;167
+#: Template/Roles/view.ctp:49
+#: Template/Types/view.ctp:47
+#: Template/Users/view.ctp:107
+msgid "No"
+msgstr ""
+
+#: Template/Categories/view.ctp:51
+#: Template/Parkings/view.ctp:51
+#: Template/Phones/view.ctp:53
+#: Template/Types/view.ctp:51
+#: Template/Users/view.ctp:185
+msgid "Related Realestates"
+msgstr ""
+
+#: Template/Categories/view.ctp:56
+#: Template/Parkings/view.ctp:56
+#: Template/Phones/view.ctp:58
+#: Template/Types/view.ctp:56
+#: Template/Users/view.ctp:190
+msgid "User Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:57
+#: Template/Parkings/view.ctp:57
+#: Template/Phones/view.ctp:59
+#: Template/Types/view.ctp:57
+#: Template/Users/view.ctp:191
+msgid "Type Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:58
+#: Template/Parkings/view.ctp:58
+#: Template/Phones/view.ctp:60
+#: Template/Types/view.ctp:58
+#: Template/Users/view.ctp:192
+msgid "Category Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:59
+#: Template/Parkings/view.ctp:59
+#: Template/Phones/view.ctp:61
+#: Template/Types/view.ctp:59
+#: Template/Users/view.ctp:193
+msgid "ConvenienceGrade Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:60
+#: Template/Parkings/view.ctp:60
+#: Template/Phones/view.ctp:62
+#: Template/Types/view.ctp:60
+#: Template/Users/view.ctp:194
+msgid "HeatingType Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:61
+#: Template/Parkings/view.ctp:61
+#: Template/Phones/view.ctp:63
+#: Template/Types/view.ctp:61
+#: Template/Users/view.ctp:195
+msgid "ConditionOfProperty Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:62
+#: Template/Parkings/view.ctp:62
+#: Template/Phones/view.ctp:64
+#: Template/Types/view.ctp:62
+#: Template/Users/view.ctp:196
+msgid "Parking Id"
+msgstr ""
+
+#: Template/Categories/view.ctp:63
+#: Template/Parkings/view.ctp:63
+#: Template/Phones/view.ctp:65
+#: Template/Realestates/view.ctp:94
+#: Template/Types/view.ctp:63
+#: Template/Users/view.ctp:197
+msgid "Price"
+msgstr ""
+
+#: Template/Categories/view.ctp:64
+#: Template/Parkings/view.ctp:64
+#: Template/Phones/view.ctp:66
+#: Template/Realestates/view.ctp:98
+#: Template/Types/view.ctp:64
+#: Template/Users/view.ctp:198
+msgid "Rooms Numbers"
+msgstr ""
+
+#: Template/Categories/view.ctp:65
+#: Template/Parkings/view.ctp:65
+#: Template/Phones/view.ctp:67
+#: Template/Realestates/view.ctp:102
+#: Template/Types/view.ctp:65
+#: Template/Users/view.ctp:199
+msgid "Half Room Numbers"
+msgstr ""
+
+#: Template/Categories/view.ctp:66
+#: Template/Parkings/view.ctp:66
+#: Template/Phones/view.ctp:68
+#: Template/Realestates/view.ctp:106
+#: Template/Types/view.ctp:66
+#: Template/Users/view.ctp:200
+msgid "Floor Number"
+msgstr ""
+
+#: Template/Categories/view.ctp:67
+#: Template/Parkings/view.ctp:67
+#: Template/Phones/view.ctp:69
+#: Template/Realestates/view.ctp:110
+#: Template/Types/view.ctp:67
+#: Template/Users/view.ctp:201
+msgid "Floor Number Sum"
+msgstr ""
+
+#: Template/Categories/view.ctp:68
+#: Template/Parkings/view.ctp:68
+#: Template/Phones/view.ctp:70
+#: Template/Realestates/view.ctp:114
+#: Template/Types/view.ctp:68
+#: Template/Users/view.ctp:202
+msgid "Floor Area"
+msgstr ""
+
+#: Template/Categories/view.ctp:69
+#: Template/Parkings/view.ctp:69
+#: Template/Phones/view.ctp:71
+#: Template/Realestates/view.ctp:118
+#: Template/Types/view.ctp:69
+#: Template/Users/view.ctp:203
+msgid "Land Area"
+msgstr ""
+
+#: Template/Categories/view.ctp:70
+#: Template/Parkings/view.ctp:70
+#: Template/Phones/view.ctp:72
+#: Template/Realestates/view.ctp:158
+#: Template/Types/view.ctp:70
+#: Template/Users/view.ctp:204
+msgid "Elevator"
+msgstr ""
+
+#: Template/Categories/view.ctp:71
+#: Template/Parkings/view.ctp:71
+#: Template/Phones/view.ctp:73
+#: Template/Realestates/view.ctp:162
+#: Template/Types/view.ctp:71
+#: Template/Users/view.ctp:205
+msgid "External Storage"
+msgstr ""
+
+#: Template/Categories/view.ctp:72
+#: Template/Parkings/view.ctp:72
+#: Template/Phones/view.ctp:74
+#: Template/Realestates/view.ctp:171
+#: Template/Types/view.ctp:72
+#: Template/Users/view.ctp:206
+msgid "Comment"
+msgstr ""
+
+#: Template/Categories/view.ctp:73
+#: Template/Parkings/view.ctp:73
+#: Template/Phones/view.ctp:75
+#: Template/Realestates/view.ctp:142
+#: Template/Types/view.ctp:73
+#: Template/Users/view.ctp:207
+msgid "Premium"
+msgstr ""
+
+#: Template/Categories/view.ctp:74
+#: Template/Parkings/view.ctp:74
+#: Template/Phones/view.ctp:76
+#: Template/Realestates/view.ctp:122
+#: Template/Types/view.ctp:74
+#: Template/Users/view.ctp:208
+msgid "Visitors"
+msgstr ""
+
+#: Template/Categories/view.ctp:75
+#: Template/Parkings/view.ctp:75
+#: Template/Phones/view.ctp:77
+#: Template/Realestates/view.ctp:146
+#: Template/Types/view.ctp:75
+#: Template/Users/view.ctp:209
+msgid "Built Year"
+msgstr ""
+
+#: Template/Categories/view.ctp:76
+#: Template/Parkings/view.ctp:76
+#: Template/Phones/view.ctp:78
+#: Template/Realestates/view.ctp:66
+#: Template/Types/view.ctp:76
+#: Template/Users/view.ctp:210
+msgid "ZipCode"
+msgstr ""
+
+#: Template/Categories/view.ctp:77
+#: Template/Parkings/view.ctp:77
+#: Template/Phones/view.ctp:79
+#: Template/Realestates/view.ctp:70
+#: Template/Types/view.ctp:77
+#: Template/Users/view.ctp:211
+msgid "State"
+msgstr ""
+
+#: Template/Categories/view.ctp:78
+#: Template/Parkings/view.ctp:78
+#: Template/Phones/view.ctp:80
+#: Template/Realestates/view.ctp:74
+#: Template/Types/view.ctp:78
+#: Template/Users/view.ctp:212
+msgid "City"
+msgstr ""
+
+#: Template/Categories/view.ctp:79
+#: Template/Parkings/view.ctp:79
+#: Template/Phones/view.ctp:81
+#: Template/Realestates/view.ctp:78
+#: Template/Types/view.ctp:79
+#: Template/Users/view.ctp:213
+msgid "Street"
+msgstr ""
+
+#: Template/Categories/view.ctp:80
+#: Template/Parkings/view.ctp:80
+#: Template/Phones/view.ctp:82
+#: Template/Realestates/view.ctp:82
+#: Template/Types/view.ctp:80
+#: Template/Users/view.ctp:214
+msgid "HouseNumber"
+msgstr ""
+
+#: Template/Categories/view.ctp:81
+#: Template/Parkings/view.ctp:81
+#: Template/Phones/view.ctp:83
+#: Template/Realestates/view.ctp:86
+#: Template/Types/view.ctp:81
+#: Template/Users/view.ctp:215
+msgid "District"
+msgstr ""
+
+#: Template/Categories/view.ctp:82
+#: Template/Parkings/view.ctp:82
+#: Template/Phones/view.ctp:84
+#: Template/Realestates/view.ctp:126
+#: Template/Types/view.ctp:82
+#: Template/Users/view.ctp:216
+msgid "Latitude"
+msgstr ""
+
+#: Template/Categories/view.ctp:83
+#: Template/Parkings/view.ctp:83
+#: Template/Phones/view.ctp:85
+#: Template/Realestates/view.ctp:130
+#: Template/Types/view.ctp:83
+#: Template/Users/view.ctp:217
+msgid "Longitude"
+msgstr ""
+
+#: Template/Categories/view.ctp:128
+#: Template/Conditionofproperties/index.ctp:39
+#: Template/Conveniencegrades/index.ctp:39
+#: Template/Heatingtypes/index.ctp:39
+#: Template/Images/index.ctp:43
+#: Template/Parkings/index.ctp:41
+#: Template/Parkings/view.ctp:128
+#: Template/Permissions/index.ctp:43
+#: Template/Permissions/view.ctp:22;78
+#: Template/PermissionsRoles/index.ctp:35
+#: Template/Phones/index.ctp:43
+#: Template/Phones/view.ctp:130;195
+#: Template/PhonesRealestates/index.ctp:35
+#: Template/PhonesUsers/index.ctp:35
+#: Template/Realestates/index.ctp:109
+#: Template/Realestates/view.ctp:198;233
+#: Template/Roles/index.ctp:43
+#: Template/Roles/view.ctp:59;78;143
+#: Template/RolesUsers/index.ctp:35
+#: Template/Types/index.ctp:41
+#: Template/Types/view.ctp:128
+#: Template/Users/index.ctp:73
+#: Template/Users/view.ctp:142;175;262
+#: View/Helper/PaginatorHelper.php:1220
+msgid "View"
+msgstr ""
+
+#: Template/Categories/view.ctp:129
+#: Template/Conditionofproperties/index.ctp:40
+#: Template/Conveniencegrades/index.ctp:40
+#: Template/Heatingtypes/index.ctp:40
+#: Template/Images/index.ctp:44
+#: Template/Parkings/index.ctp:42
+#: Template/Parkings/view.ctp:129
+#: Template/Permissions/index.ctp:44
+#: Template/Permissions/view.ctp:79
+#: Template/PermissionsRoles/index.ctp:36
+#: Template/Phones/index.ctp:44
+#: Template/Phones/view.ctp:131;196
+#: Template/PhonesRealestates/index.ctp:36
+#: Template/PhonesUsers/index.ctp:36
+#: Template/Realestates/index.ctp:110
+#: Template/Realestates/view.ctp:199;234
+#: Template/Roles/index.ctp:44
+#: Template/Roles/view.ctp:79;144
+#: Template/RolesUsers/index.ctp:36
+#: Template/Types/index.ctp:42
+#: Template/Types/view.ctp:129
+#: Template/Users/index.ctp:74
+#: Template/Users/view.ctp:143;176;263
+msgid "Edit"
+msgstr ""
+
+#: Template/Conditionofproperties/add.ctp:10
+#: Template/Conditionofproperties/edit.ctp:16
+#: Template/Conditionofproperties/view.ctp:12
+msgid "List Conditionofproperties"
+msgstr ""
+
+#: Template/Conditionofproperties/add.ctp:16
+msgid "Add Conditionofproperty"
+msgstr ""
+
+#: Template/Conditionofproperties/edit.ctp:22
+#: Template/Conditionofproperties/view.ctp:10
+msgid "Edit Conditionofproperty"
+msgstr ""
+
+#: Template/Conditionofproperties/index.ctp:10
+#: Template/Conditionofproperties/view.ctp:13
+msgid "New Conditionofproperty"
+msgstr ""
+
+#: Template/Conditionofproperties/index.ctp:14
+msgid "Conditionofproperties"
+msgstr ""
+
+#: Template/Conditionofproperties/view.ctp:11
+msgid "Delete Conditionofproperty"
+msgstr ""
+
+#: Template/Conveniencegrades/add.ctp:10
+#: Template/Conveniencegrades/edit.ctp:16
+#: Template/Conveniencegrades/view.ctp:12
+msgid "List Conveniencegrades"
+msgstr ""
+
+#: Template/Conveniencegrades/add.ctp:16
+msgid "Add Conveniencegrade"
+msgstr ""
+
+#: Template/Conveniencegrades/edit.ctp:22
+#: Template/Conveniencegrades/view.ctp:10
+msgid "Edit Conveniencegrade"
+msgstr ""
+
+#: Template/Conveniencegrades/index.ctp:10
+#: Template/Conveniencegrades/view.ctp:13
+msgid "New Conveniencegrade"
+msgstr ""
+
+#: Template/Conveniencegrades/index.ctp:14
+msgid "Conveniencegrades"
+msgstr ""
+
+#: Template/Conveniencegrades/view.ctp:11
+msgid "Delete Conveniencegrade"
+msgstr ""
+
+#: Template/Element/table.ctp:54
+msgid "Are you sure you want to restore # {0}?"
+msgstr ""
+
+#: Template/Element/navbar/left_menu.ctp:3
+msgid "Maintainers"
+msgstr ""
+
+#: Template/Element/navbar/left_menu.ctp:5
+msgid "<i class='far fa-share-square'></i> Categories"
+msgstr ""
+
+#: Template/Element/navbar/left_menu.ctp:8
+msgid "<i class='far fa-share-square'></i> Conditionofproperties"
+msgstr ""
+
+#: Template/Element/navbar/left_menu.ctp:12
+msgid "maintainers"
+msgstr ""
+
+#: Template/Element/navbar/top_menu.ctp:16
+msgid "<i class='far fa-user'></i> Profile"
+msgstr ""
+
+#: Template/Element/navbar/top_menu.ctp:17
+msgid "<i class='far fa-share-square'></i> Logout"
+msgstr ""
+
+#: Template/Email/html/change_password_email.ctp:3
+#: Template/Email/html/forgotpassword.ctp:3
+#: Template/Email/html/register.ctp:3
+msgid "Hi {0},"
+msgstr ""
+
+#: Template/Email/html/change_password_email.ctp:11
+#: Template/Email/html/forgotpassword.ctp:11;22
+#: Template/Email/html/register.ctp:8
+msgid "Don't forget, if you want to report an issue or contribute to this project, {0}."
+msgstr ""
+
+#: Template/Email/html/change_password_email.ctp:14
+#: Template/Email/html/forgotpassword.ctp:14;25
+#: Template/Email/html/register.ctp:11
+msgid "do it there please"
+msgstr ""
+
+#: Template/Heatingtypes/add.ctp:10
+#: Template/Heatingtypes/edit.ctp:16
+#: Template/Heatingtypes/view.ctp:12
+msgid "List Heatingtypes"
+msgstr ""
+
+#: Template/Heatingtypes/add.ctp:16
+msgid "Add Heatingtype"
+msgstr ""
+
+#: Template/Heatingtypes/edit.ctp:22
+#: Template/Heatingtypes/view.ctp:10
+msgid "Edit Heatingtype"
+msgstr ""
+
+#: Template/Heatingtypes/index.ctp:10
+#: Template/Heatingtypes/view.ctp:13
+msgid "New Heatingtype"
+msgstr ""
+
+#: Template/Heatingtypes/index.ctp:14
+msgid "Heatingtypes"
+msgstr ""
+
+#: Template/Heatingtypes/view.ctp:11
+msgid "Delete Heatingtype"
+msgstr ""
+
+#: Template/Images/add.ctp:10
+#: Template/Images/edit.ctp:16
+#: Template/Images/view.ctp:12
+#: Template/Realestates/add.ctp:25
+#: Template/Realestates/edit.ctp:31
+#: Template/Realestates/index.ctp:25
+#: Template/Realestates/view.ctp:28
+msgid "List Images"
+msgstr ""
+
+#: Template/Images/add.ctp:18
+msgid "Add Image"
+msgstr ""
+
+#: Template/Images/edit.ctp:24
+#: Template/Images/view.ctp:10
+msgid "Edit Image"
+msgstr ""
+
+#: Template/Images/index.ctp:10
+#: Template/Images/view.ctp:13
+#: Template/Realestates/add.ctp:26
+#: Template/Realestates/edit.ctp:32
+#: Template/Realestates/index.ctp:26
+#: Template/Realestates/view.ctp:29
+msgid "New Image"
+msgstr ""
+
+#: Template/Images/index.ctp:16
+msgid "Images"
+msgstr ""
+
+#: Template/Images/view.ctp:11
+msgid "Delete Image"
+msgstr ""
+
+#: Template/Images/view.ctp:22
+#: Template/PhonesRealestates/view.ctp:28
+msgid "Realestate"
+msgstr ""
+
+#: Template/Layout/error.ctp:35
+#: Template/Error/error400.ctp:36
+#: Template/Error/error500.ctp:41
+msgid "Error"
+msgstr ""
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr ""
+
+#: Template/Parkings/add.ctp:10
+#: Template/Parkings/edit.ctp:16
+#: Template/Parkings/view.ctp:12
+#: Template/Realestates/add.ctp:23
+#: Template/Realestates/edit.ctp:29
+#: Template/Realestates/index.ctp:23
+#: Template/Realestates/view.ctp:26
+msgid "List Parkings"
+msgstr ""
+
+#: Template/Parkings/add.ctp:18
+msgid "Add Parking"
+msgstr ""
+
+#: Template/Parkings/edit.ctp:24
+#: Template/Parkings/view.ctp:10
+msgid "Edit Parking"
+msgstr ""
+
+#: Template/Parkings/index.ctp:10
+#: Template/Parkings/view.ctp:13
+#: Template/Realestates/add.ctp:24
+#: Template/Realestates/edit.ctp:30
+#: Template/Realestates/index.ctp:24
+#: Template/Realestates/view.ctp:27
+msgid "New Parking"
+msgstr ""
+
+#: Template/Parkings/index.ctp:16
+msgid "Parkings"
+msgstr ""
+
+#: Template/Parkings/view.ctp:11
+msgid "Delete Parking"
+msgstr ""
+
+#: Template/Permissions/add.ctp:9
+msgid "<i class='fa fa-outdent'></i> Ads"
+msgstr ""
+
+#: Template/Permissions/add.ctp:24
+#: View/Helper/HtmlHelper.php:795
+msgid "Home"
+msgstr ""
+
+#: Template/Permissions/add.ctp:44;45
+msgid "hu_name"
+msgstr ""
+
+#: Template/Permissions/add.ctp:55;56
+msgid "eng_name"
+msgstr ""
+
+#: Template/Permissions/edit.ctp:16
+#: Template/Permissions/view.ctp:12
+#: Template/PermissionsRoles/add.ctp:13
+#: Template/PermissionsRoles/edit.ctp:19
+#: Template/PermissionsRoles/index.ctp:13
+#: Template/PermissionsRoles/view.ctp:16
+#: Template/Roles/add.ctp:11
+#: Template/Roles/edit.ctp:17
+#: Template/Roles/index.ctp:11
+#: Template/Roles/view.ctp:14
+msgid "List Permissions"
+msgstr ""
+
+#: Template/Permissions/edit.ctp:17
+#: Template/Permissions/index.ctp:11
+#: Template/Permissions/view.ctp:14
+#: Template/PermissionsRoles/add.ctp:11
+#: Template/PermissionsRoles/edit.ctp:17
+#: Template/PermissionsRoles/index.ctp:11
+#: Template/PermissionsRoles/view.ctp:14
+#: Template/Roles/add.ctp:10
+#: Template/Roles/edit.ctp:16
+#: Template/Roles/view.ctp:12
+#: Template/RolesUsers/add.ctp:13
+#: Template/RolesUsers/edit.ctp:19
+#: Template/RolesUsers/index.ctp:13
+#: Template/RolesUsers/view.ctp:16
+#: Template/Users/edit.ctp:21
+#: Template/Users/index.ctp:15
+#: Template/Users/view.ctp:18
+msgid "List Roles"
+msgstr ""
+
+#: Template/Permissions/edit.ctp:18
+#: Template/Permissions/index.ctp:12
+#: Template/Permissions/view.ctp:15
+#: Template/PermissionsRoles/add.ctp:12
+#: Template/PermissionsRoles/edit.ctp:18
+#: Template/PermissionsRoles/index.ctp:12
+#: Template/PermissionsRoles/view.ctp:15
+#: Template/Roles/index.ctp:10
+#: Template/Roles/view.ctp:13
+#: Template/RolesUsers/add.ctp:14
+#: Template/RolesUsers/edit.ctp:20
+#: Template/RolesUsers/index.ctp:14
+#: Template/RolesUsers/view.ctp:17
+#: Template/Users/edit.ctp:22
+#: Template/Users/index.ctp:16
+#: Template/Users/view.ctp:19
+msgid "New Role"
+msgstr ""
+
+#: Template/Permissions/edit.ctp:24
+#: Template/Permissions/view.ctp:10
+msgid "Edit Permission"
+msgstr ""
+
+#: Template/Permissions/index.ctp:10
+#: Template/Permissions/view.ctp:13
+#: Template/PermissionsRoles/add.ctp:14
+#: Template/PermissionsRoles/edit.ctp:20
+#: Template/PermissionsRoles/index.ctp:14
+#: Template/PermissionsRoles/view.ctp:17
+#: Template/Roles/add.ctp:12
+#: Template/Roles/edit.ctp:18
+#: Template/Roles/index.ctp:12
+#: Template/Roles/view.ctp:15
+msgid "New Permission"
+msgstr ""
+
+#: Template/Permissions/index.ctp:16
+msgid "Permissions"
+msgstr ""
+
+#: Template/Permissions/view.ctp:11
+msgid "Delete Permission"
+msgstr ""
+
+#: Template/Permissions/view.ctp:26
+#: Template/Roles/view.ctp:60
+msgid "Contoller"
+msgstr ""
+
+#: Template/Permissions/view.ctp:55
+#: Template/Users/view.ctp:152
+msgid "Related Roles"
+msgstr ""
+
+#: Template/PermissionsRoles/add.ctp:10
+#: Template/PermissionsRoles/edit.ctp:16
+#: Template/PermissionsRoles/view.ctp:12
+msgid "List Permissions Roles"
+msgstr ""
+
+#: Template/PermissionsRoles/add.ctp:20
+msgid "Add Permissions Role"
+msgstr ""
+
+#: Template/PermissionsRoles/edit.ctp:26
+#: Template/PermissionsRoles/view.ctp:10
+msgid "Edit Permissions Role"
+msgstr ""
+
+#: Template/PermissionsRoles/index.ctp:10
+#: Template/PermissionsRoles/view.ctp:13
+msgid "New Permissions Role"
+msgstr ""
+
+#: Template/PermissionsRoles/index.ctp:18
+msgid "Permissions Roles"
+msgstr ""
+
+#: Template/PermissionsRoles/view.ctp:11
+msgid "Delete Permissions Role"
+msgstr ""
+
+#: Template/PermissionsRoles/view.ctp:24
+#: Template/RolesUsers/view.ctp:28
+msgid "Role"
+msgstr ""
+
+#: Template/PermissionsRoles/view.ctp:28
+msgid "Permission"
+msgstr ""
+
+#: Template/Phones/add.ctp:10
+#: Template/Phones/edit.ctp:16
+#: Template/Phones/view.ctp:12
+#: Template/PhonesRealestates/add.ctp:11
+#: Template/PhonesRealestates/edit.ctp:17
+#: Template/PhonesRealestates/index.ctp:11
+#: Template/PhonesRealestates/view.ctp:14
+#: Template/PhonesUsers/add.ctp:13
+#: Template/PhonesUsers/edit.ctp:19
+#: Template/PhonesUsers/index.ctp:13
+#: Template/PhonesUsers/view.ctp:16
+#: Template/Realestates/add.ctp:27
+#: Template/Realestates/edit.ctp:33
+#: Template/Realestates/index.ctp:27
+#: Template/Realestates/view.ctp:30
+#: Template/Users/edit.ctp:19
+#: Template/Users/index.ctp:13
+#: Template/Users/view.ctp:16
+msgid "List Phones"
+msgstr ""
+
+#: Template/Phones/add.ctp:13
+#: Template/Phones/edit.ctp:19
+#: Template/Phones/index.ctp:13
+#: Template/Phones/view.ctp:16
+#: Template/PhonesUsers/add.ctp:11
+#: Template/PhonesUsers/edit.ctp:17
+#: Template/PhonesUsers/index.ctp:11
+#: Template/PhonesUsers/view.ctp:14
+#: Template/Realestates/add.ctp:11
+#: Template/Realestates/edit.ctp:17
+#: Template/Realestates/index.ctp:11
+#: Template/Realestates/view.ctp:14
+#: Template/Roles/add.ctp:13
+#: Template/Roles/edit.ctp:19
+#: Template/Roles/index.ctp:13
+#: Template/Roles/view.ctp:16
+#: Template/RolesUsers/add.ctp:11
+#: Template/RolesUsers/edit.ctp:17
+#: Template/RolesUsers/index.ctp:11
+#: Template/RolesUsers/view.ctp:14
+#: Template/Users/edit.ctp:16
+#: Template/Users/view.ctp:12
+msgid "List Users"
+msgstr ""
+
+#: Template/Phones/add.ctp:14
+#: Template/Phones/edit.ctp:20
+#: Template/Phones/index.ctp:14
+#: Template/Phones/view.ctp:17
+#: Template/PhonesUsers/add.ctp:12
+#: Template/PhonesUsers/edit.ctp:18
+#: Template/PhonesUsers/index.ctp:12
+#: Template/PhonesUsers/view.ctp:15
+#: Template/Realestates/add.ctp:12
+#: Template/Realestates/edit.ctp:18
+#: Template/Realestates/index.ctp:12
+#: Template/Realestates/view.ctp:15
+#: Template/Roles/add.ctp:14
+#: Template/Roles/edit.ctp:20
+#: Template/Roles/index.ctp:14
+#: Template/Roles/view.ctp:17
+#: Template/RolesUsers/add.ctp:12
+#: Template/RolesUsers/edit.ctp:18
+#: Template/RolesUsers/index.ctp:12
+#: Template/RolesUsers/view.ctp:15
+#: Template/Users/index.ctp:10
+#: Template/Users/view.ctp:13
+msgid "New User"
+msgstr ""
+
+#: Template/Phones/add.ctp:20
+msgid "Add Phone"
+msgstr ""
+
+#: Template/Phones/edit.ctp:26
+#: Template/Phones/view.ctp:10
+msgid "Edit Phone"
+msgstr ""
+
+#: Template/Phones/index.ctp:10
+#: Template/Phones/view.ctp:13
+#: Template/PhonesRealestates/add.ctp:12
+#: Template/PhonesRealestates/edit.ctp:18
+#: Template/PhonesRealestates/index.ctp:12
+#: Template/PhonesRealestates/view.ctp:15
+#: Template/PhonesUsers/add.ctp:14
+#: Template/PhonesUsers/edit.ctp:20
+#: Template/PhonesUsers/index.ctp:14
+#: Template/PhonesUsers/view.ctp:17
+#: Template/Realestates/add.ctp:28
+#: Template/Realestates/edit.ctp:34
+#: Template/Realestates/index.ctp:28
+#: Template/Realestates/view.ctp:31
+#: Template/Users/edit.ctp:20
+#: Template/Users/index.ctp:14
+#: Template/Users/view.ctp:17
+msgid "New Phone"
+msgstr ""
+
+#: Template/Phones/index.ctp:18
+msgid "Phones"
+msgstr ""
+
+#: Template/Phones/view.ctp:11
+msgid "Delete Phone"
+msgstr ""
+
+#: Template/Phones/view.ctp:24
+#: Template/Realestates/view.ctp:181
+#: Template/Users/view.ctp:125
+msgid "PhoneNumber"
+msgstr ""
+
+#: Template/Phones/view.ctp:140
+#: Template/Roles/view.ctp:88
+msgid "Related Users"
+msgstr ""
+
+#: Template/Phones/view.ctp:145
+#: Template/Roles/view.ctp:93
+#: Template/Users/register.ctp:19
+#: Template/Users/view.ctp:26
+msgid "Username"
+msgstr ""
+
+#: Template/Phones/view.ctp:146
+#: Template/Roles/view.ctp:94
+#: Template/Users/login.ctp:26
+#: Template/Users/register.ctp:42
+#: Template/Users/resetpassword.ctp:14
+#: Template/Users/view.ctp:30
+msgid "Password"
+msgstr ""
+
+#: Template/Phones/view.ctp:147
+#: Template/Roles/view.ctp:95
+#: Template/Users/view.ctp:34
+msgid "Email"
+msgstr ""
+
+#: Template/Phones/view.ctp:148
+#: Template/Roles/view.ctp:96
+#: Template/Users/view.ctp:38
+msgid "First Name"
+msgstr ""
+
+#: Template/Phones/view.ctp:149
+#: Template/Roles/view.ctp:97
+#: Template/Users/view.ctp:42
+msgid "Last Name"
+msgstr ""
+
+#: Template/Phones/view.ctp:150
+#: Template/Roles/view.ctp:98
+#: Template/Users/view.ctp:46
+msgid "Avatar"
+msgstr ""
+
+#: Template/Phones/view.ctp:151
+#: Template/Roles/view.ctp:99
+#: Template/Users/view.ctp:111
+msgid "Biography"
+msgstr ""
+
+#: Template/Phones/view.ctp:152
+#: Template/Roles/view.ctp:100
+#: Template/Users/view.ctp:115
+msgid "Signature"
+msgstr ""
+
+#: Template/Phones/view.ctp:153
+#: Template/Roles/view.ctp:101
+#: Template/Users/view.ctp:50
+msgid "Language"
+msgstr ""
+
+#: Template/Phones/view.ctp:154
+#: Template/Roles/view.ctp:102
+#: Template/Users/view.ctp:86
+msgid "Password Code Expire"
+msgstr ""
+
+#: Template/Phones/view.ctp:155
+#: Template/Roles/view.ctp:103
+#: Template/Users/view.ctp:82
+msgid "Password Reset Count"
+msgstr ""
+
+#: Template/Phones/view.ctp:156
+#: Template/Roles/view.ctp:104
+#: Template/Users/view.ctp:54
+msgid "Password Code"
+msgstr ""
+
+#: Template/Phones/view.ctp:157
+#: Template/Roles/view.ctp:105
+#: Template/Users/view.ctp:90
+msgid "Tos Date"
+msgstr ""
+
+#: Template/Phones/view.ctp:158
+#: Template/Roles/view.ctp:106
+#: Template/Users/view.ctp:58
+msgid "Token"
+msgstr ""
+
+#: Template/Phones/view.ctp:159
+#: Template/Roles/view.ctp:107
+#: Template/Users/view.ctp:62
+msgid "Register Ip"
+msgstr ""
+
+#: Template/Phones/view.ctp:160
+#: Template/Roles/view.ctp:108
+#: Template/Users/view.ctp:66
+msgid "Last Login Ip"
+msgstr ""
+
+#: Template/Phones/view.ctp:161
+#: Template/Roles/view.ctp:109
+#: Template/Users/view.ctp:94
+msgid "Last Login"
+msgstr ""
+
+#: Template/PhonesRealestates/add.ctp:10
+#: Template/PhonesRealestates/edit.ctp:16
+#: Template/PhonesRealestates/view.ctp:12
+msgid "List Phones Realestates"
+msgstr ""
+
+#: Template/PhonesRealestates/add.ctp:20
+msgid "Add Phones Realestate"
+msgstr ""
+
+#: Template/PhonesRealestates/edit.ctp:26
+#: Template/PhonesRealestates/view.ctp:10
+msgid "Edit Phones Realestate"
+msgstr ""
+
+#: Template/PhonesRealestates/index.ctp:10
+#: Template/PhonesRealestates/view.ctp:13
+msgid "New Phones Realestate"
+msgstr ""
+
+#: Template/PhonesRealestates/index.ctp:18
+msgid "Phones Realestates"
+msgstr ""
+
+#: Template/PhonesRealestates/view.ctp:11
+msgid "Delete Phones Realestate"
+msgstr ""
+
+#: Template/PhonesRealestates/view.ctp:24
+#: Template/PhonesUsers/view.ctp:28
+msgid "Phone"
+msgstr ""
+
+#: Template/PhonesUsers/add.ctp:10
+#: Template/PhonesUsers/edit.ctp:16
+#: Template/PhonesUsers/view.ctp:12
+msgid "List Phones Users"
+msgstr ""
+
+#: Template/PhonesUsers/add.ctp:20
+msgid "Add Phones User"
+msgstr ""
+
+#: Template/PhonesUsers/edit.ctp:26
+#: Template/PhonesUsers/view.ctp:10
+msgid "Edit Phones User"
+msgstr ""
+
+#: Template/PhonesUsers/index.ctp:10
+#: Template/PhonesUsers/view.ctp:13
+msgid "New Phones User"
+msgstr ""
+
+#: Template/PhonesUsers/index.ctp:18
+msgid "Phones Users"
+msgstr ""
+
+#: Template/PhonesUsers/view.ctp:11
+msgid "Delete Phones User"
+msgstr ""
+
+#: Template/PhonesUsers/view.ctp:24
+#: Template/Realestates/view.ctp:38
+#: Template/RolesUsers/view.ctp:24
+msgid "User"
+msgstr ""
+
+#: Template/Realestates/add.ctp:13
+#: Template/Realestates/edit.ctp:19
+#: Template/Realestates/index.ctp:13
+#: Template/Realestates/view.ctp:16
+#: Template/Types/add.ctp:10
+#: Template/Types/edit.ctp:16
+#: Template/Types/view.ctp:12
+msgid "List Types"
+msgstr ""
+
+#: Template/Realestates/add.ctp:14
+#: Template/Realestates/edit.ctp:20
+#: Template/Realestates/index.ctp:14
+#: Template/Realestates/view.ctp:17
+#: Template/Types/index.ctp:10
+#: Template/Types/view.ctp:13
+msgid "New Type"
+msgstr ""
+
+#: Template/Realestates/add.ctp:17
+#: Template/Realestates/edit.ctp:23
+#: Template/Realestates/index.ctp:17
+#: Template/Realestates/view.ctp:20
+msgid "List Convenience Grades"
+msgstr ""
+
+#: Template/Realestates/add.ctp:18
+#: Template/Realestates/edit.ctp:24
+#: Template/Realestates/index.ctp:18
+#: Template/Realestates/view.ctp:21
+msgid "New Convenience Grade"
+msgstr ""
+
+#: Template/Realestates/add.ctp:19
+#: Template/Realestates/edit.ctp:25
+#: Template/Realestates/index.ctp:19
+#: Template/Realestates/view.ctp:22
+msgid "List Heating Types"
+msgstr ""
+
+#: Template/Realestates/add.ctp:20
+#: Template/Realestates/edit.ctp:26
+#: Template/Realestates/index.ctp:20
+#: Template/Realestates/view.ctp:23
+msgid "New Heating Type"
+msgstr ""
+
+#: Template/Realestates/add.ctp:21
+#: Template/Realestates/edit.ctp:27
+#: Template/Realestates/index.ctp:21
+#: Template/Realestates/view.ctp:24
+msgid "List Condition Of Properties"
+msgstr ""
+
+#: Template/Realestates/add.ctp:22
+#: Template/Realestates/edit.ctp:28
+#: Template/Realestates/index.ctp:22
+#: Template/Realestates/view.ctp:25
+msgid "New Condition Of Property"
+msgstr ""
+
+#: Template/Realestates/add.ctp:34
+msgid "Add Realestate"
+msgstr ""
+
+#: Template/Realestates/edit.ctp:40
+#: Template/Realestates/view.ctp:10
+msgid "Edit Realestate"
+msgstr ""
+
+#: Template/Realestates/index.ctp:32
+msgid "Realestates"
+msgstr ""
+
+#: Template/Realestates/view.ctp:11
+msgid "Delete Realestate"
+msgstr ""
+
+#: Template/Realestates/view.ctp:42
+msgid "Type"
+msgstr ""
+
+#: Template/Realestates/view.ctp:46
+msgid "Category"
+msgstr ""
+
+#: Template/Realestates/view.ctp:50
+msgid "Convenience Grade"
+msgstr ""
+
+#: Template/Realestates/view.ctp:54
+msgid "Heating Type"
+msgstr ""
+
+#: Template/Realestates/view.ctp:58
+msgid "Condition Of Property"
+msgstr ""
+
+#: Template/Realestates/view.ctp:62
+msgid "Parking"
+msgstr ""
+
+#: Template/Realestates/view.ctp:175
+#: Template/Users/view.ctp:119
+msgid "Related Phones"
+msgstr ""
+
+#: Template/Realestates/view.ctp:208
+msgid "Related Images"
+msgstr ""
+
+#: Template/Realestates/view.ctp:213
+msgid "Realestate Id"
+msgstr ""
+
+#: Template/Roles/add.ctp:20
+msgid "Add Role"
+msgstr ""
+
+#: Template/Roles/edit.ctp:26
+#: Template/Roles/view.ctp:10
+msgid "Edit Role"
+msgstr ""
+
+#: Template/Roles/index.ctp:18
+msgid "Roles"
+msgstr ""
+
+#: Template/Roles/view.ctp:11
+msgid "Delete Role"
+msgstr ""
+
+#: Template/Roles/view.ctp:53
+msgid "Related Permissions"
+msgstr ""
+
+#: Template/RolesUsers/add.ctp:10
+#: Template/RolesUsers/edit.ctp:16
+#: Template/RolesUsers/view.ctp:12
+msgid "List Roles Users"
+msgstr ""
+
+#: Template/RolesUsers/add.ctp:20
+msgid "Add Roles User"
+msgstr ""
+
+#: Template/RolesUsers/edit.ctp:26
+#: Template/RolesUsers/view.ctp:10
+msgid "Edit Roles User"
+msgstr ""
+
+#: Template/RolesUsers/index.ctp:10
+#: Template/RolesUsers/view.ctp:13
+msgid "New Roles User"
+msgstr ""
+
+#: Template/RolesUsers/index.ctp:18
+msgid "Roles Users"
+msgstr ""
+
+#: Template/RolesUsers/view.ctp:11
+msgid "Delete Roles User"
+msgstr ""
+
+#: Template/Types/add.ctp:18
+msgid "Add Type"
+msgstr ""
+
+#: Template/Types/edit.ctp:24
+#: Template/Types/view.ctp:10
+msgid "Edit Type"
+msgstr ""
+
+#: Template/Types/index.ctp:16
+msgid "Types"
+msgstr ""
+
+#: Template/Types/view.ctp:11
+msgid "Delete Type"
+msgstr ""
+
+#: Template/Users/changepassword.ctp:4
+#: Template/Users/forgotpassword.ctp:5
+msgid "Forgot password"
+msgstr ""
+
+#: Template/Users/edit.ctp:28
+#: Template/Users/view.ctp:10
+msgid "Edit User"
+msgstr ""
+
+#: Template/Users/forgotpassword.ctp:3
+msgid "Welcome to Ingatlan"
+msgstr ""
+
+#: Template/Users/forgotpassword.ctp:14
+#: Template/Users/login.ctp:14
+#: Template/Users/register.ctp:30
+msgid "Em@il"
+msgstr ""
+
+#: Template/Users/forgotpassword.ctp:21
+msgid "Send"
+msgstr ""
+
+#: Template/Users/index.ctp:20
+msgid "Users"
+msgstr ""
+
+#: Template/Users/login.ctp:2
+msgid "Welcome to Ice Code"
+msgstr ""
+
+#: Template/Users/login.ctp:4
+#: Template/Users/register.ctp:76
+msgid "Login"
+msgstr ""
+
+#: Template/Users/login.ctp:34
+#: Template/Users/register.ctp:8;70
+msgid "Register"
+msgstr ""
+
+#: Template/Users/register.ctp:6
+msgid "Welcome to My Site"
+msgstr ""
+
+#: Template/Users/register.ctp:54
+msgid "Password again"
+msgstr ""
+
+#: Template/Users/resetpassword.ctp:3
+msgid "Reset Password"
+msgstr ""
+
+#: Template/Users/resetpassword.ctp:25
+msgid "New Password"
+msgstr ""
+
+#: Template/Users/resetpassword.ctp:36
+msgid "Confirm Password"
+msgstr ""
+
+#: Template/Users/verify.ctp:4
+msgid "Verify"
+msgstr ""
+
+#: Template/Users/verify.ctp:8
+msgid "Hi, "
+msgstr ""
+
+#: Template/Users/view.ctp:11
+msgid "Delete User"
+msgstr ""
+
+#: Template/Categories/add.ctp:41;53;70
+msgid "Add a Category"
+msgstr ""
+
+#: Template/Categories/add.ctp:45
+msgid "{0} Dashboard"
+msgstr ""
+
+#: Template/Categories/add.ctp:49
+msgid "{0} Manage Categories"
+msgstr ""
+
+#: Template/Categories/add.ctp:97
+msgid "{0} Create Category"
+msgstr ""
+
+#: Template/Error/error400.ctp:37
+msgid "The requested address {0} was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:39
+msgid "An Internal Error Has Occurred"
+msgstr ""
+
+#: Controller/Component/AuthComponent.php:496
+msgid "You are not authorized to access that location."
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:157
+#: Http/Middleware/CsrfProtectionMiddleware.php:190
+msgid "Missing CSRF token cookie"
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:161
+#: Http/Middleware/CsrfProtectionMiddleware.php:194
+msgid "CSRF token mismatch."
+msgstr ""
+
+#: Error/ExceptionRenderer.php:258
+msgid "Not Found"
+msgstr ""
+
+#: Error/ExceptionRenderer.php:260
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: Http/Response.php:2400
+msgid "The requested file contains `..` and will not be read."
+msgstr ""
+
+#: Http/Response.php:2411
+msgid "The requested file was not found"
+msgstr ""
+
+#: I18n/Number.php:90
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:92
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:94
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:96
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:88
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} from now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} after"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} before"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:114
+msgid "just now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:151
+msgid "about a second ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:152
+msgid "about a minute ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:153
+msgid "about an hour ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:154;332
+msgid "about a day ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:155;333
+msgid "about a week ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:156;334
+msgid "about a month ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:157;335
+msgid "about a year ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:168
+msgid "in about a second"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:169
+msgid "in about a minute"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:170
+msgid "in about an hour"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:171;346
+msgid "in about a day"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:172;347
+msgid "in about a week"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:173;348
+msgid "in about a month"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:174;349
+msgid "in about a year"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:304
+msgid "today"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:370
+msgid "%s ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:371
+msgid "on %s"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:47;126;316
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:51;129;319
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:57;132;322
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:59;135;325
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:64;138
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:68;141
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:72;144
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ORM/RulesChecker.php:57
+msgid "This value is already in use"
+msgstr ""
+
+#: ORM/RulesChecker.php:104
+msgid "This value does not exist"
+msgstr ""
+
+#: ORM/RulesChecker.php:128
+msgid "The count does not match {0}{1}"
+msgstr ""
+
+#: Utility/Text.php:915
+msgid "and"
+msgstr ""
+
+#: Validation/Validator.php:111
+msgid "This field is required"
+msgstr ""
+
+#: Validation/Validator.php:112
+msgid "This field cannot be left empty"
+msgstr ""
+
+#: Validation/Validator.php:1885
+msgid "The provided value is invalid"
+msgstr ""
+
+#: View/Helper/FormHelper.php:1039
+msgid "New %s"
+msgstr ""
+
+#: View/Helper/FormHelper.php:1042
+msgid "Edit %s"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:540
+msgid "January"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:541
+msgid "February"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:542
+msgid "March"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:543
+msgid "April"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:544
+msgid "May"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:545
+msgid "June"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:546
+msgid "July"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:547
+msgid "August"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:548
+msgid "September"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:549
+msgid "October"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:550
+msgid "November"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:551
+msgid "December"
+msgstr ""
+

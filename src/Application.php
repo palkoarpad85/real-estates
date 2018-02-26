@@ -18,6 +18,7 @@ use Cake\Core\Configure;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
 use Cake\Routing\Middleware\AssetMiddleware;
+use Cake\I18n\Middleware\LocaleSelectorMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
 /**
@@ -45,8 +46,9 @@ class Application extends BaseApplication
             ->add(AssetMiddleware::class)
 
             // Add routing middleware.
-            ->add(new RoutingMiddleware($this));
+            ->add(new RoutingMiddleware($this))
 
+            ->add(new LocaleSelectorMiddleware(['locales' => ['en_US', 'en', 'hu_HU', 'hu']]));
         return $middlewareQueue;
     }
 }

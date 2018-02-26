@@ -1,0 +1,26 @@
+body{background:#fff;}
+#wrapper{padding:90px 15px;}
+.navbar-expand-lg .navbar-nav.side-nav{flex-direction: column;}
+@media(min-width:992px) {
+#wrapper{margin-left: 200px;padding: 70px 15px 15px;}
+.navbar-nav.side-nav{background: #585f66;position:fixed;top:56px;flex-direction: column;left:0;width:200px;overflow-y:auto;bottom:0;overflow-x:hidden;padding-bottom:40px}
+}
+.rigth_menu{
+    position: fixed;
+    right: 20px;
+}
+
+.table_button{    
+    margin-top: -5 !important;
+    margin-bottom: 10px !important;
+    margin-left: -5 !important;
+    margin-left: -6 !important;
+    margin-left: -8 !important;
+    margin-left: -7 !important;
+    margin-top: -3 !important;
+
+}
+ 
+ .btnradio{
+    margin-bottom: .0rem;
+ }

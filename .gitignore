@@ -15,6 +15,7 @@
 /tmp/tests/*
 !/tmp/tests/empty
 tmp/*
+/tmp/*
 
 /logs/*
 !/logs/empty
@@ -26,3 +27,8 @@ tmp/*
 /app/Config/database.php
 /vendors/*
 tmp/*
+tmp/cache/twigView/13/1383facd4b9e413c9a1008402aab97afe044769417d4daaefb0398980a94e390.php
+tmp/cache/models/empty
+tmp/cache/persistent/empty
+tmp/cache/twigView/13/1383facd4b9e413c9a1008402aab97afe044769417d4daaefb0398980a94e390.php
+tmp/cache/twigView/14/146b98da10ed8c66e077b035a75b818790abf95a2d1331df55c213cfc6937eca.php

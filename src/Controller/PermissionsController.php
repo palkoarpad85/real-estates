@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\I18n\I18n;
 /**
  * Permissions Controller
  *
@@ -13,6 +15,13 @@ use App\Controller\AppController;
 class PermissionsController extends AppController
 {
 
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->now = new Time();
+        $this->Auth->allow(['add','edit','index','delete']);  
+    }
+
     /**
      * Index method
      *
@@ -20,9 +29,57 @@ class PermissionsController extends AppController
      */
     public function index()
     {
-        $permissions = $this->paginate($this->Permissions);
+       
 
-        $this->set(compact('permissions'));
+        if (null ==($this->request->query("reset"))) {
+            if($this->request->query("view") || $this->request->query("controller") || $this->request->query("active")){
+                
+            $view       = trim($this->request->query("view"));
+            $controller = trim($this->request->query("controller"));
+            $active     = trim($this->request->query("active"));
+                if ($active == "true") {
+                    $active = 1;
+                    
+                }
+                else{
+                    $active = 1;
+                }
+                $tableValues = $this->paginate($this->Permissions->find()
+                ->select(['id', 'active', 'view','controller','Users.username','created'])                     
+                ->Orwhere(['Permissions.active' => $active])                 
+                ->where(['controller LIKE ' => '%'.$controller.'%'])
+                ->where(['view LIKE ' => '%'.$view.'%'])
+                ->where(['Users.username LIKE ' => '%'.$username.'%'])
+                ->contain(['Users']),
+                ['sortWhitelist' => ['controller'],'limit' => 20])
+                ; 
+      
+        }
+
+        else{
+            $tableValues = $this->paginate($this->Permissions,[
+                'contain' => [ 'Users'],
+                'sortWhitelist' => ['controller'],
+                'limit' => 20]);
+             
+        }
+     }
+     else{
+        $tableValues = $this->paginate($this->Permissions,[
+            'contain' => [ 'Users'],
+            'sortWhitelist' => ['controller'],
+            'limit' => 20]);
+        $name     = null;
+        $username = null;
+        $active   = null;
+
+     }
+                  
+        $this->set(compact('view'));
+        $this->set(compact('controller'));
+        $this->set(compact('username'));
+        $this->set(compact('active'));
+        $this->set(compact('tableValues'));
     }
 
     /**
@@ -48,18 +105,30 @@ class PermissionsController extends AppController
      */
     public function add()
     {
-        $permission = $this->Permissions->newEntity();
+        $this->Categories->locale(I18n::defaultLocale());
+
+        $entity = $this->Categories->newEntity();
+        
         if ($this->request->is('post')) {
-            $permission = $this->Permissions->patchEntity($permission, $this->request->getData());
-            if ($this->Permissions->save($permission)) {
-                $this->Flash->success(__('The permission has been saved.'));
+            $entity = $this->Categories->patchEntity($entity, $this->request->getData());
+            $entity->setTranslations($this->request->getData());
+            $entity->created_by  = $this->Auth->user("id");
+            $entity->created     = $this->now;
+            $entity->modified_by = $this->Auth->user("id");
+            $entity->modified    = $this->now;
+            $entity->active      = 1;
+            
+            
+            if ($this->Categories->save($entity)) {
+                $this->Flash->success(__('The category has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The permission could not be saved. Please, try again.'));
+            $this->Flash->error(__('The '.$this->name.' could not be saved. Please, try again.'));
         }
+       
         $roles = $this->Permissions->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('permission', 'roles'));
+        $this->set(compact('entity', 'roles'));
     }
 
     /**

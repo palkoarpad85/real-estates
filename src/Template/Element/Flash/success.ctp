@@ -4,5 +4,5 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
 }
 ?>
 
-<div class="alert alert-dismissible alert-warning" onclick="this.classList.add('hidden')"><?= $message ?></div>
+<div class="alert alert-dismissible alert-warning" onclick="$(this).remove()"><?= $message ?></div>
 

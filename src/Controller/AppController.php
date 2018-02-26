@@ -14,11 +14,14 @@
  */
 namespace App\Controller;
 
+use App\I18n\Language;
 use Cake\Controller\Controller;
-use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
-
+use Cake\ORM\TableRegistry;
+use Cake\Core\Configure;
+use Cake\I18n\I18n;
 /**
+ * 
  * Application Controller
  *
  * Add your application-wide methods in the class below, your controllers
@@ -29,6 +32,7 @@ use Cake\Event\Event;
 class AppController extends Controller
 {
 
+    public $components = array('Cookie');
     /**
      * Initialization hook method.
      *
@@ -41,37 +45,37 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
+        
         $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
+        $this->loadComponent('Flash');       
         $this->loadComponent('Auth', [
-            'authorize'=>['Controller'],            
+            'authorize' => ['Controller'],
             'authError' => __('Did you really think you are allowed to see that?'),
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'username','password'=>'password']
-                    
-                ]                
+                    'fields' => ['username' => 'username', 'password' => 'password'],
+
+                ],
             ],
             'loginAction' => [
                 'controller' => 'users',
-                'action' => 'login'
+                'action' => 'login',
             ],
-            'loginRedirect'=>[
-                'controller'=> 'Users',//ide ugrik ha bejelentkezett
-                'action'=>'index'
+            'loginRedirect' => [
+                'controller' => 'Users', //ide ugrik ha bejelentkezett
+                'action' => 'index',
             ],
-            'logoutRedirect'=>[
-                'controller'=> 'Users',
-                'action'=>'login'
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login',
             ],
-            'unauthorizedRedirect'=>[
-            'controller'=> 'Users',//ide ugrik ha ninca jogosultága
-            'action'=>'login'
+            'unauthorizedRedirect' => [
+                'controller' => 'Users', //ide ugrik ha ninca jogosultága
+                'action' => 'login',
             ],
-            'storage' => 'Session'
+            'storage' => 'Session',
         ]);
-              
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -80,7 +84,20 @@ class AppController extends Controller
         $this->loadComponent('Csrf');
     }
 
+    public function beforeFilter(Event $event)
+    {
+        Configure::write('I18n.locales', [
+            'en_US' => __('English'),
+            'hu_HU' => __('Magyar')
+        ]);
 
+        //lang
+        $language = new Language($this);
+        $language->setLanguage();
+       
+    }
+
+   
     /**
      * Before render callback.
      *
@@ -89,30 +106,31 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-          
-        if(isset($this->Auth))$this->set('current_user',$this->Auth->user());
+
+        if (isset($this->Auth)) {
+            $this->set('current_user', $this->Auth->user());
+        }
 
         //login check
-        if ($this->request->session()->read('Auth.User')){
-            $this->set('loggedIn',true);
-        }
-        else{
-            $this->set('loggedIn',false);
+        if ($this->request->session()->read('Auth.User')) {
+            $this->set('loggedIn', true);
+        } else {
+            $this->set('loggedIn', false);
         }
     }
 
-    public function isAuthorized($user) {
-       // jogosultság kezelés
-        $opt["id"]         = $user['id'];
-        $opt["view"]       = $this->request->param("action");
-        $opt["controller"] = $this->request->param("controller");   
-        $boolen            = false;
-        $users             = TableRegistry::get('Users')->find('Roles',$opt)->first();
-    
-        if($users["count"] >= 1){
+    public function isAuthorized($user)
+    {
+        // jogosultság kezelés
+        $opt["id"] = $user['id'];
+        $opt["view"] = $this->request->param("action");
+        $opt["controller"] = $this->request->param("controller");
+        $boolen = false;
+        $users = TableRegistry::get('Users')->find('Roles', $opt)->first();
+
+        if ($users["count"] >= 1) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

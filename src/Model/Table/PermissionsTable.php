@@ -39,7 +39,11 @@ class PermissionsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-
+        
+        $this->belongsTo('Users', [
+            'foreignKey' => 'created_by',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsToMany('Roles', [
             'foreignKey' => 'permission_id',
             'targetForeignKey' => 'role_id',

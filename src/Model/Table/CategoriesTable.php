@@ -37,11 +37,18 @@ class CategoriesTable extends Table
         $this->setTable('categories');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
+        $this->addBehavior('Translate', [
+            'fields' => ['name'],
+            'translationTable' => 'categories_i18n'
+        ]);
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Realestates', [
             'foreignKey' => 'category_id'
+        ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'created_by',
+            'joinType' => 'INNER'
         ]);
     }
 

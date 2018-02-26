@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\I18n\I18n;
 /**
  * Categories Controller
  *
@@ -13,6 +15,12 @@ use App\Controller\AppController;
 class CategoriesController extends AppController
 {
 
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->now = new Time();
+        $this->Auth->allow(['search','add','edit','view','delete']);  
+    }
     /**
      * Index method
      *
@@ -20,9 +28,49 @@ class CategoriesController extends AppController
      */
     public function index()
     {
-        $categories = $this->paginate($this->Categories);
+        if (null ==($this->request->query("reset"))) {
+            if($this->request->query("name") || $this->request->query("username") || $this->request->query("active")){
+                
+            $name     = trim($this->request->query("name"));
+            $username = trim($this->request->query("username"));
+            $active   = trim($this->request->query("active"));
+                if ($active == "true") {
+                    $active = 1;
+                    
+                }
+                else{
+                    $active = 1;
+                }
+                $tableValues = $this->paginate($this->Categories->find()
+                ->select(['id', 'active', 'name','Users.username','created'])                     
+                ->Orwhere(['Categories.active' => $active])                 
+                ->where(['name LIKE ' => '%'.$name.'%'])
+                ->where(['Users.username LIKE ' => '%'.$username.'%'])
+                ->contain(['Users']),['limit' => 20]); 
+      
+        }
 
-        $this->set(compact('categories'));
+        else{
+            $tableValues = $this->paginate($this->Categories,[
+                'contain' => ['Realestates', 'Users'],
+                'limit' => 20]);
+             
+        }
+     }
+     else{
+        $tableValues = $this->paginate($this->Categories,[
+            'contain' => ['Realestates', 'Users'],
+            'limit' => 20]);
+        $name     = null;
+        $username = null;
+        $active   = null;
+
+     }
+                  
+        $this->set(compact('name'));
+        $this->set(compact('username'));
+        $this->set(compact('active'));
+        $this->set(compact('tableValues'));
     }
 
     /**
@@ -35,9 +83,9 @@ class CategoriesController extends AppController
     public function view($id = null)
     {
         $category = $this->Categories->get($id, [
-            'contain' => ['Realestates']
+            'contain' => ['Realestates', 'Users']
         ]);
-
+            
         $this->set('category', $category);
     }
 
@@ -48,17 +96,28 @@ class CategoriesController extends AppController
      */
     public function add()
     {
-        $category = $this->Categories->newEntity();
+        $this->Categories->locale(I18n::defaultLocale());
+
+        $entity = $this->Categories->newEntity();
+        
         if ($this->request->is('post')) {
-            $category = $this->Categories->patchEntity($category, $this->request->getData());
-            if ($this->Categories->save($category)) {
+            $entity = $this->Categories->patchEntity($entity, $this->request->getData());
+            $entity->setTranslations($this->request->getData());
+            $entity->created_by  = $this->Auth->user("id");
+            $entity->created     = $this->now;
+            $entity->modified_by = $this->Auth->user("id");
+            $entity->modified    = $this->now;
+            $entity->active      = 1;
+            
+            
+            if ($this->Categories->save($entity)) {
                 $this->Flash->success(__('The category has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The category could not be saved. Please, try again.'));
+            $this->Flash->error(__('The '.$this->name.' could not be saved. Please, try again.'));
         }
-        $this->set(compact('category'));
+        $this->set(compact('entity'));
     }
 
     /**
@@ -69,20 +128,33 @@ class CategoriesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
-    {
-        $category = $this->Categories->get($id, [
-            'contain' => []
-        ]);
+    {    
+        $this->Categories->locale(I18n::defaultLocale());
+
+        $entity = $this->Categories
+                        ->find('translations')
+                        ->where([
+                            'Categories.id' => $id
+                        ])
+                        ->first();
+                    
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $category = $this->Categories->patchEntity($category, $this->request->getData());
-            if ($this->Categories->save($category)) {
-                $this->Flash->success(__('The category has been saved.'));
+            $this->Categories->locale("hu_HU");
+            $entity = $this->Categories->patchEntity($entity, $this->request->getData());
+            $entity->setTranslations($this->request->getData());
+          
+            $entity->modified_by = $this->Auth->user("id");
+            $entity->modified    = $this->now;
+            $entity->active      = 1;
+
+            if ($this->Categories->save($entity)) {
+                $this->Flash->success(__('The '.$this->name.' has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The category could not be saved. Please, try again.'));
+            $this->Flash->error(__('The '.$this->name.' could not be saved. Please, try again.'));
         }
-        $this->set(compact('category'));
+        $this->set(compact('entity'));
     }
 
     /**
@@ -95,13 +167,21 @@ class CategoriesController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $category = $this->Categories->get($id);
-        if ($this->Categories->delete($category)) {
-            $this->Flash->success(__('The category has been deleted.'));
+
+        $entity              = $this->Categories->get($id);
+        $entity->modified_by = $this->Auth->user("id");
+        $entity->modified    = $this->now;
+        $entity->active      = 0;
+
+        if ($this->Categories->save($entity)) {
+            $this->Flash->success(__('The '.$this->name.' has been deleted.'));
         } else {
-            $this->Flash->error(__('The category could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The '.$this->name.' could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+    
 }

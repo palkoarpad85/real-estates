@@ -51,6 +51,21 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'Realestates', 'action' => 'index', 'home']);
 
+    $routes->connect(
+        '/:lang/Localizations/lang',
+        [
+            'controller' => 'Localizations',
+            'action' => 'lang'
+        ],
+        [
+            '_name' => 'set-lang',
+            'pass' => [
+                'lang'
+            ]
+        ]
+    );
+
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
