@@ -45,16 +45,23 @@
                             </div>
                             <div class="panel-body">
                                 <?=$this->Form->create($entity)?>
+                                <div class="form-group">
+                                        <div class="col-sm-5"><?php
+                                        echo $this->Form->control('roles._ids', ['class' => 'form-control', 'label' => _('Roles'),'options' => $roles]); ?>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-5">
-                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Hungary')])?>
+                                            <?=$this->Form->input('contoller', ['class' => 'form-control', 'label' => _('Controller')])?>
                                         </div>
                                     </div>
                                     <div class="form-group">                                     
-                                            <?=$this->I18n->i18nInput($entity, 'name', ['class' => 'form-control']);?>                                    
-                                    
+                                    <div class="col-sm-5">
+                                            <?=$this->Form->input('view', ['class' => 'form-control', 'label' => _('View')])?>
+                                        </div>                                 
+                                    <br>
                                     <div class="form-group ">
-                                  <?=$this->Form->button(__d('admin', '{0} Create Category', '<i class="fa fa-plus"></i>'), ['class' => ' btn btn-success'])?>
+                                  <?=$this->Form->button(__d('admin', '{0} Create Permissions', '<i class="fa fa-plus"></i>'), ['class' => ' btn btn-success'])?>
                                 </div><?=$this->Form->end()?>
                             </div>
                         </div>

@@ -31,28 +31,42 @@ class PermissionsController extends AppController
     {
        
 
-        if (null ==($this->request->query("reset"))) {
+        if (null == ($this->request->query("reset"))) {
             if($this->request->query("view") || $this->request->query("controller") || $this->request->query("active")){
                 
             $view       = trim($this->request->query("view"));
             $controller = trim($this->request->query("controller"));
             $active     = trim($this->request->query("active"));
-                if ($active == "true") {
-                    $active = 1;
-                    
+           
+                if ($active == 1 || $active == 3) {
+                    if ($active == 1) {
+                        $active = true;
+                    } else {
+                        $active = false;
+                    }
+                    $tableValues = $this->paginate($this->Permissions->find()
+                    ->select(['id', 'active', 'view','contoller','Users.username','created'])                     
+                    ->where(['Permissions.active' => $active])                 
+                    ->where(['Permissions.contoller LIKE ' => '%'.$controller.'%'])
+                    ->where(['Permissions.view LIKE ' => '%'.$view.'%'])
+                    /*->where(['Users.username LIKE ' => '%'.$username.'%'])*/
+                    ->contain(['Users']),
+                    ['sortWhitelist' => ['controller'],'limit' => 20]); 
                 }
+                
                 else{
-                    $active = 1;
+                    $tableValues = $this->paginate($this->Permissions->find()
+                    ->select(['id', 'active', 'view','contoller','Users.username','created'])
+                    ->where(['Permissions.contoller LIKE ' => '%'.$controller.'%'])
+                    ->where(['Permissions.view LIKE ' => '%'.$view.'%'])
+                    /*->where(['Users.username LIKE ' => '%'.$username.'%'])*/
+                    ->contain(['Users']),
+                    ['sortWhitelist' => ['controller'],'limit' => 20]); 
                 }
-                $tableValues = $this->paginate($this->Permissions->find()
-                ->select(['id', 'active', 'view','controller','Users.username','created'])                     
-                ->Orwhere(['Permissions.active' => $active])                 
-                ->where(['controller LIKE ' => '%'.$controller.'%'])
-                ->where(['view LIKE ' => '%'.$view.'%'])
-                ->where(['Users.username LIKE ' => '%'.$username.'%'])
-                ->contain(['Users']),
-                ['sortWhitelist' => ['controller'],'limit' => 20])
-                ; 
+                
+                
+              
+                
       
         }
 
@@ -105,13 +119,13 @@ class PermissionsController extends AppController
      */
     public function add()
     {
-        $this->Categories->locale(I18n::defaultLocale());
+      //  $this->Categories->locale(I18n::defaultLocale());
 
-        $entity = $this->Categories->newEntity();
+        $entity = $this->Permissions->newEntity();
         
         if ($this->request->is('post')) {
-            $entity = $this->Categories->patchEntity($entity, $this->request->getData());
-            $entity->setTranslations($this->request->getData());
+            $entity = $this->Permissions->patchEntity($entity, $this->request->getData());
+          //  $entity->setTranslations($this->request->getData());
             $entity->created_by  = $this->Auth->user("id");
             $entity->created     = $this->now;
             $entity->modified_by = $this->Auth->user("id");
@@ -119,8 +133,8 @@ class PermissionsController extends AppController
             $entity->active      = 1;
             
             
-            if ($this->Categories->save($entity)) {
-                $this->Flash->success(__('The category has been saved.'));
+            if ($this->Permissions->save($entity)) {
+                $this->Flash->success(__('The Permissions has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }

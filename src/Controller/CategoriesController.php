@@ -39,7 +39,7 @@ class CategoriesController extends AppController
                     
                 }
                 else{
-                    $active = 1;
+                    $active = 0;
                 }
                 $tableValues = $this->paginate($this->Categories->find()
                 ->select(['id', 'active', 'name','Users.username','created'])                     

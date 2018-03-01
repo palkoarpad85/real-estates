@@ -7,7 +7,7 @@
                 echo  "<span class='fas fa-times'></span>";
             } ?> </td>
         <td><?= $this->Text->truncate(h($value->contoller),
-                                      10,
+                                      20,
                                       [
                                        'ellipsis' => '...',
                                        'exact' => false
