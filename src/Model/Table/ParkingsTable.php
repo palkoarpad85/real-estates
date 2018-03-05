@@ -40,6 +40,16 @@ class ParkingsTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'created_by',
+            'joinType' => 'INNER'
+        ]);
+
+        $this->addBehavior('Translate', [
+            'fields' => ['name'],
+            'translationTable' => 'parkings_i18n'
+        ]);
+
         $this->hasMany('Realestates', [
             'foreignKey' => 'parking_id'
         ]);

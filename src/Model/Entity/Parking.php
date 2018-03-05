@@ -1,6 +1,9 @@
 <?php
 namespace App\Model\Entity;
 
+use App\Model\Behavior\AppTranslateTrait;
+use Cake\I18n\Number;
+use Cake\ORM\Behavior\Translate\TranslateTrait;
 use Cake\ORM\Entity;
 
 /**
@@ -18,7 +21,8 @@ use Cake\ORM\Entity;
  */
 class Parking extends Entity
 {
-
+    use AppTranslateTrait;
+    use TranslateTrait;
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *

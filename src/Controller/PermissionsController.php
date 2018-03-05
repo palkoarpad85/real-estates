@@ -19,7 +19,7 @@ class PermissionsController extends AppController
     {
         parent::beforeFilter($event);
         $this->now = new Time();
-        $this->Auth->allow(['add','edit','index','delete']);  
+       // $this->Auth->allow(['add','edit','index','delete']);  
     }
 
     /**
@@ -49,9 +49,13 @@ class PermissionsController extends AppController
                     ->where(['Permissions.active' => $active])                 
                     ->where(['Permissions.contoller LIKE ' => '%'.$controller.'%'])
                     ->where(['Permissions.view LIKE ' => '%'.$view.'%'])
-                    /*->where(['Users.username LIKE ' => '%'.$username.'%'])*/
+                   /* ->where(['Users.username LIKE ' => '%'.$username.'%'])*/
                     ->contain(['Users']),
-                    ['sortWhitelist' => ['controller'],'limit' => 20]); 
+                    [
+                    'order' => [
+                        'Permissions.contoller' => 'asc',
+                        'Permissions.view' => 'asc'
+                    ],'limit' => 20]); 
                 }
                 
                 else{
@@ -61,28 +65,32 @@ class PermissionsController extends AppController
                     ->where(['Permissions.view LIKE ' => '%'.$view.'%'])
                     /*->where(['Users.username LIKE ' => '%'.$username.'%'])*/
                     ->contain(['Users']),
-                    ['sortWhitelist' => ['controller'],'limit' => 20]); 
+                    [
+                    'order' => [
+                        'Permissions.contoller' => 'asc',
+                        'Permissions.view' => 'asc'
+                    ],'limit' => 20]); 
                 }
-                
-                
-              
-                
-      
         }
-
         else{
-            $tableValues = $this->paginate($this->Permissions,[
-                'contain' => [ 'Users'],
-                'sortWhitelist' => ['controller'],
-                'limit' => 20]);
-             
+           $tableValues = $this->paginate($this->Permissions,[
+                'contain' => [ 'Users'],              
+                'limit' => 20,
+                'order' => [
+                    'Permissions.contoller' => 'asc',
+                    'Permissions.view' => 'asc'
+                ]]);
         }
      }
      else{
         $tableValues = $this->paginate($this->Permissions,[
             'contain' => [ 'Users'],
-            'sortWhitelist' => ['controller'],
-            'limit' => 20]);
+            
+            'limit' => 20,
+            'order' => [
+                'Permissions.contoller' => 'asc',
+                'Permissions.view' => 'asc'
+            ]]);
         $name     = null;
         $username = null;
         $active   = null;
@@ -104,12 +112,42 @@ class PermissionsController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
-    {
-        $permission = $this->Permissions->get($id, [
-            'contain' => ['Roles']
-        ]);
-
-        $this->set('permission', $permission);
+    {      
+        $permission = $this->Permissions->find()
+        ->enableAutoFields(true)        
+        ->select([
+            'id' => 'Permissions.id',
+            'view' => "Permissions.view",
+            'contoller' => "Permissions.contoller",
+            'modified' => "Permissions.modified",
+            'created' => "Permissions.created",
+            'Ucreated_by' => "Users.username",
+            'Umodified_by' => "Users2.username"
+        ])
+         ->join([
+            'Users' => [
+                'table' => 'users',
+                'type' => 'INNER',
+                'conditions' => [
+                    'Permissions.created_by = Users.id',
+                ],
+            ],            
+        ])
+        ->join([
+            'Users2' => [
+                'table' => 'users',
+                'type' => 'INNER',
+                'conditions' => [
+                    'Permissions.modified_by = Users2.id',
+                ],
+            ],            
+        ])        
+        ->contain(['Roles'])
+        ->where([
+            'Permissions.id' => $id
+        ])        
+        ->toArray();        
+        $this->set('permission', $permission[0]);
     }
 
     /**
@@ -119,13 +157,12 @@ class PermissionsController extends AppController
      */
     public function add()
     {
-      //  $this->Categories->locale(I18n::defaultLocale());
-
+      
         $entity = $this->Permissions->newEntity();
         
         if ($this->request->is('post')) {
             $entity = $this->Permissions->patchEntity($entity, $this->request->getData());
-          //  $entity->setTranslations($this->request->getData());
+         
             $entity->created_by  = $this->Auth->user("id");
             $entity->created     = $this->now;
             $entity->modified_by = $this->Auth->user("id");
@@ -141,7 +178,9 @@ class PermissionsController extends AppController
             $this->Flash->error(__('The '.$this->name.' could not be saved. Please, try again.'));
         }
        
-        $roles = $this->Permissions->Roles->find('list', ['limit' => 200]);
+        $roles = $this->Permissions->Roles->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ])  ;
         $this->set(compact('entity', 'roles'));
     }
 
@@ -154,12 +193,12 @@ class PermissionsController extends AppController
      */
     public function edit($id = null)
     {
-        $permission = $this->Permissions->get($id, [
+        $entity = $this->Permissions->get($id, [
             'contain' => ['Roles']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $permission = $this->Permissions->patchEntity($permission, $this->request->getData());
-            if ($this->Permissions->save($permission)) {
+            $entity = $this->Permissions->patchEntity($entity, $this->request->getData());
+            if ($this->Permissions->save($entity)) {
                 $this->Flash->success(__('The permission has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -167,7 +206,7 @@ class PermissionsController extends AppController
             $this->Flash->error(__('The permission could not be saved. Please, try again.'));
         }
         $roles = $this->Permissions->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('permission', 'roles'));
+        $this->set(compact('entity', 'roles'));
     }
 
     /**
@@ -180,8 +219,12 @@ class PermissionsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $permission = $this->Permissions->get($id);
-        if ($this->Permissions->delete($permission)) {
+        $entity = $this->Permissions->get($id);
+        $entity->modified_by = $this->Auth->user("id");
+        $entity->modified    = $this->now;
+        $entity->active      = 0;
+
+        if ($this->Permissions->save($entity)) {
             $this->Flash->success(__('The permission has been deleted.'));
         } else {
             $this->Flash->error(__('The permission could not be deleted. Please, try again.'));
@@ -189,4 +232,32 @@ class PermissionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+ /**
+     * Delete method
+     *
+     * @param string|null $id Category id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function restore($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $entity              = $this->Permissions->get($id);
+        $entity->modified_by = $this->Auth->user("id");
+        $entity->modified    = $this->now;
+        $entity->active      = 1;
+
+        if ($this->Permissions->save($entity)) {
+            $this->Flash->success(__('The '.$this->name.' has been restore.'));
+        } else {
+            $this->Flash->error(__('The '.$this->name.' could not be restore. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+
+
 }

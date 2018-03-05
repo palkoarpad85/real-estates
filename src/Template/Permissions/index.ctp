@@ -11,7 +11,7 @@
     ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
     ['class' => 'breadcrumb-item ', 'escape' => false])?>
     </li>
-    <li  class="breadcrumb-item active" aria-current="page"><?=__("<i class='fa fa-outdent'></i> Categories",
+    <li  class="breadcrumb-item active" aria-current="page"><?=__("<i class='fa fa-outdent'></i> ".__($this->name),
     ['class' => 'breadcrumb-item active', 'escape' => false])?></li>
     </ol>
     </nav>
@@ -81,7 +81,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php echo $this->element('tablePermission'); ?>
+                        <?php echo $this->element('tables/tablePermission'); ?>
                         </tbody>
                         <tfoot>
                         <tr>

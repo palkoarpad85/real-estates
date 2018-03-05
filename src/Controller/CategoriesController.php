@@ -18,8 +18,7 @@ class CategoriesController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->now = new Time();
-        $this->Auth->allow(['search','add','edit','view','delete']);  
+        $this->now = new Time();        
     }
     /**
      * Index method
@@ -34,27 +33,33 @@ class CategoriesController extends AppController
             $name     = trim($this->request->query("name"));
             $username = trim($this->request->query("username"));
             $active   = trim($this->request->query("active"));
-                if ($active == "true") {
-                    $active = 1;
-                    
-                }
-                else{
-                    $active = 0;
+              
+              if ($active == 1 || $active == 3) {
+                if ($active == 1) {
+                    $active2 = true;
+                } else {
+                    $active2 = false;
                 }
                 $tableValues = $this->paginate($this->Categories->find()
                 ->select(['id', 'active', 'name','Users.username','created'])                     
-                ->Orwhere(['Categories.active' => $active])                 
+                ->Orwhere(['Categories.active' => $active2])                 
                 ->where(['name LIKE ' => '%'.$name.'%'])
                 ->where(['Users.username LIKE ' => '%'.$username.'%'])
                 ->contain(['Users']),['limit' => 20]); 
-      
-        }
+              } 
+                else{
+                $tableValues = $this->paginate($this->Categories->find()
+                ->select(['id', 'active', 'name','Users.username','created'])
+                ->where(['name LIKE ' => '%'.$name.'%'])
+                ->where(['Users.username LIKE ' => '%'.$username.'%'])
+                ->contain(['Users']),['limit' => 20]); 
 
+                }      
+        }
         else{
             $tableValues = $this->paginate($this->Categories,[
                 'contain' => ['Realestates', 'Users'],
-                'limit' => 20]);
-             
+                'limit' => 20]);             
         }
      }
      else{
@@ -66,7 +71,6 @@ class CategoriesController extends AppController
         $active   = null;
 
      }
-                  
         $this->set(compact('name'));
         $this->set(compact('username'));
         $this->set(compact('active'));
@@ -82,11 +86,42 @@ class CategoriesController extends AppController
      */
     public function view($id = null)
     {
-        $category = $this->Categories->get($id, [
-            'contain' => ['Realestates', 'Users']
-        ]);
+        $entity = $this->Categories->find()
+        ->enableAutoFields(true)        
+        ->select([
+            'id' => 'Categories.id',             
+            'contoller' => "Categories.name",
+            'modified' => "Categories.modified",
+            'created' => "Categories.created",
+            'Ucreated_by' => "Users.username",
+            'Umodified_by' => "Users2.username"
             
-        $this->set('category', $category);
+        ])
+         ->join([
+            'Users' => [
+                'table' => 'users',
+                'type' => 'INNER',
+                'conditions' => [
+                    'Categories.created_by = Users.id',
+                ],
+            ],            
+        ])
+        ->join([
+            'Users2' => [
+                'table' => 'users',
+                'type' => 'INNER',
+                'conditions' => [
+                    'Categories.modified_by = Users2.id',
+                ],
+            ],            
+        ])       
+        ->find('translations')
+        ->where([
+            'Categories.id' => $id
+        ])        
+        ->toArray();        
+        $this->set('entity', $entity[0]);
+       
     }
 
     /**
@@ -107,12 +142,10 @@ class CategoriesController extends AppController
             $entity->created     = $this->now;
             $entity->modified_by = $this->Auth->user("id");
             $entity->modified    = $this->now;
-            $entity->active      = 1;
-            
+            $entity->active      = 1;            
             
             if ($this->Categories->save($entity)) {
                 $this->Flash->success(__('The category has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The '.$this->name.' could not be saved. Please, try again.'));
@@ -182,6 +215,23 @@ class CategoriesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    public function restore($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $entity              = $this->Categories->get($id);
+        $entity->modified_by = $this->Auth->user("id");
+        $entity->modified    = $this->now;
+        $entity->active      = 1;
+
+        if ($this->Categories->save($entity)) {
+            $this->Flash->success(__('The '.$this->name.' has been restore.'));
+        } else {
+            $this->Flash->error(__('The '.$this->name.' could not be restore. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
 
     
 }

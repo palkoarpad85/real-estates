@@ -36,6 +36,14 @@ class HeatingtypesTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'created_by',
+            'joinType' => 'INNER'
+        ]);
+        $this->addBehavior('Translate', [
+            'fields' => ['name'],
+            'translationTable' => 'heatingtypes_i18n'
+        ]);
         $this->addBehavior('Timestamp');
     }
 

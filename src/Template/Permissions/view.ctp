@@ -4,84 +4,171 @@
  * @var \App\Model\Entity\Permission $permission
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Permission'), ['action' => 'edit', $permission->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Permission'), ['action' => 'delete', $permission->id], ['confirm' => __('Are you sure you want to delete # {0}?', $permission->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Permissions'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Permission'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="permissions view large-9 medium-8 columns content">
-    <h3><?= h($permission->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('View') ?></th>
-            <td><?= h($permission->view) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Contoller') ?></th>
-            <td><?= h($permission->contoller) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($permission->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created By') ?></th>
-            <td><?= $this->Number->format($permission->created_by) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified By') ?></th>
-            <td><?= $this->Number->format($permission->modified_by) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($permission->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($permission->modified) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Active') ?></th>
-            <td><?= $permission->active ? __('Yes') : __('No'); ?></td>
-        </tr>
-    </table>
-    <div class="related">
-        <h4><?= __('Related Roles') ?></h4>
-        <?php if (!empty($permission->roles)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Active') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Created By') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col"><?= __('Modified By') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($permission->roles as $roles): ?>
-            <tr>
-                <td><?= h($roles->id) ?></td>
-                <td><?= h($roles->active) ?></td>
-                <td><?= h($roles->name) ?></td>
-                <td><?= h($roles->created) ?></td>
-                <td><?= h($roles->created_by) ?></td>
-                <td><?= h($roles->modified) ?></td>
-                <td><?= h($roles->modified_by) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Roles', 'action' => 'view', $roles->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Roles', 'action' => 'edit', $roles->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Roles', 'action' => 'delete', $roles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $roles->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-</div>
+ 
+  
+        <?php $this->layout = 'admin';?>
+        <div class="categories form large-9 medium-8 columns content">
+
+            <section class="content-header">
+                <h2>
+                    <?=__('View a ' . $this->name)?>
+                </h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-tachometer-alt'></i> Home"),
+    ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
+    ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-outdent'></i> " . $this->name),
+    ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
+    ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?=__("<i class='fas fa-plus'></i> View " . $this->name)?>
+                        </li>
+                    </ol>
+                </nav>
+            </section>
+            <div class="content-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="container">
+                            <div class="row">
+                                <table class="table table-{1:striped|sm|bordered|hover|inverse} table-inverse table-responsive">
+                                    <thead class="thead-inverse|thead-default">
+                                        <tr>
+                                            <th colspan="2">
+                                                <h2>
+                                                    <?=__($this->name)?>
+                                                </h2>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Id:</td>
+                                            <td>
+                                                <?=$permission["id"]?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("active")?> :</td>
+                                            <td>
+                                                <?php if (h($permission->active)==1) {
+                                                        echo  "<span class='fas fa-check'></span>";
+                                                        }else {
+                                                            echo  "<span class='fas fa-times'></span>";
+                                                        } ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("controller")?> :</td>
+                                            <td>
+                                                <?=$permission["contoller"]?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("view")?> :</td>
+                                            <td>
+                                                <?=$permission["view"]?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("created")?> :</td>
+                                            <td>
+                                                <?=$permission["created"]?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("created_by")?> :</td>
+                                            <td>
+                                                <?=$permission["Ucreated_by"]?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("modified")?> :</td>
+                                            <td>
+                                                <?=$permission["modified"]?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <?=__("modified_by")?> :</td>
+                                            <td>
+                                                <?=$permission["Umodified_by"]?>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <div id="accordianId" role="tablist" aria-multiselectable="true" style="width:100%">
+                                    <div class="card">
+                                        <div class="card-header" role="tab" id="section1HeaderId">
+                                            <h5 class="mb-0">
+                                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                                                    <?=__("Roles")?>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+                                            <div class="card-body">
+                                                <div class="row font-weight-bold">
+                                                    <div class="col-md-1">
+                                                        Id
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?= __('active')?>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?= __('name')?>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?=__('created')?>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <?=__('Action')?>
+                                                    </div>
+                                                </div>
+                                                <?php foreach ($permission->roles as $roles): ?>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <?=h($roles->id)?>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?php if (h($roles->active)==1) {
+                                                                    echo  "<span class='fas fa-check'></span>";
+                                                                    }else {
+                                                                        echo  "<span class='fas fa-times'></span>";
+                                                                    } ?>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?=h($roles->name)?>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <?=h($roles->created)?>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <?= $this->Html->link(__('View'), ['controller'=>'roles','action' => 'view', $roles->id]) ?>
+                                                    </div>
+                                                </div>
+
+
+                                                <?php endforeach;?>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

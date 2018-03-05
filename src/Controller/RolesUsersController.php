@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\I18n\I18n;
 /**
  * RolesUsers Controller
  *
@@ -13,6 +15,13 @@ use App\Controller\AppController;
 class RolesUsersController extends AppController
 {
 
+
+    public function beforeFilter(Event $event)
+    {
+        //parent::beforeFilter($event);
+        $this->Auth->allow(['index','view','edit','add']);
+                
+    }
     /**
      * Index method
      *
@@ -24,7 +33,7 @@ class RolesUsersController extends AppController
             'contain' => ['Users', 'Roles']
         ];
         $rolesUsers = $this->paginate($this->RolesUsers);
-
+dd($rolesUsers);
         $this->set(compact('rolesUsers'));
     }
 

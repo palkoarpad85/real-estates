@@ -47,17 +47,18 @@
                                 <?=$this->Form->create($entity)?>
                                 <div class="form-group">
                                         <div class="col-sm-5"><?php
-                                        echo $this->Form->control('roles._ids', ['class' => 'form-control', 'label' => _('Roles'),'options' => $roles]); ?>
+                                        echo $this->Form->control('roles._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Roles'),'options' => $roles]); ?>
                                         </div>
-                                    </div>
+
+                               </div>
                                     <div class="form-group">
                                         <div class="col-sm-5">
-                                            <?=$this->Form->input('contoller', ['class' => 'form-control', 'label' => _('Controller')])?>
+                                            <?=$this->Form->input('contoller', ['class' => 'form-control', 'label' => __('Controller')])?>
                                         </div>
                                     </div>
                                     <div class="form-group">                                     
                                     <div class="col-sm-5">
-                                            <?=$this->Form->input('view', ['class' => 'form-control', 'label' => _('View')])?>
+                                            <?=$this->Form->input('view', ['class' => 'form-control', 'label' => __('View')])?>
                                         </div>                                 
                                     <br>
                                     <div class="form-group ">
@@ -68,3 +69,8 @@
                     </div>
                 </div>
             </div>
+<script>
+    $(document).ready(function() {
+    $('.js-multiple').select2();
+});
+</script>

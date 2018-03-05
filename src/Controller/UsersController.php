@@ -283,9 +283,76 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->paginate($this->Users);
+        if (null == ($this->request->query("reset"))) {
+            if($this->request->query("name") || $this->request->query("role") ||$this->request->query("email") || $this->request->query("active")){
+                
+            
+            $name       = trim($this->request->query("name"));
+            $role       = trim($this->request->query("role"));
+            $email      = trim($this->request->query("email"));
+            $active     = trim($this->request->query("active"));
+           
+                if ($active == 1 || $active == 3) {
+                    if ($active == 1) {
+                        $active = true;
+                    } else {
+                        $active = false;
+                    }
+                    $tableValues = $this->paginate($this->Users->find()
+                    ->contain(['Roles'])
+                    ->select(['id', 'active', 'username','email','created'])                     
+                    ->where(['Users.active' => $active])                 
+                    ->where(['Users.username LIKE ' => '%'.$name.'%'])
+                    ->where(['Users.email LIKE ' => '%'.$email.'%']),
+                    [
+                    'order' => [
+                        'Users.username' => 'asc'                        
+                    ],'limit' => 20]); 
+                }
+                
+                else{
+                    $tableValues = $this->paginate($this->Users->find()
+                    ->contain(['Roles'])
+                    ->select(['id', 'active', 'username','email','created'])
+                    ->where(['Users.username LIKE ' => '%'.$name.'%'])
+                    ->where(['Users.email LIKE ' => '%'.$email.'%']),
+                    [
+                    'order' => [
+                        'Users.username' => 'asc'                        
+                    ],'limit' => 20]);  
+                }
+        }
+        else{
+            $tableValues = $this->paginate($this->Users->find()
+                    ->select(['id', 'active', 'username','email','created'])    
+                    ->contain(['Roles']),
+                    [
+                    'order' => [
+                        'Users.username' => 'asc'                        
+                    ],'limit' => 20]);  
+             
+          
+        }
+     }
+     else{
+        $tableValues = $this->paginate($this->Users->find()
+                    ->select(['id', 'active', 'username','email' ,'created'])    
+                    ->contain(['Roles']),
+                    [
+                    'order' => [
+                        'Users.username' => 'asc'                        
+                    ],'limit' => 20]);  
+        $name     = null;
+        $username = null;
+        $active   = null;
 
-        $this->set(compact('users'));
+     }
+        //  dd($tableValues);   
+        $this->set(compact('role'));
+        $this->set(compact('email'));
+        $this->set(compact('name'));
+        $this->set(compact('active'));
+        $this->set(compact('tableValues'));
     }
 
     /**

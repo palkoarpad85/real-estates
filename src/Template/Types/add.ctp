@@ -1,28 +1,63 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Type $type
+ * @var \App\Model\Entity\Category $category
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Types'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Realestates'), ['controller' => 'Realestates', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Realestate'), ['controller' => 'Realestates', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="types form large-9 medium-8 columns content">
-    <?= $this->Form->create($type) ?>
-    <fieldset>
-        <legend><?= __('Add Type') ?></legend>
-        <?php
-            echo $this->Form->control('active');
-            echo $this->Form->control('name');
-            echo $this->Form->control('created_by');
-            echo $this->Form->control('modified_by');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+    <?php $this->layout = 'admin';?>
+    <div class="Conveniencegrades form large-9 medium-8 columns content">
+        
+            <section class="content-header">
+                <h2>
+                    <?=__('Add a '.$this->name)?>
+                </h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-tachometer-alt'></i> Home"),
+                                ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
+                                ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-outdent'></i> ".$this->name),
+                                ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
+                                ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?=__("<i class='fas fa-plus'></i> Add ".$this->name)?>
+                        </li>
+                    </ol>
+                </nav>
+            </section>
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?=$this->Flash->render();?>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div class="hr-divider hr-divider-panel">
+                                    <h3 class="hr-divider-content hr-divider-heading">
+                                        <?=__('Add a '.$this->name)?>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <?=$this->Form->create($entity)?>
+                                    <div class="form-group">
+                                        <div class="col-sm-5">
+                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Hungary')])?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">                                     
+                                            <?=$this->I18n->i18nInput($entity, 'name', ['class' => 'form-control']);?>                                    
+                                    
+                                    <div class="form-group ">
+                                  <?=$this->Form->button(__d('admin', '{0} Create '.$this->name.'', '<i class="fa fa-plus"></i>'), ['class' => ' btn btn-success'])?>
+                                </div><?=$this->Form->end()?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

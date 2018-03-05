@@ -50,6 +50,10 @@ class CategoriesTable extends Table
             'foreignKey' => 'created_by',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'modified_by',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**

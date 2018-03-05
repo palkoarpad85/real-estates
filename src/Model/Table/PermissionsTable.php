@@ -35,7 +35,7 @@ class PermissionsTable extends Table
         parent::initialize($config);
 
         $this->setTable('permissions');
-        $this->setDisplayField('view');
+        $this->setDisplayField(['contoller','view']);
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -49,6 +49,7 @@ class PermissionsTable extends Table
             'targetForeignKey' => 'role_id',
             'joinTable' => 'permissions_roles'
         ]);
+
     }
 
     /**
@@ -92,4 +93,6 @@ class PermissionsTable extends Table
 
         return $validator;
     }
+
+    
 }

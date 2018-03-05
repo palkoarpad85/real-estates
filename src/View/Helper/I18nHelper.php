@@ -95,27 +95,31 @@ class I18nHelper extends Helper
      *
      * @return string
      */
-    public function i18nScript($options = [])
+    public function i18nLabel(Entity $entity, $field, $options = [], $divClass = 'col-sm-5', $id = 'CkEditorBox')
     {
         $html = '';
-        $file = (isset($options['file'])) ? $options['file'] : 'article';
-        $name = (isset($options['name'])) ? $options['name'] : 'CkEditorBox';
-        $i = 0;
+        $options['CkEditor'] = (isset($options['CkEditor'])) ? $options['CkEditor'] : false;
 
+        $i = 0;
+       
         foreach ($this->_locales as $locale => $lang) {
             if ($locale == I18n::defaultLocale()) {
                 continue;
             }
 
             $i ++;
-            $html .= '
-            <script type="text/javascript">
-            CKEDITOR.replace(\'' . $name . '-' . $i . '\', {
-                customConfig: \'config/' . $file . '.js\'
-            });
-            </script>';
-        }
+            $options['label'] = Inflector::humanize($lang);
+            $options['value'] = $entity->translation($locale)->{$field};
 
+            if ($options['CkEditor'] === true) {
+                $options['id'] = $id . '-' . $i;
+                unset($options['CkEditor']);
+            }
+            
+            $html .= '<tr><td>'.$lang.' :</td><td>';           
+            $html .= $this->Form->label($entity->_translations[$locale][$field]);
+            $html .= '</td></tr>';
+        }
         return $html;
     }
 }

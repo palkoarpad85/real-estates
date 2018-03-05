@@ -77,21 +77,13 @@ class ConvenienceGrades extends AbstractMigration
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('created_by', 'integer', [
-                'default' => null,
-                'limit' => 10,
-                'null' => false,
-            ])
+           
             ->addColumn('modified', 'timestamp', [
                 'default' => 'CURRENT_TIMESTAMP',
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('modified_by', 'integer', [
-                'default' => null,
-                'limit' => 10,
-                'null' => false,
-            ])
+          
             ->addIndex(
                 [
                     'locale',

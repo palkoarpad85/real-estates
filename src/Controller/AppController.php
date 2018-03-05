@@ -127,11 +127,14 @@ class AppController extends Controller
         $opt["controller"] = $this->request->param("controller");
         $boolen = false;
         $users = TableRegistry::get('Users')->find('Roles', $opt)->first();
-
+        
+        $this->set('role', $users['_matchingData']['Roles']['name']);         
         if ($users["count"] >= 1) {
             return true;
+            
         } else {
             return false;
+            
         }
     }
 }

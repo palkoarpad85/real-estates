@@ -38,7 +38,7 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('id');
+        $this->setDisplayField('username');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -113,19 +113,19 @@ class UsersTable extends Table
                 ->notEmpty('old_password');
         
         $validator
-                ->add('new_password',[
+                ->add('password',[
                     'length' => [
                         'rule' => ['lengthBetween', 8, 20],
                         'message' => 'Please enter atleast 4 characters in password your password.'
                     ]
                 ])
-                ->add('new_password',[
+                ->add('password',[
                     'match' => [
                         'rule' => ['compareWith','confirm_password'],
                         'message' => 'Sorry! Password dose not match. Please try again!'
                     ]
                 ])
-                ->notEmpty('new_password');
+                ->notEmpty('password');
 
         $validator
                 ->add('password_confirm',[
@@ -271,12 +271,13 @@ class UsersTable extends Table
 
     public function findRoles(Query $query, array $opt){
         return       
-        $query->SELECT(['count' => $query->func()->count('*')]) 
+        $query->SELECT( ['Roles.name' ,'count' => $query->func()->count('*')]) 
               ->innerJoinWith('Roles.Permissions', function ($q) use ($opt) {            
                      return $q->where(['Permissions.view' => $opt["view"]])
                               ->where(['Permissions.contoller' => $opt["controller"]]);
         })      
             ->WHERE(['Users.id'=> $opt["id"]]);
     }
+    
 
 }

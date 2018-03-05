@@ -48,7 +48,7 @@
           </li>
           <li class="nav-item ">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Account
+                   <?php if(isset($current_user["username"])){echo $current_user["username"];}else{echo "Login";} ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
               <?=$this->Html->link( __("<i class='far fa-user'></i> Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'dropdown-item', 'escape' => false])?>     

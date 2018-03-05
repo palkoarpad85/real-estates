@@ -35,7 +35,16 @@ class ConditionofpropertiesTable extends Table
         $this->setTable('conditionofproperties');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
+        $this->addBehavior('Translate', [
+            'fields' => ['name'],
+            'translationTable' => 'conditionofproperties_i18n'
+        ]);
+        
+        $this->belongsTo('Users', [
+            'foreignKey' => 'created_by',
+            'joinType' => 'INNER'
+        ]);
+       
         $this->addBehavior('Timestamp');
     }
 
@@ -62,10 +71,8 @@ class ConditionofpropertiesTable extends Table
             ->requirePresence('name', 'create')
             ->notEmpty('name');
 
-        $validator
-            ->integer('created_by')
-            ->requirePresence('created_by', 'create')
-            ->notEmpty('created_by');
+        
+           
 
         $validator
             ->integer('modified_by')

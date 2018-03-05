@@ -13,9 +13,11 @@ trait AppTranslateTrait
      */
     public function setTranslations($data = [])
     {
-        if (array_key_exists('translations', $data)) {            
-            foreach ($data['translations'] as $locale => $dataLocale) {
+        if (array_key_exists('translations', $data)) { 
+           
+            foreach ($data['translations'] as $locale => $dataLocale) {                
                 $this->translation($locale)->set($dataLocale, ['guard' => false]);
+                
             }
         }
     }
