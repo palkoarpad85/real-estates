@@ -79,7 +79,7 @@ class UsersTable extends Table
 
 
 
-        $validator
+       /* $validator
             ->notEmpty('password', __("You must specify your password."))
             ->notEmpty('password_confirm', __("You must specify your password (confirmation)."))
             ->add('password_confirm', [
@@ -140,7 +140,7 @@ class UsersTable extends Table
                         'message' => 'Sorry! Password dose not match. Please try again!'
                     ]
                 ])
-                ->notEmpty('confirm_password');          
+                ->notEmpty('confirm_password');          */
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -278,6 +278,15 @@ class UsersTable extends Table
         })      
             ->WHERE(['Users.id'=> $opt["id"]]);
     }
-    
+
+
+    public function findActiveRealestates(Query $query, array $opt){
+        return       
+        $query->SELECT( ['count' => $query->func()->count('*')]) 
+              ->innerJoinWith('Realestates', function ($q) {            
+                return $q->where(['Realestates.active' => 1]);                
+        })      
+            ->WHERE(['Users.id'=> $opt["id"]]);
+    }
 
 }

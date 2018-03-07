@@ -25,11 +25,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('bootstrap.css') ?>
+    <?= $this->Html->css('fontawesome-all.css') ?>
+    <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('login.css') ?>
-    <?= $this->Html->css('default.css') ?>
+    
 
+    <?= $this->Html->script('jquery.min.js') ?>
+    <?= $this->Html->script('bootstrap.js') ?>    
+  
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>

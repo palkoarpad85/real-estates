@@ -24,9 +24,10 @@ class UsersController extends AppController
 
     public function beforeFilter(Event $event)
     {
+        parent::beforeFilter($event);
         $this->now = new Time();
 
-        $this->Auth->allow(['login','register','resetpassword','changepassword','index','view','verify','forgotPassword']);
+        $this->Auth->allow(['login','register','resetpassword','changepassword','index','edit','view','verify','forgotPassword']);
     }
 
 
@@ -143,6 +144,8 @@ class UsersController extends AppController
                         $UserLock->active=1;
                         $UserLock->last_login_ip=$this->request->clientIp();
                         $UserLock->token=null;
+                        $UserLock->created=$this->now;
+                        $UserLock->created_by=$UserLock->id;
                         $UserLock->modified=$this->now;
                         $UserLock->modified_by=$UserLock->id;
                         $UserLock->tos_date=$this->now;
@@ -368,7 +371,13 @@ class UsersController extends AppController
             'contain' => ['Phones', 'Roles', 'Realestates']
         ]);
 
+       $realEstatesCount       = count($user->realestates);
+       $opt["id"] =$id; 
+       $realEstatesActiveCount = $this->Users->find("ActiveRealestates",$opt)->first();  
+ 
         $this->set('entity', $user);
+        $this->set('realEstatesCount', $realEstatesCount);
+        $this->set('realEstatesActiveCount', $realEstatesActiveCount);
     }
 
 
@@ -382,10 +391,12 @@ class UsersController extends AppController
      */
     public function edit($id = null){
         $user = $this->Users->get($id, [
-            'contain' => ['Phones', 'Roles']
-        ]);
+            'contain' => [ 'Realestates']]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user->modified    = $this->now;
+            $user->modified_by = $user->id;
+            
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
@@ -393,9 +404,14 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $phones = $this->Users->Phones->find('list', ['limit' => 200]);
-        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'phones', 'roles'));
+        $realEstatesCount       = count($user->realestates);
+        $opt["id"] =$id; 
+        $realEstatesActiveCount = $this->Users->find("ActiveRealestates",$opt)->first();  
+ 
+        $this->set('user', $user);
+        $this->set('realEstatesCount', $realEstatesCount);
+        $this->set('realEstatesActiveCount', $realEstatesActiveCount);
+       
     }
 
     /**

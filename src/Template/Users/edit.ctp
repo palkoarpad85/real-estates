@@ -1,56 +1,179 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
+ * @var \App\Model\user\User $user
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Realestates'), ['controller' => 'Realestates', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Realestate'), ['controller' => 'Realestates', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Phones'), ['controller' => 'Phones', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Phone'), ['controller' => 'Phones', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->control('username');
-            echo $this->Form->control('password');
-            echo $this->Form->control('email');
-            echo $this->Form->control('first_name');
-            echo $this->Form->control('last_name');
-            echo $this->Form->control('avatar');
-            echo $this->Form->control('biography');
-            echo $this->Form->control('signature');
-            echo $this->Form->control('language');
-            echo $this->Form->control('password_code_expire', ['empty' => true]);
-            echo $this->Form->control('password_reset_count');
-            echo $this->Form->control('password_code');
-            echo $this->Form->control('tos_date', ['empty' => true]);
-            echo $this->Form->control('token');
-            echo $this->Form->control('register_ip');
-            echo $this->Form->control('last_login_ip');
-            echo $this->Form->control('last_login');
-            echo $this->Form->control('active');
-            echo $this->Form->control('created_by');
-            echo $this->Form->control('modified_by');
-            echo $this->Form->control('phones._ids', ['options' => $phones]);
-            echo $this->Form->control('roles._ids', ['options' => $roles]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+
+        <?php $this->layout = 'admin';?>
+        <div class="content">
+
+            <section class="content-header">
+                <h2>
+                    <?=__('Edit a ' . $this->name)?>
+                </h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-tachometer-alt'></i> Home"),
+                        ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
+                        ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <?=$this->Html->link(__("<i class='fa fa-outdent'></i> " . $this->name),
+                        ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
+                        ['class' => 'breadcrumb-item ', 'escape' => false])?>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?=__("<i class='fas fa-plus'></i> Edit " . $this->name)?>
+                        </li>
+                    </ol>
+                </nav>
+            </section>
+            <div class="content-wrapper">
+                <div class="container-fluid">
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-md-3">
+                            <div class="tab-content" style="background-color:#eee;">
+                            <div class="box box-primary" style="background-color:#eee;">
+                                <div class="box-body box-profile">
+                                    <div class=" text-center">
+                                        <?= $this->Html->image($user["avatar"], ['alt' => 'CakePHP','class'=>'profile_img']); ?>
+                                    </div>
+                                    <h3 class="profile-username text-center">
+                                        <?=h($user["last_name"])?>
+                                            <?=h($user["first_name"])?>
+                                    </h3>
+                                    <h4 class="profile-username text-center">
+                                        <?=h($user["username"])?>
+                                    </h4>
+                                    <hr>
+                                    <ul>
+                                        <li>
+                                            <b class="text-left">
+                                                <?=__("Realestates count: "); ?>
+                                            </b>
+                                            <a class="text-right">
+                                                <?=h($realEstatesCount) ?>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <b class="text-left">
+                                                <?=__("Active Realestates count: "); ?>
+                                            </b>
+                                            <?=h($realEstatesActiveCount["count"]) ?>
+                                                </a>
+                                        </li>
+                                    </ul><hr>
+                                    <ul>
+                                        
+                                        <li>
+                                            <b class="text-left">
+                                                <?=__("email "); ?>
+                                            </b>
+                                            <?=h($user["email"]) ?>
+                                                </a>
+                                        </li>
+                                        <li>
+                                            <b class="text-left">
+                                                <?=__("biography "); ?>
+                                            </b>
+                                            <?=h($user["biography"]) ?>
+                                                </a>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <ul>
+                                        
+                                        <li>
+                                            <b class="text-left">
+                                                <?=__("Change password: "); ?>
+                                            </b>
+                                            <?=  $this->Html->link(
+                                                            'Change password',
+                                                            
+                                                            ['controller' => 'Users', 'action' => 'resetpassword', $user["id"]]
+                                                        ); ?>
+                                                </a>
+                                        </li>
+                                        <li>
+                                            <b class="text-left">
+                                                <?=__("biography "); ?>
+                                            </b>
+                                            <?=h($user["biography"]) ?>
+                                                </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="tab-content" style="background-color:#eee;">
+                                    <div>                                         
+                                        <?= $this->Form->create($user ,["class"=>"form-horizontal"]) ?>
+                                            <fieldset>
+                                                <!-- Form Name -->
+                                                <legend><?= __("User Edit") ?></legend>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label" for="textinput"><?= __("User Name") ?></label>
+                                                    <div class="col-sm-12 col-md-3">                                                        
+                                                        <?= $this->Form->control('username',["class"=>"form-control","placeholder" =>__('User Name'),"label"=> false] ); ?>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('Last Name') ?></label>
+                                                    <div class="col-sm-12 col-md-3">
+                                                    <?= $this->Form->control('last_name',["class"=>"form-control","placeholder" =>__('Last Name'),"label"=> false] ); ?>                                                        
+                                                    </div>
+                                                </div>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('First Name') ?></label>
+                                                    <div class="col-sm-12 col-md-3">
+                                                    <?= $this->Form->control('first_name',["class"=>"form-control","placeholder" =>__('First Name'),"label"=> false] ); ?>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('Email') ?></label>
+                                                    <div class="col-sm-12 col-md-3">
+                                                    <?= $this->Form->control('email',["class"=>"form-control","placeholder" =>__('Em@il'),"label"=> false] ); ?>
+                                                    </div>
+
+                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('Biography') ?></label>
+                                                    <div class="col-sm-12 col-md-3">                                                        
+                                                        <?= $this->Form->control('biography',["class"=>"form-control","placeholder" =>__('Biography'),"label"=> false] ); ?>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <div class="pull-right">
+                                                            <?= $this->Form->button(__('Save'),["class"=>"btn btn-success"]) ?>
+                                                            <?= $this->Form->end() ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>                                         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+ 
