@@ -1,6 +1,6 @@
  
   <ul class="navbar-nav side-nav">
-  <?php if ( $role =="Admin" && !isset($role)  ) {
+  <?php if ( isset($role) && $role =="Admin" ) {
            
            ?>
   <li class="nav-item active">

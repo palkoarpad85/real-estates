@@ -126,8 +126,7 @@ class AppController extends Controller
         $opt["view"] = $this->request->param("action");
         $opt["controller"] = $this->request->param("controller");
         $boolen = false;
-        $users = TableRegistry::get('Users')->find('Roles', $opt)->first();
-        
+        $users = TableRegistry::get('Users')->find('Roles', $opt)->first();        
         $this->set('role', $users['_matchingData']['Roles']['name']);         
         if ($users["count"] >= 1) {
             return true;

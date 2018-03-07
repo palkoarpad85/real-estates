@@ -368,7 +368,7 @@ class UsersController extends AppController
             'contain' => ['Phones', 'Roles', 'Realestates']
         ]);
 
-        $this->set('user', $user);
+        $this->set('entity', $user);
     }
 
 
