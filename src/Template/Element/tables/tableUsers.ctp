@@ -20,7 +20,12 @@
            } 
         } ?>
         </td>
-        <td><?= h($value->email) ?></td>
+        <td><?= $this->Text->truncate(h($value->email),
+                                      10,
+                                      [
+                                       'ellipsis' => '...',
+                                       'exact' => false
+                                      ]) ?></td>
         <td><?= h($value->created) ?></td>
 
         <td>

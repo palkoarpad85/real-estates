@@ -50,7 +50,7 @@
                                     </h4>
                                     <hr>
                                     <ul>
-                                        <li>
+                                        <li class="timeli">
                                             <b class="text-left">
                                                 <?=__("Realestates count: "); ?>
                                             </b>
@@ -59,7 +59,7 @@
                                             </a>
                                         </li>
 
-                                        <li>
+                                        <li class="timeli">
                                             <b class="text-left">
                                                 <?=__("Active Realestates count: "); ?>
                                             </b>
@@ -69,41 +69,44 @@
                                     </ul><hr>
                                     <ul>
                                         
-                                        <li>
+                                        <li class="timeli max-width">
                                             <b class="text-left">
-                                                <?=__("email "); ?>
+                                                <?=__("Email "); ?>
                                             </b>
                                             <?=h($user["email"]) ?>
                                                 </a>
                                         </li>
-                                        <li>
+                                        <li class="timeli">
                                             <b class="text-left">
                                                 <?=__("biography "); ?>
                                             </b>
-                                            <?=h($user["biography"]) ?>
+                                        </li>
+                                        <li class="timeli max-width">     
+                                            <?= $this->Text->truncate(h($user["biography"]),
+                                                    50,
+                                                    [
+                                                    'ellipsis' => '...',
+                                                    'exact' => false,
+                                                    'class'=>'max-width'
+                                                    ]) ?>
                                                 </a>
                                         </li>
                                     </ul>
                                     <hr>
                                     <ul>
                                         
-                                        <li>
+                                        <li class="timeli">
                                             <b class="text-left">
                                                 <?=__("Change password: "); ?>
                                             </b>
                                             <?=  $this->Html->link(
-                                                            'Change password',
-                                                            
+                                                            'Change password',                                                            
                                                             ['controller' => 'Users', 'action' => 'resetpassword', $user["id"]]
                                                         ); ?>
                                                 </a>
                                         </li>
-                                        <li>
-                                            <b class="text-left">
-                                                <?=__("biography "); ?>
-                                            </b>
-                                            <?=h($user["biography"]) ?>
-                                                </a>
+                                        <li class="timeli">
+                                             
                                         </li>
                                     </ul>
 
@@ -123,7 +126,7 @@
                                                 <!-- Text input-->
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label" for="textinput"><?= __("User Name") ?></label>
-                                                    <div class="col-sm-12 col-md-3">                                                        
+                                                    <div class="col-sm-12 col-md-4">                                                        
                                                         <?= $this->Form->control('username',["class"=>"form-control","placeholder" =>__('User Name'),"label"=> false] ); ?>
                                                     </div>
                                                 </div>
@@ -131,7 +134,7 @@
                                                 <!-- Text input-->
                                                 <div class="form-group">
                                                     <label class="col-sm-2 control-label" for="textinput"><?= __('Last Name') ?></label>
-                                                    <div class="col-sm-12 col-md-3">
+                                                    <div class="col-sm-12 col-md-4">
                                                     <?= $this->Form->control('last_name',["class"=>"form-control","placeholder" =>__('Last Name'),"label"=> false] ); ?>                                                        
                                                     </div>
                                                 </div>
@@ -139,7 +142,7 @@
                                                 <!-- Text input-->
                                                 <div class="form-group">
                                                     <label class="col-sm-2 control-label" for="textinput"><?= __('First Name') ?></label>
-                                                    <div class="col-sm-12 col-md-3">
+                                                    <div class="col-sm-12 col-md-4">
                                                     <?= $this->Form->control('first_name',["class"=>"form-control","placeholder" =>__('First Name'),"label"=> false] ); ?>
                                                     </div>
                                                 </div>
@@ -147,12 +150,12 @@
                                                 <!-- Text input-->
                                                 <div class="form-group">
                                                     <label class="col-sm-2 control-label" for="textinput"><?= __('Email') ?></label>
-                                                    <div class="col-sm-12 col-md-3">
+                                                    <div class="col-sm-12 col-md-4">
                                                     <?= $this->Form->control('email',["class"=>"form-control","placeholder" =>__('Em@il'),"label"=> false] ); ?>
                                                     </div>
 
                                                     <label class="col-sm-2 control-label" for="textinput"><?= __('Biography') ?></label>
-                                                    <div class="col-sm-12 col-md-3">                                                        
+                                                    <div class="col-sm-12 col-md-4">                                                        
                                                         <?= $this->Form->control('biography',["class"=>"form-control","placeholder" =>__('Biography'),"label"=> false] ); ?>
                                                     </div>
                                                 </div>

@@ -21,7 +21,7 @@ class RealestatesController extends AppController
     {
         $this->now = new Time();
 
-        $this->Auth->allow(['add','index']);
+        $this->Auth->allow(['add','index','view']);
     }
 
     /**
