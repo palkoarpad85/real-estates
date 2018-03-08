@@ -93,8 +93,7 @@
                                         </li>
                                     </ul>
                                     <hr>
-                                    <ul>
-                                        
+                                    <ul>                                        
                                         <li class="timeli">
                                             <b class="text-left">
                                                 <?=__("Change password: "); ?>
@@ -102,6 +101,16 @@
                                             <?=  $this->Html->link(
                                                             'Change password',                                                            
                                                             ['controller' => 'Users', 'action' => 'resetpassword', $user["id"]]
+                                                        ); ?>
+                                                </a>
+                                        </li>
+                                        <li class="timeli">
+                                            <b class="text-left">
+                                                <?=__("Edit Phone: "); ?>
+                                            </b>
+                                            <?=  $this->Html->link(
+                                                            'Edit Phone',                                                            
+                                                            ['controller' => 'Phones', 'action' => 'index']
                                                         ); ?>
                                                 </a>
                                         </li>

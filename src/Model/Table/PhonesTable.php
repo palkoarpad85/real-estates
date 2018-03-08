@@ -88,4 +88,15 @@ class PhonesTable extends Table
 
         return $validator;
     }
+
+    public function findUserPhones(Query $query, array $opt){
+        return       
+        $query
+              ->innerJoinWith('Users', function ($q) use ($opt) {            
+                     return $q->WHERE(['Users.id'=> $opt["id"]]);
+                              
+        })      
+        ->WHERE(['Phones.active' => 1]);
+        
+    }
 }

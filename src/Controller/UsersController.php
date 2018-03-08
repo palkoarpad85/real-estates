@@ -367,21 +367,19 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $opt["id"] = $id;
         
-        $user = $this->Users->find()
-        ->contain(['Phones', 'Realestates.Types'])
-        ->where(['Users.id'=>$id])
-        
-        ->toArray();
+        $user = $this->Users->get($id, [
+            'contain' => [ 'Realestates']]);
 
-        dd($user);
-       $realEstatesCount       = count($user->realestates);
-       $opt["id"] =$id; 
-       $realEstatesActiveCount = $this->Users->find("ActiveRealestates",$opt)->first();  
- 
+       
+       $realEstatesCount       = count($user->realestates);      
+       $realEstatesActiveCount = $this->Users->find("ActiveRealestatesCount",$opt)->first();  
+       $realEstatesActive   = $this->Users->find("ActiveRealestates",$opt)->toArray();
         $this->set('entity', $user);
         $this->set('realEstatesCount', $realEstatesCount);
         $this->set('realEstatesActiveCount', $realEstatesActiveCount);
+        $this->set('realEstatesActive', $realEstatesActive);
     }
 
 

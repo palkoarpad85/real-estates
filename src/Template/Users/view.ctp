@@ -113,8 +113,10 @@ use Cake\I18n\Number;
                 <ul class="timeline timeline-inverse">
                   
                 
-                <?php foreach ($entity['realestates'] as  $value) { ?>
-                <!-- timeline time label -->
+                <?php foreach ($realEstatesActive as  $val) { 
+                
+                $value = $val["_matchingData"]["Realestates"];?>
+                
                   <li class="time-label">
                         <span class="bg-red">
                           <?=  $this->Time->format(

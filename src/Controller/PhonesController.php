@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\I18n\I18n;
 /**
  * Phones Controller
  *
@@ -13,6 +15,14 @@ use App\Controller\AppController;
 class PhonesController extends AppController
 {
 
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->now = new Time();  
+
+    }
+
     /**
      * Index method
      *
@@ -20,9 +30,13 @@ class PhonesController extends AppController
      */
     public function index()
     {
-        $phones = $this->paginate($this->Phones);
-
-        $this->set(compact('phones'));
+        $userId["id"] = $this->Auth->user("id");     
+       
+        $tableValues = $this->Phones->find("UserPhones",$userId)  ;       
+               
+      
+        $tableValues = $this->paginate($tableValues);
+        $this->set(compact('tableValues'));
     }
 
     /**
@@ -48,10 +62,10 @@ class PhonesController extends AppController
      */
     public function add()
     {
-        $phone = $this->Phones->newEntity();
+        $entity = $this->Phones->newEntity();
         if ($this->request->is('post')) {
-            $phone = $this->Phones->patchEntity($phone, $this->request->getData());
-            if ($this->Phones->save($phone)) {
+            $entity = $this->Phones->patchEntity($entity, $this->request->getData());
+            if ($this->Phones->save($entity)) {
                 $this->Flash->success(__('The phone has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -60,7 +74,7 @@ class PhonesController extends AppController
         }
         $realestates = $this->Phones->Realestates->find('list', ['limit' => 200]);
         $users = $this->Phones->Users->find('list', ['limit' => 200]);
-        $this->set(compact('phone', 'realestates', 'users'));
+        $this->set(compact('entity', 'realestates', 'users'));
     }
 
     /**

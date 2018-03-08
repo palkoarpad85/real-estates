@@ -18,7 +18,7 @@
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
-            <span class="fa fa-lock form-control-feedback"></span>
+            <span class="form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
             <?= $this->Form->control('new_password', array(
@@ -29,7 +29,7 @@
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
-            <span class="fa fa-lock form-control-feedback"></span>
+            <span class="form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
             <?= $this->Form->control('password_confirm', array(
@@ -40,7 +40,7 @@
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
-            <span class="fa fa-lock form-control-feedback"></span>
+            <span class=" form-control-feedback"></span>
         </div>
        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>
@@ -69,7 +69,7 @@
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
-            <span class="fa fa-lock form-control-feedback"></span>
+            <span class=" form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
             <?= $this->Form->control('new_password', array(
@@ -80,7 +80,7 @@
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
-            <span class="fa fa-lock form-control-feedback"></span>
+            <span class=" form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
             <?= $this->Form->control('password_confirm', array(
@@ -91,7 +91,7 @@
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
-            <span class="fa fa-lock form-control-feedback"></span>
+            <span class=" form-control-feedback"></span>
         </div>
        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>

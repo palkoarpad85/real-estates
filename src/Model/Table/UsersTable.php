@@ -142,7 +142,7 @@ class UsersTable extends Table
                 ])
                 ->notEmpty('confirm_password');          */
 
-////////////////////////////////////////////////////////////////////////////////////
+         ////////////////////////////////////////////////////////////////////////////////////
 
         $validator
             ->email('email')
@@ -279,14 +279,23 @@ class UsersTable extends Table
             ->WHERE(['Users.id'=> $opt["id"]]);
     }
 
-
-    public function findActiveRealestates(Query $query, array $opt){
+    public function findActiveRealestatesCount(Query $query, array $opt){
         return       
         $query->SELECT( ['count' => $query->func()->count('*')]) 
               ->innerJoinWith('Realestates', function ($q) {            
                 return $q->where(['Realestates.active' => 1]);                
         })      
             ->WHERE(['Users.id'=> $opt["id"]]);
+    }
+
+    public function findActiveRealestates(Query $query, array $opt){
+        return       
+        $query->SELECT( ['Realestates.created','Realestates.city','Realestates.street','Realestates.state','Realestates.price']) 
+              ->innerJoinWith('Realestates', function ($q) {            
+                return $q->where(['Realestates.active' => 1]);                
+        })      
+            ->WHERE(['Users.id'=> $opt["id"]])
+            ->order(['Realestates.created' => 'ASC']);
     }
 
 }
