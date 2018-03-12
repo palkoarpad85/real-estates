@@ -21,13 +21,7 @@
                     <i class="fa fa-envelope"></i>
                     </span>
                 </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                    <div class="form-group service-form-group">
-                                        <label class="control-label sr-only" for="phone"></label>
-                                        <input id="phone" type="text" placeholder="Phone" class="form-control" required>
-                                        <div class="form-icon"><i class="fa fa-phone"></i></div>
-                                    </div>
-                                </div>
+              
                 <div class="form-group has-feedback">
                     <?= $this->Form->control('password', array(
                         'type' => 'password',
@@ -37,7 +31,7 @@
                         'class' => 'form-control form-control-success',
                         'escape' => false
                     )); ?>
-                    <span class="fa fa-lock form-control-feedback"></span>
+                    <span class=" form-control-feedback"></span>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                 <br>

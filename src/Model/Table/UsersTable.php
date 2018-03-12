@@ -161,10 +161,10 @@ class UsersTable extends Table
             ->allowEmpty('last_name');
 
         $validator
-            ->scalar('avatar')
-            ->maxLength('avatar', 255)
-            ->requirePresence('avatar', 'create')
-            ->notEmpty('avatar');
+            ->scalar('avatar')   
+                    
+            ->allowEmpty('avatar');
+           
 
         $validator
             ->scalar('biography')

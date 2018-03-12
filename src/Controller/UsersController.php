@@ -398,7 +398,17 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user->modified    = $this->now;
             $user->modified_by = $user->id;
+            $file = $this->request->data['avatar']; 
             
+            $image = new Imagick($file["tmp_name"]);
+
+            $image->thumbnailImage(120, 120);       
+
+            echo $image;
+            dd($image);
+            $fileName = $this->uploadImage($file);
+           
+            $user->avatar = $fileName;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
@@ -434,6 +444,20 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function uploadImage($file)
+    {
+        
+        $file['name'] =   str_replace(' ', '_', $file['name']); // timestamp files to prevent clobber
+        if (move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/avatar/' . $file['name'])) {
+             
+            return  $file['name'];            
+        } else {
+            
+            $this->Flash->error(__('Could not upload the file'));
+        }
+    
     }
 
     /**

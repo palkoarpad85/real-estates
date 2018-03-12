@@ -9,7 +9,7 @@
         
             <section class="content-header">
                 <h2>
-                    <?=__('Add a '.$this->name)?>
+                    <?=__('Edit a '.$this->name)?>
                 </h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb ">

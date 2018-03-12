@@ -1,11 +1,7 @@
 <?php foreach ($tableValues as $value): ?>
     <tr>
         <td><?= $this->Number->format($value->id) ?></td>
-        <td class="form-group"><?php if (h($value->active)==1) {
-            echo  "<span class='fas fa-check'></span>";
-            }else {
-                echo  "<span class='fas fa-times'></span>";
-            } ?> </td>
+       
    
         <td><?= h($value->phoneNumber) ?></td>
         <td><?= h($value->created) ?></td>

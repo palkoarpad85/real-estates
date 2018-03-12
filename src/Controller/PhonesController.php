@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use Cake\I18n\Time;
 use Cake\I18n\I18n;
@@ -48,11 +49,11 @@ class PhonesController extends AppController
      */
     public function view($id = null)
     {
-        $phone = $this->Phones->get($id, [
-            'contain' => ['Realestates', 'Users']
+        $entity = $this->Phones->get($id, [
+            'contain' => ['Realestates']
         ]);
 
-        $this->set('phone', $phone);
+        $this->set('entity', $entity);
     }
 
     /**
@@ -63,18 +64,34 @@ class PhonesController extends AppController
     public function add()
     {
         $entity = $this->Phones->newEntity();
+      
         if ($this->request->is('post')) {
+            
+        
             $entity = $this->Phones->patchEntity($entity, $this->request->getData());
-            if ($this->Phones->save($entity)) {
-                $this->Flash->success(__('The phone has been saved.'));
+            $entity->active      = 1;
+            $entity->created_by  = $this->Auth->user("id");
+            $entity->created     = $this->now;
+            $entity->modified_by = $this->Auth->user("id");
+            $entity->modified    = $this->now;
 
-                return $this->redirect(['action' => 'index']);
+           
+            if ($this->Phones->save($entity)) {                               
+                $phonesUsers =  TableRegistry::get('PhonesUsers');
+                $phonesUser  = $phonesUsers->newEntity();
+                $phonesUser->phone_id = $entity->id;
+                $phonesUser->user_id  = $this->Auth->user("id");
+               
+                if ($phonesUsers->save($phonesUser)) {
+                    $this->Flash->success(__('The phone has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+                             
             }
             $this->Flash->error(__('The phone could not be saved. Please, try again.'));
         }
-        $realestates = $this->Phones->Realestates->find('list', ['limit' => 200]);
-        $users = $this->Phones->Users->find('list', ['limit' => 200]);
-        $this->set(compact('entity', 'realestates', 'users'));
+        
+        $this->set(compact('entity'));
     }
 
     /**
@@ -86,12 +103,14 @@ class PhonesController extends AppController
      */
     public function edit($id = null)
     {
-        $phone = $this->Phones->get($id, [
-            'contain' => ['Realestates', 'Users']
+        $entity = $this->Phones->get($id, [
+            'contain' => ['Realestates']
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $phone = $this->Phones->patchEntity($phone, $this->request->getData());
-            if ($this->Phones->save($phone)) {
+           
+            $entity = $this->Phones->patchEntity($entity, $this->request->getData());
+            if ($this->Phones->save($entity)) {
                 $this->Flash->success(__('The phone has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -99,8 +118,8 @@ class PhonesController extends AppController
             $this->Flash->error(__('The phone could not be saved. Please, try again.'));
         }
         $realestates = $this->Phones->Realestates->find('list', ['limit' => 200]);
-        $users = $this->Phones->Users->find('list', ['limit' => 200]);
-        $this->set(compact('phone', 'realestates', 'users'));
+        
+        $this->set(compact('entity', 'realestates'));
     }
 
     /**
@@ -114,7 +133,9 @@ class PhonesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $phone = $this->Phones->get($id);
-        if ($this->Phones->delete($phone)) {
+        $phone->active = 0;
+
+        if ($this->Phones->save($phone)) {
             $this->Flash->success(__('The phone has been deleted.'));
         } else {
             $this->Flash->error(__('The phone could not be deleted. Please, try again.'));

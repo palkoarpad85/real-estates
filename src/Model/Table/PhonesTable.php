@@ -72,9 +72,14 @@ class PhonesTable extends Table
 
         $validator
             ->scalar('phoneNumber')
-            ->maxLength('phoneNumber', 255)
             ->requirePresence('phoneNumber', 'create')
-            ->notEmpty('phoneNumber');
+            ->notEmpty('phoneNumber')
+            ->add('phoneNumber',[
+                'length' => [
+                    'rule' => ['lengthBetween', 10, 14],
+                    'message' => __("The phone number may consist of a minimum of 10 and a maximum of 11 digits. And Phone number mask : 36 20 222 3344")
+                ]
+            ]);
 
         $validator
             ->integer('created_by')

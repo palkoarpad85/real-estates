@@ -39,7 +39,7 @@
                             <div class="box box-primary" style="background-color:#eee;">
                                 <div class="box-body box-profile">
                                     <div class=" text-center">
-                                        <?= $this->Html->image($user["avatar"], ['alt' => 'CakePHP','class'=>'profile_img']); ?>
+                                        <?= $this->Html->image("avatar/".$user["avatar"], ['alt' => 'CakePHP','class'=>'profile_img']); ?>
                                     </div>
                                     <h3 class="profile-username text-center">
                                         <?=h($user["last_name"])?>
@@ -127,7 +127,7 @@
                             <div class="col-md-9">
                                 <div class="tab-content" style="background-color:#eee;">
                                     <div>                                         
-                                        <?= $this->Form->create($user ,["class"=>"form-horizontal"]) ?>
+                                        <?= $this->Form->create($user ,["class"=>"form-horizontal", "type" => "file"]) ?>
                                             <fieldset>
                                                 <!-- Form Name -->
                                                 <legend><?= __("User Edit") ?></legend>
@@ -168,6 +168,16 @@
                                                         <?= $this->Form->control('biography',["class"=>"form-control","placeholder" =>__('Biography'),"label"=> false] ); ?>
                                                     </div>
                                                 </div>
+
+                                                <div class="form-group">                                                   
+                                                    <div class="col-sm-12 col-md-4">
+                                                        <span  class="btn btn-default btn-file btn btn-primary">
+                                                        <?= $this->Form->input('avatar', ['type' => 'file', 'label'=>'Avatar upload', 'required'=>'false']); ?>
+                                                        </span>                                                    
+                                                    </div>
+                                                </div>
+
+                                               
 
                                                 <div class="form-group">
                                                     <div class="col-sm-offset-2 col-sm-10">
