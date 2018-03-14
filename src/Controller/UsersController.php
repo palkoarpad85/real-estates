@@ -10,6 +10,9 @@ use Cake\Utility\Inflector;
 use Cake\Core\Configure;
 use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\TableRegistry;
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 
 /**
  * Users Controller
@@ -399,14 +402,12 @@ class UsersController extends AppController
             $user->modified    = $this->now;
             $user->modified_by = $user->id;
             $file = $this->request->data['avatar']; 
-            
-            $image = new Imagick($file["tmp_name"]);
+                    
+            Image::configure();
 
-            $image->thumbnailImage(120, 120);       
-
-            echo $image;
-            dd($image);
-            $fileName = $this->uploadImage($file);
+            $image = Image::make($file["tmp_name"])->resize(150, 150)->save(WWW_ROOT . 'img/avatar/' . $file['name']);
+           
+            $fileName =$file['name'];
            
             $user->avatar = $fileName;
             if ($this->Users->save($user)) {
