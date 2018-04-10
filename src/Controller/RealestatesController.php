@@ -2,9 +2,13 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
+use App\Controller\Component\GoogleTrait;
 use Cake\I18n\Time;
-
+use Cake\Event\Event;
+use Cake\I18n\I18n;
+use Cake\Mailer\MailerAwareTrait;
+use  MongoDB\BSON\toJSON;
+use Cake\Filesystem\File;   
 /**
  * Realestates Controller
  *
@@ -14,14 +18,14 @@ use Cake\I18n\Time;
  */
 class RealestatesController extends AppController
 {
-
+	use GoogleTrait;
 
 
     public function beforeFilter(Event $event)
     {
+        parent::beforeFilter($event);
         $this->now = new Time();
-
-        $this->Auth->allow(['add','index','view']);
+        $this->Auth->allow(['index','view']);
     }
 
     /**
@@ -32,11 +36,29 @@ class RealestatesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings']
+            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings','Images']
         ];
         $realestates = $this->paginate($this->Realestates);
+       
+        $types = $this->Realestates->Types->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]); 
+                $opt[]= "";
+        
+        $citys = $this->Realestates
+        ->find('list', ['valueField' => 'city'])
+        ->select(['city'])
+        ->distinct('city')
+        ->where(['active' => 1]);
+         
+        $categories = $this->Realestates->Categories->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]);
         
         $this->set(compact('realestates'));
+        $this->set(compact('categories'));
+        $this->set(compact('citys'));
+        $this->set(compact('types'));
     }
 
     /**
@@ -63,26 +85,118 @@ class RealestatesController extends AppController
     public function add()
     {
         $realestate = $this->Realestates->newEntity();
+     
+        $user = $this->request->session()->read('Auth.User');
         if ($this->request->is('post')) {
-            $realestate = $this->Realestates->patchEntity($realestate, $this->request->getData());
-            if ($this->Realestates->save($realestate)) {
-                $this->Flash->success(__('The realestate has been saved.'));
+        if (!isset($this->request->params['_csrfToken']) || ($this->request->params['_csrfToken'] != $this->request->cookies['csrfToken'])) {
+                $this->Security->blackHoleCallback = '__blackhole';
+            } else {
 
-                return $this->redirect(['action' => 'index']);
+                
+                $now = new Time();
+
+                $data = $this->request->getData();
+              
+                if (!isset($data["locality"]) || $data["locality"] == "" ) {
+                    $this->Flash->error(__('Un a google addres is empty try again.'));
+                } else {
+
+                    $json_a = $this->googleaddresscordinate($data);
+
+                    $state = $this->getstate($json_a);
+                    $city = $this->getcity($json_a);
+                    $street = $this->getstreet($json_a);
+                    $housenumber = $this->gethousenumber($json_a);
+                    $zipCode = $this->getzipCode($json_a);
+                    $district = $this->getDistrict($json_a);
+
+                    $lat = $json_a['results']['0']['geometry']['location']['lat'];
+                    $lng = $json_a['results']['0']['geometry']['location']['lng'];
+
+                    $images[] = $data["images"];
+                     
+                    $realestate = $this->Realestates->patchEntity($realestate, $data);
+                    $realestate->user_id = $user["id"];
+                    $realestate->active = true;
+                    $realestate->state = $state;
+                    $realestate->city = $city;
+                    $realestate->street = $street;
+                    $realestate->zipCode = $zipCode != "" ? $zipCode : 0;
+                    $realestate->district = $district;
+                    $realestate->latitude = $lat;
+                    $realestate->longitude = $lng;
+                    $realestate->created_by = $user["id"];
+                    $realestate->created = $now;
+                    $realestate->modified_by = $user["id"];
+                    $realestate->modified = $now;
+                    $realestate->houseNumber = $housenumber;
+                    $realestate->comment = htmlspecialchars($data["comment"]);
+                    $realestate->built_year=$data["built_year"]['year'];
+                    
+                   
+                    if ($realestate->images[0]["name"] != "") {
+                        foreach ($images[0] as $key => $item) {
+
+                            $r = $this->generateRandomString();
+                            if (!empty($item['name'])) {
+                                $fileName = $r . "_" . substr($item['name'], -7);
+                                $type = substr($item["type"], 6);
+
+                                $uploadPath = 'img/File/Image/';
+                                $uploadFile = $uploadPath . $fileName . "." . $type;
+
+                                if (move_uploaded_file($item['tmp_name'], $uploadFile)) {
+                                    
+                                    $realestate->images[$key]["name"] = $fileName;
+                                    $realestate->images[$key]["active"] = 1;
+                                    $realestate->images[$key]["created_by"] = $user["id"];
+                                    $realestate->images[$key]["modified_by"] = $user["id"];
+
+                                } else {
+                                    $this->Flash->error(__('Unable to upload file, please try again.'));
+                                }
+                            } else {
+                                $this->Flash->error(__('Please choose a file to upload.'));
+                            }
+                        }
+                    } else {
+                        $realestate->images = null;
+                    }
+
+                 
+                    if ($this->Realestates->save($realestate)) {
+                        $this->Flash->success(__('The realestate has been saved.'));
+                        return $this->redirect(['action' => 'index']);
+                    }
+                   
+                    $this->Flash->error(__('The realestate could not be saved. Please, try again.'));
+                }
+                
             }
-            $this->Flash->error(__('The realestate could not be saved. Please, try again.'));
         }
-        $users = $this->Realestates->Users->find('list', ['limit' => 200]);
-        $types = $this->Realestates->Types->find('list', ['limit' => 200]);
-        $categories = $this->Realestates->Categories->find('list', ['limit' => 200]);
-        $convenienceGrades = $this->Realestates->ConvenienceGrades->find('list', ['limit' => 200]);
-        $heatingTypes = $this->Realestates->HeatingTypes->find('list', ['limit' => 200]);
-        $conditionOfProperties = $this->Realestates->ConditionOfProperties->find('list', ['limit' => 200]);
-        $parkings = $this->Realestates->Parkings->find('list', ['limit' => 200]);
-        $phones = $this->Realestates->Phones->find('list', ['limit' => 200]);
-        $this->set(compact('realestate', 'users', 'types', 'categories', 'convenienceGrades', 'heatingTypes', 'conditionOfProperties', 'parkings', 'phones'));
+
+        $types                 = $this->toList($this->Realestates->Types->find('active', ['limit' => 200])->toArray());
+        $categories            = $this->toList($this->Realestates->Categories->find('active', ['limit' => 200]));
+        $convenienceGrades     = $this->toList($this->Realestates->ConvenienceGrades->find('active', ['limit' => 200]));
+        $heatingTypes          = $this->toList($this->Realestates->HeatingTypes->find('active', ['limit' => 200]));
+        $conditionOfProperties = $this->toList($this->Realestates->ConditionOfProperties->find('active', ['limit' => 200]));
+        $parkings              = $this->toList($this->Realestates->Parkings->find('active', ['limit' => 200]));        
+        $array                 = $this->Realestates->Phones->find("UserPhones",$user)->toList();
+
+
+        foreach ($array as $key => $value) { 
+            $phones[$value["id"]]=$value["phoneNumber"];
+        }
+        
+     
+        $this->set(compact('realestate', 'users', 'types', 'categories', 'convenienceGrades', 'heatingTypes', 'parkings', 'conditionOfProperties','phones'));
+        $this->set('_serialize', ['realestate']);
+        
+    
     }
 
+
+    
     /**
      * Edit method
      *
@@ -95,25 +209,193 @@ class RealestatesController extends AppController
         $realestate = $this->Realestates->get($id, [
             'contain' => ['Phones']
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $realestate = $this->Realestates->patchEntity($realestate, $this->request->getData());
-            if ($this->Realestates->save($realestate)) {
-                $this->Flash->success(__('The realestate has been saved.'));
+        $user = $this->request->session()->read('Auth.User');
+            if ($this->request->is(['patch', 'post', 'put'])) {
+              
+                
+                    if (!isset($this->request->params['_csrfToken']) || ($this->request->params['_csrfToken'] != $this->request->cookies['csrfToken'])) {
+                            $this->Security->blackHoleCallback = '__blackhole';
+                        } else {
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The realestate could not be saved. Please, try again.'));
+                            $now = new Time();
+                            $error = false;
+                            $data = $this->request->getData();
+                            
+                            if (isset($data["locality"])) {
+            
+                                $json_a = $this->googleaddresscordinate($data);                                
+
+                                $state = $this->getstate($json_a);
+                                $city = $this->getcity($json_a);
+                                $street = $this->getstreet($json_a);
+                                $housenumber = $this->gethousenumber($json_a);
+                                $zipCode = $this->getzipCode($json_a);
+                                $district = $this->getDistrict($json_a);
+            
+                                $lat = $json_a['results']['0']['geometry']['location']['lat'];
+                                $lng = $json_a['results']['0']['geometry']['location']['lng'];
+
+                                
+                                $realestate = $this->Realestates->patchEntity($realestate, $data);
+                                $realestate->state = $state;
+                                $realestate->city = $city;
+                                $realestate->street = $street;
+                                $realestate->zipCode = $zipCode != "" ? $zipCode : 0;
+                                $realestate->district = $district;
+                                $realestate->latitude = $lat;
+                                $realestate->longitude = $lng;
+                                $realestate->modified_by = $user["id"];
+                                $realestate->modified = $now;
+                                $realestate->houseNumber = $housenumber;
+                                $realestate->comment = htmlspecialchars($data["comment"]);
+                                $realestate->built_year=$data["built_year"]['year'];
+                            }
+                            else{
+                                if($data["googlecity"]=="")
+                                {
+                                    $this->Flash->error(__('Nem atdál meg cimet'));
+                                    $error = true;
+
+                                }else{
+                                    if ($data["googlecity"]!=($realestate->city.", ".$realestate->street.", ".$realestate->houseNumber)) {
+                                        $this->Flash->error(__('Nem atdál meg cimet'));
+                                        $error = true;
+                                    }
+                                    else{
+                                        $error = false;
+
+                                        $realestate = $this->Realestates->patchEntity($realestate, $data);
+                                        $realestate->modified_by = $user["id"];
+                                        $realestate->modified = $now;
+                                        $realestate->comment = htmlspecialchars($data["comment"]);
+                                        $realestate->built_year=$data["built_year"]['year'];
+                                    }
+                                    
+
+                                }
+                                
+                            }
+     
+                        if (!$error) {
+                            
+                            if($this->Realestates->save($realestate)){
+                                $this->Flash->success(__('The realestate has been saved.'));
+                                return $this->redirect(['action' => 'index']);
+                            }                           
+                           
+                        }
+                        else{
+                            $this->Flash->error(__('The realestate could nqot be saved. Please, try again.'));
+                        }                        
+                }         
+        }     
+
+        $types                 = $this->toList($this->Realestates->Types->find('active', ['limit' => 200])->toArray());
+        $categories            = $this->toList($this->Realestates->Categories->find('active', ['limit' => 200]));
+        $convenienceGrades     = $this->toList($this->Realestates->ConvenienceGrades->find('active', ['limit' => 200]));
+        $heatingTypes          = $this->toList($this->Realestates->HeatingTypes->find('active', ['limit' => 200]));
+        $conditionOfProperties = $this->toList($this->Realestates->ConditionOfProperties->find('active', ['limit' => 200]));
+        $parkings              = $this->toList($this->Realestates->Parkings->find('active', ['limit' => 200]));        
+        $array                 = $this->Realestates->Phones->find("UserPhones",$user)->toList();
+
+
+        foreach ($array as $key => $value) { 
+            $phones[$value["id"]]=$value["phoneNumber"];
         }
-        $users = $this->Realestates->Users->find('list', ['limit' => 200]);
-        $types = $this->Realestates->Types->find('list', ['limit' => 200]);
-        $categories = $this->Realestates->Categories->find('list', ['limit' => 200]);
-        $convenienceGrades = $this->Realestates->ConvenienceGrades->find('list', ['limit' => 200]);
-        $heatingTypes = $this->Realestates->HeatingTypes->find('list', ['limit' => 200]);
-        $conditionOfProperties = $this->Realestates->ConditionOfProperties->find('list', ['limit' => 200]);
-        $parkings = $this->Realestates->Parkings->find('list', ['limit' => 200]);
-        $phones = $this->Realestates->Phones->find('list', ['limit' => 200]);
-        $this->set(compact('realestate', 'users', 'types', 'categories', 'convenienceGrades', 'heatingTypes', 'conditionOfProperties', 'parkings', 'phones'));
+        
+     
+        $this->set(compact('realestate', 'users', 'types', 'categories', 'convenienceGrades', 'heatingTypes', 'parkings', 'conditionOfProperties','phones'));
+         
+        
     }
+
+    public function deleteImage($id = null) {
+
+        $this->request->allowMethod(['post', 'delete']);
+        $image = $this->loadModel('Images');
+        $images = $image->get($id);
+
+        $fileName = $images->name; 
+        if ($image->delete($images)) {
+            $uploadPath = 'img\File\Image\\';
+            $uploadFile = $uploadPath . $fileName;
+            $file = new File(WWW_ROOT . $uploadFile, false, 0777);
+         
+            if($file->delete()) {
+                $this->Flash->success(__('The user has been deleted.'));
+            }
+            
+            
+        } else {
+            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+
+    public function editImage($id = null)
+    {
+        $realestate = $this->Realestates->get($id, [
+            'contain' => ['Images']
+        ]);
+        $user = $this->request->session()->read('Auth.User');
+
+            if ($this->request->is(['patch', 'post', 'put'])) {
+            
+                
+                    if (!isset($this->request->params['_csrfToken']) || ($this->request->params['_csrfToken'] != $this->request->cookies['csrfToken'])) {
+                            $this->Security->blackHoleCallback = '__blackhole';
+                        } else {
+
+                            $now = new Time();
+                            $error = false;
+                            $data = $this->request->getData();
+                            $images[] = $data["images"];
+                           
+                            $realestate = $this->Realestates->patchEntity($realestate, $data);
+
+                        foreach ($images[0] as $key => $item) {
+
+                            $r = $this->generateRandomString();
+                            if (!empty($item['name'])) {
+                                $fileName = $r . "_" . substr($item['name'], -7);                                
+
+                                $uploadPath = 'img/File/Image/';
+                                $uploadFile = $uploadPath . $fileName;
+
+                                if (move_uploaded_file($item['tmp_name'], $uploadFile)) {
+                                    
+                                    $realestate->images[$key]["name"] = $fileName;
+                                    $realestate->images[$key]["active"] = 1;
+                                    $realestate->images[$key]["created_by"] = $user["id"];
+                                    $realestate->images[$key]["modified_by"] = $user["id"];
+
+                                } else {
+                                    $this->Flash->error(__('Unable to upload file, please try again.'));
+                                }
+                            } else {
+                                $this->Flash->error(__('Please choose a file to upload.'));
+                            }
+                        }
+                    } 
+
+                             
+                            if($this->Realestates->save($realestate)){
+                                $this->Flash->success(__('The realestate has been saved.'));
+                                return $this->redirect(['action' => 'index']);
+                            } else{
+                                $this->Flash->success(__('The realestate has  not saved.'));
+                                 
+                            }                          
+                                                
+                }   
+                $this->set(compact('realestate'));
+        }    
+       
+    
+   
+
 
     /**
      * Delete method
@@ -133,5 +415,23 @@ class RealestatesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    private function generateRandomString($length = 50)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    private function toList($inputArray){
+        foreach ($inputArray as $key => $value) { 
+            $outPutArray[$value["id"]]=$value["name"];
+       }
+       return $outPutArray;
     }
 }

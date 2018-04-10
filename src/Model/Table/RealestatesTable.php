@@ -93,9 +93,21 @@ class RealestatesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->decimal('price')
-            ->requirePresence('price', 'create')
-            ->notEmpty('price');
+            ->numeric('price',__('Csak szám lehet.'))
+            ->requirePresence('price', 'create')            
+            ->notEmpty('price', __('It can\'t be empty.'))     
+            ->minLength('price', 2, __('Nem lehet 10 Ft nél kisebb.'));  
+               
+        $validator 
+            ->integer('type_id')
+            ->requirePresence('type_id', 'create',__('It can\'t be empty.'))                  
+            ->notEmpty('type_id', __('It can\'t be empty.'))   
+            ;
+
+        $validator
+            ->integer('category_id')
+            ->requirePresence('category_id', 'create',__('It can\'t be empty.'))      
+            ->notEmpty('category_id', __('It can\'t be empty.'));    
 
         $validator
             ->integer('rooms_numbers')
@@ -143,7 +155,7 @@ class RealestatesTable extends Table
             ->allowEmpty('visitors');
 
         $validator
-            ->date('built_year')
+            ->integer('built_year')
             ->allowEmpty('built_year');
 
         $validator
@@ -221,5 +233,14 @@ class RealestatesTable extends Table
         $rules->add($rules->existsIn(['parking_id'], 'Parkings'));
 
         return $rules;
+    }
+
+    public function findActiveCity(Query $query, array $opt){
+        return       
+        $query->SELECT( ['Realestates.city']) 
+                         
+                ->where(['Realestates.active' => 1])                
+            
+            ->order(['Realestates.city' => 'ASC']);
     }
 }

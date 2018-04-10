@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\I18n\I18n;
 use App\Controller\AppController;
 
 /**
@@ -13,6 +15,13 @@ use App\Controller\AppController;
 class PhonesUsersController extends AppController
 {
 
+
+    public function beforeFilter(Event $event)
+    {
+       // parent::beforeFilter($event);
+        $this->now = new Time();   
+        $this->Auth->allow(['add','index','view']);    
+    }
     /**
      * Index method
      *

@@ -36,7 +36,7 @@ class PhonesTable extends Table
         parent::initialize($config);
 
         $this->setTable('phones');
-        $this->setDisplayField('id');
+        $this->setDisplayField('phoneNumber');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -96,12 +96,11 @@ class PhonesTable extends Table
 
     public function findUserPhones(Query $query, array $opt){
         return       
-        $query
+        $query->Select(['id','phoneNumber'])
               ->innerJoinWith('Users', function ($q) use ($opt) {            
-                     return $q->WHERE(['Users.id'=> $opt["id"]]);
-                              
+                     return $q->WHERE(['Users.id'=> $opt["id"]]);     
         })      
         ->WHERE(['Phones.active' => 1]);
-        
+      
     }
 }

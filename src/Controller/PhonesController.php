@@ -16,12 +16,10 @@ use Cake\I18n\I18n;
 class PhonesController extends AppController
 {
 
-
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->now = new Time();  
-
+        $this->now = new Time();        
     }
 
     /**
@@ -33,7 +31,7 @@ class PhonesController extends AppController
     {
         $userId["id"] = $this->Auth->user("id");     
        
-        $tableValues = $this->Phones->find("UserPhones",$userId)  ;       
+        $tableValues = $this->Phones->find("UserPhones",$userId);       
                
       
         $tableValues = $this->paginate($tableValues);

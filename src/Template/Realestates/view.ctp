@@ -4,33 +4,78 @@
  * @var \App\Model\Entity\Realestate $realestate
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Realestate'), ['action' => 'edit', $realestate->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Realestate'), ['action' => 'delete', $realestate->id], ['confirm' => __('Are you sure you want to delete # {0}?', $realestate->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Realestates'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Realestate'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Types'), ['controller' => 'Types', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Type'), ['controller' => 'Types', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Convenience Grades'), ['controller' => 'Conveniencegrades', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Convenience Grade'), ['controller' => 'Conveniencegrades', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Heating Types'), ['controller' => 'Heatingtypes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Heating Type'), ['controller' => 'Heatingtypes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Condition Of Properties'), ['controller' => 'Conditionofproperties', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Condition Of Property'), ['controller' => 'Conditionofproperties', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Parkings'), ['controller' => 'Parkings', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Parking'), ['controller' => 'Parkings', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Images'), ['controller' => 'Images', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Image'), ['controller' => 'Images', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Phones'), ['controller' => 'Phones', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Phone'), ['controller' => 'Phones', 'action' => 'add']) ?> </li>
+ <?php $this->layout = 'default';?>
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-6">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+
+    <?php if(isset($realestate->images)){
+      foreach($realestate->images as $key => $real):
+        if($key==0) {
+            print_r("<li data-target='#carouselExampleIndicators' data-slide-to='".$key."'class='active'></li>");
+        }else {
+            print_r("<li data-target='#carouselExampleIndicators' data-slide-to='".$key."'></li>");
+        }
+     endforeach; 
+    }
+    ?>
+
+  </ol>
+  <div class="carousel-inner">
+
+    <?php if(isset($realestate->images)){
+      foreach($realestate->images as $key=>$real):
+        if($key==0) {
+            print_r("<div class='carousel-item active'>");
+            echo $this->Html->image('File/Image/'.$real['name'], ['alt' => '', 'class'=>'d-block max-heigth']);
+            print_r("</div>");
+        }else {
+            print_r("<div class='carousel-item'>");
+            echo $this->Html->image('File/Image/'.$real['name'], ['alt' => '', 'class'=>'d-block max-heigth']);
+            print_r("</div>");
+        }
+     endforeach; 
+    }
+    else{
+        print_r("<div class='carousel-item active'>
+                  <img class='d-block w-100 h-50' src='http://kutyas.kepek1.hu/kep/kutyas-kepek_5.jpg'></div>");
+    }
+    ?>
+  </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+    </div>
+    <div class="col-md-6">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><h1><?= h($realestate->city) ?> <?= h($realestate->street) ?></h1></li>
+        <li class="list-group-item"> <?= __("Price:"); echo $this->Number->format($realestate->price) ?> Ft</li>
+        <li class="list-group-item"> <?= __("Type: "); echo h($realestate->type->name) ?></li>
+        <li class="list-group-item"> <?= __("Category: "); echo h($realestate->category->name) ?></li>
+        <li class="list-group-item"> <?= __("Convenience Grade: "); echo h($realestate->convenience_grade->name) ?></li>
+       
+
+
+        
+ 
     </ul>
-</nav>
+    </div>
+
+
+    </div>
+</div>
+ 
+
+<hr>
 <div class="realestates view large-9 medium-8 columns content">
     <h3><?= h($realestate->id) ?></h3>
     <table class="vertical-table">
@@ -70,13 +115,10 @@
             <th scope="row"><?= __('State') ?></th>
             <td><?= h($realestate->state) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('City') ?></th>
-            <td><?= h($realestate->city) ?></td>
-        </tr>
+      
         <tr>
             <th scope="row"><?= __('Street') ?></th>
-            <td><?= h($realestate->street) ?></td>
+            <td></td>
         </tr>
         <tr>
             <th scope="row"><?= __('HouseNumber') ?></th>
@@ -92,7 +134,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Price') ?></th>
-            <td><?= $this->Number->format($realestate->price) ?></td>
+            <td></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Rooms Numbers') ?></th>

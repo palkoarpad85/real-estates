@@ -105,9 +105,9 @@ class Realestates extends AbstractMigration
             'limit' => 10,
             'null' => true,
         ])
-        ->addColumn('built_year', 'date', [
+        ->addColumn('built_year', 'integer', [
             'default' => null,
-            'limit' => 255,
+            'limit' => 10,
             'null' => true,
         ])
         ->addColumn('zipCode', 'string', [

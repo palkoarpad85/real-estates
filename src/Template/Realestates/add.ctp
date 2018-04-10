@@ -1,72 +1,417 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Realestate $realestate
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Realestates'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Types'), ['controller' => 'Types', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Type'), ['controller' => 'Types', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Convenience Grades'), ['controller' => 'Conveniencegrades', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Convenience Grade'), ['controller' => 'Conveniencegrades', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Heating Types'), ['controller' => 'Heatingtypes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Heating Type'), ['controller' => 'Heatingtypes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Condition Of Properties'), ['controller' => 'Conditionofproperties', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Condition Of Property'), ['controller' => 'Conditionofproperties', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Parkings'), ['controller' => 'Parkings', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Parking'), ['controller' => 'Parkings', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Images'), ['controller' => 'Images', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Image'), ['controller' => 'Images', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Phones'), ['controller' => 'Phones', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Phone'), ['controller' => 'Phones', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="realestates form large-9 medium-8 columns content">
-    <?= $this->Form->create($realestate) ?>
-    <fieldset>
-        <legend><?= __('Add Realestate') ?></legend>
-        <?php
-            echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('type_id', ['options' => $types, 'empty' => true]);
-            echo $this->Form->control('category_id', ['options' => $categories, 'empty' => true]);
-            echo $this->Form->control('convenienceGrade_id', ['options' => $convenienceGrades, 'empty' => true]);
-            echo $this->Form->control('heatingType_id', ['options' => $heatingTypes, 'empty' => true]);
-            echo $this->Form->control('conditionOfProperty_id', ['options' => $conditionOfProperties, 'empty' => true]);
-            echo $this->Form->control('parking_id', ['options' => $parkings, 'empty' => true]);
-            echo $this->Form->control('price');
-            echo $this->Form->control('rooms_numbers');
-            echo $this->Form->control('half_room_numbers');
-            echo $this->Form->control('floor_number');
-            echo $this->Form->control('floor_number_sum');
-            echo $this->Form->control('floor_area');
-            echo $this->Form->control('land_area');
-            echo $this->Form->control('elevator');
-            echo $this->Form->control('external_storage');
-            echo $this->Form->control('comment');
-            echo $this->Form->control('premium', ['empty' => true]);
-            echo $this->Form->control('visitors');
-            echo $this->Form->control('built_year', ['empty' => true]);
-            echo $this->Form->control('zipCode');
-            echo $this->Form->control('state');
-            echo $this->Form->control('city');
-            echo $this->Form->control('street');
-            echo $this->Form->control('houseNumber');
-            echo $this->Form->control('district');
-            echo $this->Form->control('latitude');
-            echo $this->Form->control('longitude');
-            echo $this->Form->control('active');
-            echo $this->Form->control('created_by');
-            echo $this->Form->control('modified_by');
-            echo $this->Form->control('phones._ids', ['options' => $phones]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="container">
+ 
+    <?= $this->Form->create($realestate,['class' => 'needs-validation','type' => 'file','novalidate']) ?>
+     
+    <div class="row">
+        <div class="col-md-6">
+                <div class="form-row">
+                        <div class="col-md-6 ">
+                                <div class="form-group">
+                                         <?= $this->Form->control('type_id', ['class'=>'custom-select','label' =>__('Types'), 'empty' => true,'required']);?>
+                                         <span class=" form-control-feedback "></span>
+                                </div>    
+                        </div>
+                        <div class="col-md-6">
+                         
+                                    <div class="form-group">
+                                            <?= $this->Form->control('category_id', ['options' => $categories,
+                                             'class'=>'custom-select', 'empty' => true ,'required','label' =>__('Categories')] );?>
+                                             <span class=" form-control-feedback "></span>
+                                    </div>   
+                        </div>
+                </div>
+                <div class="form-row">
+                        <div class="col-md-6 ">                        
+                                <div class="form-group has-feedback">
+                                    <?= $this->Form->control('price', array(
+                                        'type' => 'number',
+                                        'label' =>  __("Price") ,                                                       
+                                        'placeholder' => __('Price'),
+                                        'class' => 'form-control',
+                                        'escape' => false
+                                        ,'required'
+                                    )); ?>
+                                    <span class=" form-control-feedback "></span>
+                                </div>                    
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group has-feedback">
+                                        <?= $this->Form->control('googlecity', array(
+                                            'type' => 'text',
+                                            'label' =>  __("Address") ,                                                       
+                                            'placeholder' => __('Address'),
+                                            'class' => 'form-control',
+                                            'id' => 'autocomplete',
+                                            'escape' => false
+                                            ,'required'=>true
+                                        )); ?>
+                                        <span class=" form-control-feedback "></span>
+                                </div>
+                        </div>
+                </div>
+                <div class="form-row">
+                        <div class="col-md-6 ">
+                                <div class="form-group has-feedback">
+                                        <?= $this->Form->control('built_year', array(
+                                            'type' => 'year',
+                                            'minYear' => date('Y')-200, 
+                                            'maxYear' => date('Y')-0+1, 
+                                            'label' =>  __("Build year"),
+                                            'class' => 'form-control',
+                                            'empty' => __('- change -'),                                            
+                                        )); ?>
+                                        <span class=" form-control-feedback "></span>
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                                  
+                        </div>
+                </div>
+                <div class="form-row">
+                        <div class="col-md-6 ">                   
+                                <div class="form-group has-feedback">
+                                        <?php  $sizes = ['0' => '0', '1' => '1', '2' => '2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7',
+                                                '8'=>'8','9'=>'9','10'=>'10'];
+                                            echo $this->Form->control('rooms_numbers',  array('type' => 'select','options'=>$sizes,
+                                                    'label'=>__('Rooms numbers'),
+                                                    'class' => 'custom-select',
+                                                    'empty' => true,
+                                                    'required' => false
+                                                )
+                                            ); ?>
+                                </div>
+                            </div>
+
+                        <div class="col-md-6">
+
+                                <div class="form-group has-feedback">
+                                        <?php  $sizes = ['0' => '0', '1' => '1', '2' => '2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7',
+                                                '8'=>'8','9'=>'9','10'=>'10'];
+                                            echo $this->Form->control('half_room_numbers',  array('type' => 'select','options'=>$sizes,
+                                                    'label'=>__('Half Rooms numbers'),
+                                                    'class' => 'custom-select',
+                                                    'empty' => true,
+                                                    'required' => false
+                                                )
+                                            ); ?>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+                <div id="map"  style="min-width: 250px; height: 250px;"></div>
+        </div>
+    </div>
+    
+
+        <div class="form-row">        
+            <div class="col-md-3 mb-3">
+                <div class="form-group has-feedback">
+                                        <?= $this->Form->control('floor_area', array(
+                                            'type' => 'number',
+                                            'label' =>  __("Floor area") ,                                                       
+                                            'placeholder' => __('Floor area'),
+                                            'class' => 'form-control',
+                                            'escape' => false
+                                            
+                                        )); ?>
+                                        <span class=" form-control-feedback "></span>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                    <div class="form-group has-feedback">
+                            <?= $this->Form->control('land_area', array(
+                                'type' => 'number',
+                                'label' =>  __("Land area"),                                                       
+                                'placeholder' => __('Land area'),
+                                'class' => 'form-control',
+                                'escape' => false
+                                
+                            )); ?>
+                            <span class=" form-control-feedback "></span>
+                    </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                    <div class="form-group">
+                            <?= $this->Form->control('heatingType_id', ['options' => $heatingTypes,
+                             'class'=>'custom-select','label' =>  __("Heating Type"), 'empty' => true ] );?>
+                    </div>   
+                </div>
+
+                <div class="col-md-3 mb-3">
+                        <div class="form-group">
+                                <?= $this->Form->control('conditionOfProperty_id', ['options' => $conditionOfProperties,
+                                 'class'=>'custom-select','label' =>  __("Condition Of Property"), 'empty' => true ] );?>
+                        </div> 
+                    </div>
+        </div>
+
+<div class="form-row">
+                 <div class="col-md-3 mb-3">
+                    <div class="form-group has-feedback">
+                            <?= $this->Form->control('balcony_size', array(
+                                'type' => 'number',
+                                'label' =>  __("Balcony size"),                                                       
+                                'placeholder' => __('Balcony size'),
+                                'class' => 'form-control',
+                                'escape' => false
+                                
+                            )); ?>
+                            <span class=" form-control-feedback "></span>
+                    </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                
+
+                        <div class="form-group has-feedback">
+                                <?php  $elevator = ['0' => __('No'), '1' => __('Yes')];
+                                            echo $this->Form->control('half_room_numbers',  array('type' => 'select','options'=>$elevator,
+                                                    'label'=>__('Elevator'),
+                                                    'class' => 'custom-select',
+                                                    'empty' => true,
+                                                    'required' => false
+                                                )
+                                            ); ?>
+                                <span class=" form-control-feedback "></span>
+                        </div>  
+            </div>
+
+            <div class="col-md-3 mb-3">
+                    <div class="form-group has-feedback">
+                            <?php  
+                                        echo $this->Form->control('convenienceGrade_id',  array('type' => 'select',
+                                                'label'=>__('Convenience grade'),
+                                                'class' => 'custom-select',
+                                                'empty' => true,
+                                                'required' => false
+                                            )
+                                        ); ?>
+                            <span class=" form-control-feedback "></span>
+                    </div>    
+                </div>
+
+                <div class="col-md-3 mb-3">
+                        <div class="form-group has-feedback">
+                                <?php 
+                                            echo $this->Form->control('parkings',  array('type' => 'select',
+                                                    'label'=>__('Parkings'),
+                                                    'class' => 'custom-select',
+                                                    'empty' => true,
+                                                    'required' => false
+                                                )
+                                            ); ?>
+                                <span class=" form-control-feedback "></span>
+                        </div>  
+                    </div> 
 </div>
+ 
+<div class="form-row">     
+            <div class="col-md-3 mb-3">
+                    <div class="form-group has-feedback">
+                            <?php  $sizes = ['0' => '0', '1' => '1', '2' => '2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7',
+                                    '8'=>'8','9'=>'9','10'=>'10'];
+                                echo $this->Form->control('floor_number',  array('type' => 'select','options'=>$sizes,
+                                        'label'=>__('Floor numbers'),
+                                        'class' => 'custom-select',
+                                        'empty' => true,
+                                        'required' => false
+                                    )
+                                ); ?>
+                    </div>                 
+            </div>
+
+            <div class="col-md-3 mb-3">
+                    <div class="form-group has-feedback">
+                            <?php  $sizes = ['0' => '0', '1' => '1', '2' => '2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7',
+                                    '8'=>'8','9'=>'9','10'=>'10'];
+                                echo $this->Form->control('floor_number_sum',  array('type' => 'select','options'=>$sizes,
+                                        'label'=>__('Floor numbers numbers'),
+                                        'class' => 'custom-select',
+                                        'empty' => true,
+                                        'required' => false
+                                    )
+                                ); ?>
+                    </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                    <div class="form-group has-feedback">
+                            <?php  $external_storage = ['0' => __('No'), '1' => __('Yes')];
+                                        echo $this->Form->control('external_storage',  array('type' => 'select','options'=>$external_storage,
+                                                'label'=>__('External storage'),
+                                                'class' => 'custom-select',
+                                                'empty' => true,
+                                                'required' => false
+                                            )
+                                        ); ?>
+                            <span class=" form-control-feedback "></span>
+                    </div>  
+  
+                </div>
+
+                <div class="col-md-3 mb-3">
+                        <div class="form-group has-feedback">
+                                <?php  
+
+                                        echo $this->Form->control('phones._ids', 
+                                                                ['class' => 'form-control js-multiple',
+                                                                 'multiple'=>'multiple',
+                                                                 'label' => __('Phones')]);  
+
+                                            ?>
+                                <span class=" form-control-feedback "></span>
+                        </div>    
+                            
+                    </div>
+</div>
+
+<div class="form-row">
+     
+    <div class="col-md-6 mb-6">
+            <div class="form-group has-feedback">
+                    <?= $this->Form->control('comment', array(
+                        'type' => 'textarea',
+                        'label' =>  __("Comment") ,                                                       
+                        'placeholder' => __('Comment'),
+                        'class' => 'form-control',
+                        'escape' => false,
+                        'rows' => 5,
+                        'required' => false
+                        
+                    )); ?>
+                    <span class=" form-control-feedback "></span>
+            </div>
+             
+             
+    </div>
+    <div class="col-md-6    ">
+            <label for="validationCustomUsername"><?= __("Images") ?></label>
+            
+                    <div class="row ">
+                      <div class="col-sm-12 ">
+                        
+                        <div class="form-group inputDnD">
+                          <label class="sr-only" for="inputFile">File Upload</label>
+                          <?php echo $this->Form->control('images[]', ['type' => 'file', 'multiple' => 'true','class'=>'form-control-file text-primary font-weight-bold','onchange'=>'readUrl(this)','data-title'=>'Drag and drop a file',
+                                            'required' => false, 'label' => false
+                                    ]
+                                    ); ?> </div>
+                      </div>
+                    </div>
+        </div>
+        
+</div>
+
+
+                    <?= $this->Form->unlockField('country');?>
+                    <?= $this->Form->unlockField('locality');?>
+                    <?= $this->Form->unlockField('postal_code');?>
+                    <?= $this->Form->unlockField('street_number');?>
+                    <?= $this->Form->unlockField('route');?>
+                    <?= $this->Form->unlockField('googlecity');?>
+                    <?= $this->Form->unlockField('sublocality_level_1');?>
+                    <?= $this->Form->unlockField('administrative_area_level_1');?>
+                    <?= $this->Form->unlockField('images');?>
+                    <?= $this->Form->unlockField('images.name');?>
+                    <?= $this->Form->unlockField('images.type');?>
+                    <?= $this->Form->unlockField('images.tmp_name');?>
+                    <?= $this->Form->unlockField('images.error');?>
+                    <?= $this->Form->unlockField('images.size');?>
+
+                    <div id="hidden">
+                     
+                    </div>
+                    <?= $this->Form->button (__ ('Submit'), ["class" => "btn btn-primary"]) ?>
+                    <?= $this->Form->end () ?>
+</div>
+<br>
+ 
+
+</div>
+<script>
+        function initMap() {
+    
+    
+            var myLatLng = {lat: 47.1048, lng:19.3};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 7,
+            });
+    
+    
+            var input = document.getElementById('autocomplete');
+            var options = {componentRestrictions: {country: 'hu'}};
+            var autocomplete = new google.maps.places.Autocomplete(input,options);
+    
+            var marker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29)
+            });
+    
+    
+            autocomplete.addListener('place_changed', function() {
+                marker.setVisible(false);
+                var place = autocomplete.getPlace();
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(19);
+                }
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
+    
+    
+                var place = autocomplete.getPlace();  
+                var array = $.map(place, function(value, index) {
+                    return [value];
+                });
+    
+    
+                for (var i = 0; i < array['0'].length; i++) {
+                    var input = document.createElement("input");
+                    input.setAttribute("type", "hidden");
+                    input.setAttribute("name",array['0'][i]['types'][0] );
+                    input.setAttribute("value",array['0'][i]['long_name']);
+                  
+                     document.getElementById("hidden").append(input);
+                }
+            });
+        }
+    </script>  
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPe8BzIiSGd8fO1niV_nd419WH-Ti6Ddk&libraries=places&callback=initMap" async defer></script>
+    
+<script>
+
+ 
+
+
+
+function readUrl(input) {
+
+if (input.files && input.files[0]) {
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var imgData = e.target.result;
+    var imgName =new Array();
+    var i=0;
+    for (i = 0; i < input.files.length; i++) { 
+        imgName[i]= input.files[i].name;
+    }
+    input.setAttribute("data-title", imgName);
+   
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+}
+</script>
+ <script>
+    $(document).ready(function() {
+    $('.js-multiple').select2();
+});
+</script>
