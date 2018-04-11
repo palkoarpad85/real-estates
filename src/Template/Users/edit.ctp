@@ -48,6 +48,11 @@
                                     <h4 class="profile-username text-center">
                                         <?=h($user["username"])?>
                                     </h4>
+                                    <div class=" text-center">       
+                                    <button type="button"  class="btn btn-default btn-file btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    <?= __('Change Profile Picture  ')?>
+                                    </button>                                                           
+                                     </div>           
                                     <hr>
                                     <ul>
                                         <li class="timeli">
@@ -127,7 +132,7 @@
                             <div class="col-md-9">
                                 <div class="tab-content" style="background-color:#eee;">
                                     <div>                                         
-                                        <?= $this->Form->create($user ,["class"=>"form-horizontal", "type" => "file"]) ?>
+                                        <?= $this->Form->create($user ,["class"=>"form-horizontal"]) ?>
                                             <fieldset>
                                                 <!-- Form Name -->
                                                 <legend><?= __("User Edit") ?></legend>
@@ -169,19 +174,10 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">                                                   
-                                                    <div class="col-sm-12 col-md-4">
-                                                        <span  class="btn btn-default btn-file btn btn-primary">
-                                                        <?= $this->Form->input('avatar', ['type' => 'file', 'label'=>'Avatar upload', 'required'=>'false']); ?>
-                                                        </span>                                                    
-                                                    </div>
-                                                </div>
-
-                                               
-
                                                 <div class="form-group">
                                                     <div class="col-sm-offset-2 col-sm-10">
                                                         <div class="pull-right">
+                                                         
                                                             <?= $this->Form->button(__('Save'),["class"=>"btn btn-success"]) ?>
                                                             <?= $this->Form->end() ?>
                                                         </div>
@@ -199,3 +195,37 @@
             </div>
         </div>
  
+        <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title"><?= __('Change Profile Picture') ?></h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <?= $this->Form->create($user ,["class"=>"form-horizontal", "type" => "file"]) ?>    
+                     <?= __('Upload Image:') ?>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                        <div class="col-sm-3">
+                    <?= $this->Form->input('avatar', ['type' => 'file', 'label'=>False, 'required'=>'false']); ?>
+                             
+                        </div>
+                </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        
+                        
+                            <?= $this->Form->button(__('Save'),["class"=>"btn btn-success"]) ?>
+                            <?= $this->Form->end() ?>
+                    </div>
+                     
+                  </div>
+                </div>
+              </div>

@@ -83,4 +83,10 @@ class ConveniencegradesTable extends Table
 
         return $validator;
     }
+
+    public function findactive(Query $query, array $opt)
+    {
+        return $query
+            ->Where(['active' => 1]);
+    }
 }

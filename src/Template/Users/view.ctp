@@ -41,7 +41,7 @@ use Cake\I18n\Number;
                             <div class="box box-primary" style="background-color:#eee;">
                                 <div class="box-body box-profile">
                                     <div class=" text-center">
-                                        <?= $this->Html->image($entity["avatar"], ['alt' => 'CakePHP','class'=>'profile_img']); ?>
+                                        <?= $this->Html->image("avatar/".$entity["avatar"], ['alt' => 'CakePHP','class'=>'profile_img']); ?>
                                     </div>
                                     <h3 class="profile-username text-center">
                                         <?=h($entity["last_name"])?>

@@ -87,8 +87,7 @@ p:last-child {
     margin: 0px;
 }
 
-ul,
-ol {}
+
 
 a {
     text-decoration: none;
@@ -126,7 +125,7 @@ sub {
     font-size: 50px;
     color: #4cbec5;
     display: inline-block;
-    float: left;
+    
     padding-right: 40px;
     padding-top: 7px;
 }
@@ -135,12 +134,12 @@ sub {
     font-size: 20px;
 }
 
-.feature-left:last-child {}
+ 
 textarea.form-control {
     height: 90px;
 }
 
-.required {}
+ 
 
 .form-group {
     margin-bottom: 5px;

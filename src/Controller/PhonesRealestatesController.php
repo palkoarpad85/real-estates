@@ -16,9 +16,8 @@ class PhonesRealestatesController extends AppController
 {
     public function beforeFilter(Event $event)
     {
-        //parent::beforeFilter($event);
-        $this->Auth->allow(['index','view','edit','add']);
-                
+        parent::beforeFilter($event);
+        $this->now = new Time();        
     }
     /**
      * Index method

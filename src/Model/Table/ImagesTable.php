@@ -59,9 +59,7 @@ class ImagesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->boolean('active')
-            ->requirePresence('active', 'create')
-            ->notEmpty('active');
+            ->boolean('active');
 
         $validator
             ->scalar('name')

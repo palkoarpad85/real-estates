@@ -290,7 +290,7 @@ class UsersTable extends Table
 
     public function findActiveRealestates(Query $query, array $opt){
         return       
-        $query->SELECT( ['Realestates.created','Realestates.city','Realestates.street','Realestates.state','Realestates.price']) 
+        $query->SELECT( ['Realestates.id','Realestates.created','Realestates.city','Realestates.street','Realestates.state','Realestates.price']) 
               ->innerJoinWith('Realestates', function ($q) {            
                 return $q->where(['Realestates.active' => 1]);                
         })      

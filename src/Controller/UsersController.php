@@ -30,7 +30,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->now = new Time();
 
-        $this->Auth->allow(['login','register','resetpassword','changepassword','index','edit','view','verify','forgotPassword']);
+        $this->Auth->allow(['login','register','resetpassword','changepassword','view','verify','forgotPassword']);
     }
 
 
@@ -401,19 +401,24 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData());
             $user->modified    = $this->now;
             $user->modified_by = $user->id;
-            $file = $this->request->data['avatar']; 
+            if(isset($this->request->data['avatar'])){
+                $file = $this->request->data['avatar']; 
                     
-            Image::configure();
-
-            $image = Image::make($file["tmp_name"])->resize(150, 150)->save(WWW_ROOT . 'img/avatar/' . $file['name']);
-           
-            $fileName =$file['name'];
-           
-            $user->avatar = $fileName;
+                Image::configure();
+                $image = Image::make($file["tmp_name"])->resize(150, 150)->save(WWW_ROOT . 'img/avatar/' . $file['name']);
+                $fileName =$file['name'];               
+                $user->avatar = $fileName;
+            }
+            
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                if (isset($this->request->data['avatar'])) {
+                    $this->Flash->success(__('Profile profile upload successfully.'));
+                    return $this->redirect(['action' => 'edit',$id]);
+                }else{
+                    $this->Flash->success(__('The user has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+                
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }

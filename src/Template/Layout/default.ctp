@@ -13,7 +13,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'User';
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,21 +25,36 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
+  
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('user.css') ?>
+    <?= $this->Html->css('fontawesome-all.css') ?>
+    <?= $this->Html->css('select2.min.css') ?>
 
-    <?= $this->Html->css('bootstrap.css') ?>
-    <?= $this->Html->css('bootstrap-theme.css') ?>
+    <?= $this->Html->script('jquery.min.js') ?>
+    <?= $this->Html->script('bootstrap.js') ?>    
+    
+    <?= $this->Html->script('fontawesome-all.js') ?>
+    <?= $this->Html->script('select2.full.min.js') ?>
+    
+     
 
+    <?= $this->Html->script('user.js') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
+<body> 
+      
+       
+      <?= $this->element('navbar/top_menu_user'); ?> 
 
-    <?= $this->Flash->render() ?>
-    <div class="container">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
+            <?= $this->Flash->render() ?>
+
+            <?= $this->fetch('content') ?>
+   
+    <footer class="footer">
+   
+</footer>
 </body>
 </html>

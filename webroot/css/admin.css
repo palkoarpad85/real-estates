@@ -20,6 +20,19 @@ body{background:#fff;}
     margin-top: -3 !important;
 
 }
+
+.filebtn {
+    position: relative;
+    overflow: hidden;
+  }
+.profileImageUpload {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+
  
  .btnradio{
     margin-bottom: .0rem;

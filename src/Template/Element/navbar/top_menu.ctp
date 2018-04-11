@@ -46,17 +46,23 @@
         </li>
            
 
-          </li>
+          </li><?php if(isset($current_user["username"])){ ?>
           <li class="nav-item ">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <?php if(isset($current_user["username"])){echo $current_user["username"];}else{echo __("Login");} ?>
+           
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <?php echo $current_user["username"]; ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
               <?=$this->Html->link( __("<i class='far fa-user'></i> Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'dropdown-item', 'escape' => false])?>     
               <?=$this->Html->link( __("<i class='far fa-share-square'></i> Logout"), ['plugin' => false,'controller'=>'Users','action' => 'logout'], ['class'=>'dropdown-item', 'escape' => false])?>
               </div>
-
           </li>
+          <?php }
+            else{ ?>
+          <li class="nav-item active">
+          <?=$this->Html->link( __("<i class='far fa-user'></i> Login"), ['plugin' => false,'controller'=>'Users','action' => 'login'], ['class'=>'nav-link', 'escape' => false])?>     
+          </li>
+            <?php }?>
         </ul>
       </div>
 </nav>
