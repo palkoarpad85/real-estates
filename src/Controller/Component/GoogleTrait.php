@@ -25,7 +25,7 @@ protected function googleaddresscordinate($data){
         }
 
 
-        $url = "https://maps.google.com/maps/api/geocode/json?address=$locality&key=AIzaSyBPe8BzIiSGd8fO1niV_nd419WH-Ti6Ddk";
+        $url = "https://maps.google.com/maps/api/geocode/json?address=$locality&key=".\Cake\Core\Configure::read('Api.GoogleMapsKey');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -53,7 +53,7 @@ protected function googleaddresscordinate($data){
         $lan=$latitude['results']['0']['geometry']['location']['lat'];
         $lng=$latitude['results']['0']['geometry']['location']['lng'];
         
-         $url="https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lan.",".$lng."&key=AIzaSyBPe8BzIiSGd8fO1niV_nd419WH-Ti6Ddk";
+         $url="https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lan.",".$lng."&key=".\Cake\Core\Configure::read('Api.GoogleMapsKey');
          $ch = curl_init();
          curl_setopt($ch, CURLOPT_URL, $url);
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -128,7 +128,7 @@ protected function googleaddresscordinate($data){
 
         $lan=$json_a['results']['0']['geometry']['location']['lat'];
         $lng=$json_a['results']['0']['geometry']['location']['lng'];
-        $url="https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lan.",".$lng."&key=AIzaSyBPe8BzIiSGd8fO1niV_nd419WH-Ti6Ddk";
+        $url="https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lan.",".$lng."&key=".\Cake\Core\Configure::read('Api.GoogleMapsKey');
          $ch = curl_init();
          curl_setopt($ch, CURLOPT_URL, $url);
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -161,7 +161,7 @@ protected function googleaddresscordinate($data){
         $lan=$json_a['results']['0']['geometry']['location']['lat'];
         $lng=$json_a['results']['0']['geometry']['location']['lng'];
 
-        $url="http://api.opencagedata.com/geocode/v1/json?q=".$lan."+".$lng."&key=e002f8131c604dba9cb93692ac5eca37";
+        $url="http://api.opencagedata.com/geocode/v1/json?q=".$lan."+".$lng."&key=".\Cake\Core\Configure::read('Api.OpenCageDataKey');
         $ch = curl_init();
          curl_setopt($ch, CURLOPT_URL, $url);
          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

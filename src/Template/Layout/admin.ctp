@@ -30,7 +30,7 @@ $cakeDescription = 'Admin';
     <?= $this->Html->css('admin.css') ?>
     <?= $this->Html->css('fontawesome-all.css') ?>
     <?= $this->Html->css('select2.min.css') ?>
-
+    <?= $this->Html->css('premium.css') ?>
     <?= $this->Html->script('jquery.min.js') ?>
     <?= $this->Html->script('bootstrap.js') ?>    
     <?= $this->Html->script('admin.js') ?>

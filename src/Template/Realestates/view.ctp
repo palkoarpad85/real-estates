@@ -4,13 +4,19 @@
  * @var \App\Model\Entity\Realestate $realestate
  */
 ?>
- <?php $this->layout = 'default';?>
+    <?php $this->layout = 'default';?>
 
-<div class="container-fluid">
-    <div class="row">
-    <div class="col-md-6">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                    
+                        <h3>    <?=   h($realestate->category->name) ?> <?=   h($realestate->type->name) ?></h3>      
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
 
     <?php if(isset($realestate->images)){
       foreach($realestate->images as $key => $real):
@@ -22,11 +28,10 @@
      endforeach; 
     }
     ?>
+                    </ol>
+                    <div class="carousel-inner">
 
-  </ol>
-  <div class="carousel-inner">
-
-    <?php if(isset($realestate->images)){
+                        <?php if(isset($realestate->images)){
       foreach($realestate->images as $key=>$real):
         if($key==0) {
             print_r("<div class='carousel-item active'>");
@@ -44,241 +49,181 @@
                   <img class='d-block w-100 h-50' src='http://kutyas.kepek1.hu/kep/kutyas-kepek_5.jpg'></div>");
     }
     ?>
-  </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <hr>
+                <div id="map"  style="min-width: 250px; height: 350px;"></div>
+                <br>
+                <li class="list-group-item">
+                        <?= __("Visitors: "); echo $realestate->visitors ?>
+                    </li>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h1>
+                            <?= h($realestate->state) ?> 
+                            <?= __('State')?>:
+                            <?= h($realestate->city) ?>
+                        </h1>
+                        <h3><?= h('district') ?>:
+                            <?= h($realestate->district) ?>                            
+                        </h3>
+                        <h3>
+                            <?= h($realestate->street) ?>
+                            <?= h($realestate->houseNumber) ?>
+                        </h3>
+                        
+                    </li>
+                    <li class="list-group-item">
+                        <b style="font-size: 25px"><?= __("Price: "); echo $this->Number->format($realestate->price) ?> Ft</li></b>
+                   <?php if($realestate->convenience_grade != null){ ?>
+                    <li class="list-group-item" >
+                        <?= __("Convenience Grade: "); echo h($realestate->convenience_grade->name) ?>
+                    </li>
+                    <?php } ?>
+                    <?php if($realestate->heating_type != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Heating Type: "); echo h($realestate->heating_type->name) ?>
+                    </li>
+                    <?php } ?>
+                    <?php if($realestate->condition_of_property != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Condition Of Property: "); echo h($realestate->condition_of_property->name) ?>
+                    </li>
+                    <?php } ?>
+                    <?php if($realestate->parking != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Parking: "); echo h($realestate->parking->name) ?>
+                    </li>
+                    <?php } ?>
+                    <?php if($realestate->rooms_numbers != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Rooms Rumbers: "); echo h($realestate->rooms_numbers) ?>
+                    </li>
+                    <?php } ?>
+                    <?php if($realestate->room_numbers != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Rooms Numbers: "); echo h($realestate->room_numbers) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->half_room_numbers != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Half Rooms Numbers: "); echo h($realestate->half_room_numbers) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->floor_number != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Floor Number: "); echo h($realestate->floor_number) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->floor_number_sum != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Floor Number Sum: "); echo h($realestate->floor_number_sum) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->floor_number != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Floor Area: "); echo h($realestate->floor_number) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->floor_area != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Land Area: "); echo h($realestate->floor_area) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->built_year != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Built Year: "); echo h($realestate->built_year) ?>
+                    </li><?php } ?>
+                    <?php if($realestate->elevator != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("Elevator: "); echo $realestate->elevator ? __('Yes') : __('No') ?>
+                    </li><?php } ?>
+                    <?php if($realestate->external_storage != null){ ?>
+                    <li class="list-group-item">
+                        <?= __("External Storage: "); echo $realestate->external_storage ? __('Yes') : __('No') ?>
+                    </li><?php } ?>
+                    <?php if (!empty($realestate->phones)): ?>
+                    <li class="list-group-item">
+                      <?= __("Phones: "); ?><br>
+                      <?php foreach ($realestate->phones as $phones): ?>     
+                            <?=  h($phones->phoneNumber); ?>
+                             <br>
+                     <?php endforeach; ?>
+                    </li>
+                    
+                    <?php endif; ?>
+                   
+                </ul>
+            </div>
         </div>
+        <hr>
+        <div class="col-md-12">            
+                <?= __("Comment: ");?> <li class="list-group-item"><?= $this->Text->autoParagraph(h($realestate->comment)); ?>
+            </li>
+        </div>
+<br>
+<br>
+<br>
     </div>
-    <div class="col-md-6">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item"><h1><?= h($realestate->city) ?> <?= h($realestate->street) ?></h1></li>
-        <li class="list-group-item"> <?= __("Price:"); echo $this->Number->format($realestate->price) ?> Ft</li>
-        <li class="list-group-item"> <?= __("Type: "); echo h($realestate->type->name) ?></li>
-        <li class="list-group-item"> <?= __("Category: "); echo h($realestate->category->name) ?></li>
-        <li class="list-group-item"> <?= __("Convenience Grade: "); echo h($realestate->convenience_grade->name) ?></li>
-       
 
 
+
+    <script>
+            function initMap() {
         
- 
-    </ul>
-    </div>
-
-
-    </div>
-</div>
- 
-
-<hr>
-<div class="realestates view large-9 medium-8 columns content">
-    <h3><?= h($realestate->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $realestate->has('user') ? $this->Html->link($realestate->user->id, ['controller' => 'Users', 'action' => 'view', $realestate->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Type') ?></th>
-            <td><?= $realestate->has('type') ? $this->Html->link($realestate->type->name, ['controller' => 'Types', 'action' => 'view', $realestate->type->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Category') ?></th>
-            <td><?= $realestate->has('category') ? $this->Html->link($realestate->category->name, ['controller' => 'Categories', 'action' => 'view', $realestate->category->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Convenience Grade') ?></th>
-            <td><?= $realestate->has('convenience_grade') ? $this->Html->link($realestate->convenience_grade->name, ['controller' => 'Conveniencegrades', 'action' => 'view', $realestate->convenience_grade->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Heating Type') ?></th>
-            <td><?= $realestate->has('heating_type') ? $this->Html->link($realestate->heating_type->name, ['controller' => 'Heatingtypes', 'action' => 'view', $realestate->heating_type->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Condition Of Property') ?></th>
-            <td><?= $realestate->has('condition_of_property') ? $this->Html->link($realestate->condition_of_property->name, ['controller' => 'Conditionofproperties', 'action' => 'view', $realestate->condition_of_property->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Parking') ?></th>
-            <td><?= $realestate->has('parking') ? $this->Html->link($realestate->parking->name, ['controller' => 'Parkings', 'action' => 'view', $realestate->parking->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('ZipCode') ?></th>
-            <td><?= h($realestate->zipCode) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('State') ?></th>
-            <td><?= h($realestate->state) ?></td>
-        </tr>
-      
-        <tr>
-            <th scope="row"><?= __('Street') ?></th>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('HouseNumber') ?></th>
-            <td><?= h($realestate->houseNumber) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('District') ?></th>
-            <td><?= h($realestate->district) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($realestate->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Price') ?></th>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Rooms Numbers') ?></th>
-            <td><?= $this->Number->format($realestate->rooms_numbers) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Half Room Numbers') ?></th>
-            <td><?= $this->Number->format($realestate->half_room_numbers) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Floor Number') ?></th>
-            <td><?= $this->Number->format($realestate->floor_number) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Floor Number Sum') ?></th>
-            <td><?= $this->Number->format($realestate->floor_number_sum) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Floor Area') ?></th>
-            <td><?= $this->Number->format($realestate->floor_area) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Land Area') ?></th>
-            <td><?= $this->Number->format($realestate->land_area) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Visitors') ?></th>
-            <td><?= $this->Number->format($realestate->visitors) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Latitude') ?></th>
-            <td><?= $this->Number->format($realestate->latitude) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Longitude') ?></th>
-            <td><?= $this->Number->format($realestate->longitude) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created By') ?></th>
-            <td><?= $this->Number->format($realestate->created_by) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified By') ?></th>
-            <td><?= $this->Number->format($realestate->modified_by) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Premium') ?></th>
-            <td><?= h($realestate->premium) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Built Year') ?></th>
-            <td><?= h($realestate->built_year) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($realestate->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($realestate->modified) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Elevator') ?></th>
-            <td><?= $realestate->elevator ? __('Yes') : __('No'); ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('External Storage') ?></th>
-            <td><?= $realestate->external_storage ? __('Yes') : __('No'); ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Active') ?></th>
-            <td><?= $realestate->active ? __('Yes') : __('No'); ?></td>
-        </tr>
-    </table>
-    <div class="row">
-        <h4><?= __('Comment') ?></h4>
-        <?= $this->Text->autoParagraph(h($realestate->comment)); ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Phones') ?></h4>
-        <?php if (!empty($realestate->phones)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Active') ?></th>
-                <th scope="col"><?= __('PhoneNumber') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Created By') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col"><?= __('Modified By') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($realestate->phones as $phones): ?>
-            <tr>
-                <td><?= h($phones->id) ?></td>
-                <td><?= h($phones->active) ?></td>
-                <td><?= h($phones->phoneNumber) ?></td>
-                <td><?= h($phones->created) ?></td>
-                <td><?= h($phones->created_by) ?></td>
-                <td><?= h($phones->modified) ?></td>
-                <td><?= h($phones->modified_by) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Phones', 'action' => 'view', $phones->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Phones', 'action' => 'edit', $phones->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Phones', 'action' => 'delete', $phones->id], ['confirm' => __('Are you sure you want to delete # {0}?', $phones->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Related Images') ?></h4>
-        <?php if (!empty($realestate->images)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Realestate Id') ?></th>
-                <th scope="col"><?= __('Active') ?></th>
-                <th scope="col"><?= __('Name') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Created By') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col"><?= __('Modified By') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($realestate->images as $images): ?>
-            <tr>
-                <td><?= h($images->id) ?></td>
-                <td><?= h($images->realestate_id) ?></td>
-                <td><?= h($images->active) ?></td>
-                <td><?= h($images->name) ?></td>
-                <td><?= h($images->created) ?></td>
-                <td><?= h($images->created_by) ?></td>
-                <td><?= h($images->modified) ?></td>
-                <td><?= h($images->modified_by) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Images', 'action' => 'view', $images->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Images', 'action' => 'edit', $images->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Images', 'action' => 'delete', $images->id], ['confirm' => __('Are you sure you want to delete # {0}?', $images->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-</div>
+                
+                var myLatLng = {lat: <?php echo $realestate->latitude ?>, lng: <?php echo $realestate->longitude  ?>};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          center: myLatLng,
+                          zoom: 17,
+                        });
+        
+        
+                var input = document.getElementById('autocomplete');
+                var options = {componentRestrictions: {country: 'hu'}};
+                var autocomplete = new google.maps.places.Autocomplete(input,options);
+        
+                var marker = new google.maps.Marker({
+                      map: map,    
+                      position: myLatLng,
+                    })
+        
+        
+                autocomplete.addListener('place_changed', function() {
+                    marker.setVisible(false);
+                    var place = autocomplete.getPlace();
+                    if (place.geometry.viewport) {
+                        map.fitBounds(place.geometry.viewport);
+                    } else {
+                        map.setCenter(place.geometry.location);
+                        map.setZoom(19);
+                    }
+                    marker.setPosition(place.geometry.location);
+                    marker.setVisible(true);
+        
+        
+                    var place = autocomplete.getPlace();  
+                    var array = $.map(place, function(value, index) {
+                        return [value];
+                    });
+        
+        
+                    for (var i = 0; i < array['0'].length; i++) {
+                        var input = document.createElement("input");
+                        input.setAttribute("type", "hidden");
+                        input.setAttribute("name",array['0'][i]['types'][0] );
+                        input.setAttribute("value",array['0'][i]['long_name']);
+                      
+                         document.getElementById("hidden").append(input);
+                    }
+                });
+            }
+        </script>  
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPe8BzIiSGd8fO1niV_nd419WH-Ti6Ddk&libraries=places&callback=initMap" async defer></script>
+        
+     

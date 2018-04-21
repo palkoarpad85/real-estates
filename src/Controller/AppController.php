@@ -62,16 +62,16 @@ class AppController extends Controller
                 'action' => 'login',
             ],
             'loginRedirect' => [
-                'controller' => 'Users', //ide ugrik ha bejelentkezett
+                'controller' => 'Realestates', //ide ugrik ha bejelentkezett
                 'action' => 'index',
             ],
             'logoutRedirect' => [
-                'controller' => 'Users',
-                'action' => 'login',
+                'controller' => 'Realestates',
+                'action' => 'index',
             ],
             'unauthorizedRedirect' => [
-                'controller' => 'Users', //ide ugrik ha ninca jogosultága
-                'action' => 'login',
+                'controller' => 'Realestates', //ide ugrik ha ninca jogosultága
+                'action' => 'index',
             ],
             'storage' => 'Session',
         ]);

@@ -18,7 +18,7 @@
                         'autofocus'   =>true
                     )); ?>
                     <span class="form-icon">
-                    <i class="fa fa-envelope"></i>
+                   
                     </span>
                 </div>
               

@@ -76,7 +76,8 @@
                     <p class='card-text'><?= h($realestate->city) ?></p>
                      <?php
                     if (empty($realestate->images)) {
-                        echo 's';
+                        echo $this->Html->image('File/Image/real-estate.png', ['alt' => 'CakePHP', 'class'=>'index_img']);
+                        
                     }else{
                         echo $this->Html->image('File/Image/'.$realestate->images[0]['name'], ['alt' => 'CakePHP', 'class'=>'index_img']);
                     }

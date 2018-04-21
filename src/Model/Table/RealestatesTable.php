@@ -243,4 +243,11 @@ class RealestatesTable extends Table
             
             ->order(['Realestates.city' => 'ASC']);
     }
+
+    public function findUserRealestates(Query $query, array $opt){
+        return       
+        $query                
+            ->where(['Realestates.user' => $opt["userId"]]) 
+            ->order(['Realestates.crd' => 'ASC']);
+    }
 }

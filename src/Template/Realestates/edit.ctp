@@ -1,6 +1,6 @@
 <div class="container">
  
-    <?= $this->Form->create($realestate,['class' => 'needs-validation','type' => 'file','novalidate']) ?>
+    <?= $this->Form->create($realestate,['class' => 'needs-validation','id'=>'form','type' => 'file','novalidate']) ?>
      
     <div class="row">
         <div class="col-md-6">
@@ -376,4 +376,13 @@
     $(document).ready(function() {
     $('.js-multiple').select2();
 });
+
+$('#form').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+    e.preventDefault();
+    return false;
+  }
+});
 </script>
+

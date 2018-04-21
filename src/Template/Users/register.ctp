@@ -28,8 +28,7 @@
             'label' => false,
             'required' => true,
             'placeholder' => __('Em@il'),
-            'class' => 'form-control',
-            'escape' => false
+            'class' => 'form-control' 
         )); ?>
 
     </div>

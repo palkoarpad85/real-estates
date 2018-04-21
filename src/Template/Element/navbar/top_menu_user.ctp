@@ -8,11 +8,9 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav  justify-content-end rigth_menu">
                 <li class="nav-item active">
-                    <?=$this->Html->link( __("<i class='far fa-user'></i> Ads"), ['plugin' => false,'controller'=>'Realestates','action' => 'add'], ['class'=>'nav-link ', 'escape' => false])?>
+                    <?=$this->Html->link( __("<i class='fas fa-plus-circle'></i> Ads"), ['plugin' => false,'controller'=>'Realestates','action' => 'add'], ['class'=>'nav-link ', 'escape' => false])?>
                 </li>
-                <li class="nav-item active">
-                    <?=$this->Html->link( __("<i class='far fa-user'></i> Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'nav-link ', 'escape' => false])?>
-                </li>
+                
                 <li class="nav-item">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

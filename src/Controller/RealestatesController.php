@@ -25,7 +25,7 @@ class RealestatesController extends AppController
     {
         parent::beforeFilter($event);
         $this->now = new Time();
-        $this->Auth->allow(['index','view']);
+        $this->Auth->allow(['index','view','maps']);
     }
 
     /**
@@ -73,7 +73,7 @@ class RealestatesController extends AppController
         $realestate = $this->Realestates->get($id, [
             'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings', 'Phones', 'Images']
         ]);
-
+        $this->visitors($id);
         $this->set('realestate', $realestate);
     }
 
@@ -210,6 +210,11 @@ class RealestatesController extends AppController
             'contain' => ['Phones']
         ]);
         $user = $this->request->session()->read('Auth.User');
+        $id = $user['id'];
+        $uid = $realestate->user_id;
+        
+        if($id == $uid) {
+        
             if ($this->request->is(['patch', 'post', 'put'])) {
               
                 
@@ -251,17 +256,14 @@ class RealestatesController extends AppController
                                 $realestate->built_year=$data["built_year"]['year'];
                             }
                             else{
+                               
                                 if($data["googlecity"]=="")
                                 {
                                     $this->Flash->error(__('Nem atdál meg cimet'));
                                     $error = true;
 
                                 }else{
-                                    if ($data["googlecity"]!=($realestate->city.", ".$realestate->street.", ".$realestate->houseNumber)) {
-                                        $this->Flash->error(__('Nem atdál meg cimet'));
-                                        $error = true;
-                                    }
-                                    else{
+                                                                         
                                         $error = false;
 
                                         $realestate = $this->Realestates->patchEntity($realestate, $data);
@@ -269,9 +271,6 @@ class RealestatesController extends AppController
                                         $realestate->modified = $now;
                                         $realestate->comment = htmlspecialchars($data["comment"]);
                                         $realestate->built_year=$data["built_year"]['year'];
-                                    }
-                                    
-
                                 }
                                 
                             }
@@ -305,8 +304,11 @@ class RealestatesController extends AppController
         
      
         $this->set(compact('realestate', 'users', 'types', 'categories', 'convenienceGrades', 'heatingTypes', 'parkings', 'conditionOfProperties','phones'));
-         
-        
+        }
+        else{
+            $this->Flash->error(__('You dont have access'));
+            return $this->redirect(['action' => 'index']);
+        }
     }
 
     public function deleteImage($id = null) {
@@ -433,5 +435,114 @@ class RealestatesController extends AppController
             $outPutArray[$value["id"]]=$value["name"];
        }
        return $outPutArray;
+    }
+
+    private function visitors($id = null){
+
+        $realestate = $this->Realestates->get($id);
+        $realestate->visitors++;
+        $this->Realestates->save($realestate);
+              
+    }
+
+    public function adminIndex(){
+        $this->paginate = [
+            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings','Images']
+        ];
+        $tableValues = $this->paginate($this->Realestates);
+       
+        $types = $this->Realestates->Types->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]); 
+                $opt[]= "";
+        
+        $citys = $this->Realestates
+        ->find('list', ['valueField' => 'city'])
+        ->select(['city'])
+        ->distinct('city')
+        ->where(['active' => 1]);
+         
+        $categories = $this->Realestates->Categories->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]);
+        
+        $this->set(compact('tableValues'));
+        $this->set(compact('categories'));
+        $this->set(compact('citys'));
+        $this->set(compact('types'));
+    }
+     
+
+    public function uslist(){
+        $user = $this->request->session()->read('Auth.User');
+ 
+
+        $this->paginate = [
+            'conditions' => array('Realestates.user_id ' => $this->Auth->user(["id"])),
+            'limit' => 9,
+            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'Heatingtypes', 'Parkings', 'ConditionOfProperties', 'Images']
+        ];
+        $tableValues = $this->paginate($this->Realestates);
+        $this->paginate = ['conditions' => array('Realestates.user_id ' => $this->Auth->user(["id"])),
+        'limit' => 9,
+            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings','Images']
+        ];
+        $tableValues = $this->paginate($this->Realestates);
+       
+        $types = $this->Realestates->Types->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]); 
+        $opt[]= "";
+        
+        $citys = $this->Realestates
+        ->find('list', ['valueField' => 'city'])
+        ->select(['city'])
+        ->distinct('city')
+        ->where(['active' => 1]);
+         
+        $categories = $this->Realestates->Categories->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]);
+        
+        $this->set(compact('tableValues'));
+        $this->set(compact('categories'));
+        $this->set(compact('citys'));
+        $this->set(compact('types'));
+    }
+
+
+
+    public function premium($id = null){
+        $this->request->allowMethod(['get']);
+        $realestate = $this->Realestates->get($id);
+        $this->set(compact('realestate'));
+        $this->set('_serialize', ['realestate']);
+    }
+
+    function maps(){
+        $this->paginate = [
+            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings','Images']
+        ];
+        $realestates = $this->paginate($this->Realestates);
+       
+        $types = $this->Realestates->Types->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]); 
+                $opt[]= "";
+        
+        $citys = $this->Realestates
+        ->find('list', ['valueField' => 'city'])
+        ->select(['city'])
+        ->distinct('city')
+        ->where(['active' => 1]);
+         
+        $categories = $this->Realestates->Categories->find('list', ['limit' => 200])->where([
+            'active' => 1
+        ]);
+        
+        $this->set(compact('realestates'));
+        $this->set(compact('categories'));
+        $this->set(compact('citys'));
+        $this->set(compact('types'));
     }
 }

@@ -395,8 +395,7 @@ fieldset legend {
 }
 
 .form button[type="submit"] {
-    float: right;
-    text-transform: uppercase;
+    float: right;    
     box-shadow: none;
 }
 

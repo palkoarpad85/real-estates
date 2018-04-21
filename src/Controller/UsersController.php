@@ -384,7 +384,31 @@ class UsersController extends AppController
         $this->set('realEstatesActiveCount', $realEstatesActiveCount);
         $this->set('realEstatesActive', $realEstatesActive);
     }
+     
 
+    /**
+     * View method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Http\Response|void
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function profile()
+    {
+        $user = $this->request->session()->read('Auth.User');
+        $opt["id"] = $user['id'];
+        
+        $user = $this->Users->get($id, [
+            'contain' => [ 'Realestates']]);
+       
+       $realEstatesCount       = count($user->realestates);      
+       $realEstatesActiveCount = $this->Users->find("ActiveRealestatesCount",$opt)->first();  
+       $realEstatesActive   = $this->Users->find("ActiveRealestates",$opt)->toArray();
+        $this->set('entity', $user);
+        $this->set('realEstatesCount', $realEstatesCount);
+        $this->set('realEstatesActiveCount', $realEstatesActiveCount);
+        $this->set('realEstatesActive', $realEstatesActive);
+    }
 
 
     /**
@@ -395,6 +419,10 @@ class UsersController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null){
+
+        $authUserId = $this->request->session()->read('Auth.User');
+        if($id == $authUserId){
+
         $user = $this->Users->get($id, [
             'contain' => [ 'Realestates']]);
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -429,7 +457,11 @@ class UsersController extends AppController
         $this->set('user', $user);
         $this->set('realEstatesCount', $realEstatesCount);
         $this->set('realEstatesActiveCount', $realEstatesActiveCount);
-       
+    }
+    else{
+        $this->Flash->error(__('You dont have access'));
+        return $this->redirect(['action' => 'index']);
+    }  
     }
 
     /**
@@ -486,5 +518,9 @@ class UsersController extends AppController
          return false;
     }
 
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
     
 }
