@@ -27,7 +27,7 @@ class CategoriesController extends AppController
      */
     public function index()
     {
-        if (null ==($this->request->query("reset"))) {
+        if (null == ($this->request->query("reset"))) {
             if($this->request->query("name") || $this->request->query("username") || $this->request->query("active")){
                 
             $name     = trim($this->request->query("name"));

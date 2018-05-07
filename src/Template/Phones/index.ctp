@@ -41,8 +41,7 @@
                         <thead>
                         
                         <tr>
-                        <td><?=$this->Paginator->sort('id', __("Id <i class='fa fa-sort'></i>"), ['escape' => false])?></td>
-                            <th><?=$this->Paginator->sort('phoneNumber', __("Phone Number <i class='fa fa-sort'></i>"), ['escape' => false])?></th>                           
+                             <th><?=$this->Paginator->sort('phoneNumber', __("Phone Number <i class='fa fa-sort'></i>"), ['escape' => false])?></th>                           
                             <th><?=$this->Paginator->sort('created', __("Created <i class='fa fa-sort'></i>"), ['escape' => false])?></th>
                             <th class=""><?=__('Actions')?></th>
                         </tr>
@@ -52,8 +51,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td><?=$this->Paginator->sort('id', __("Id <i class='fa fa-sort'></i>"), ['escape' => false])?></td>
-                            <th><?=$this->Paginator->sort('phoneNumber', __("Phone Number <i class='fa fa-sort'></i>"), ['escape' => false])?></th>                           
+                             <th><?=$this->Paginator->sort('phoneNumber', __("Phone Number <i class='fa fa-sort'></i>"), ['escape' => false])?></th>                           
                             <th><?=$this->Paginator->sort('created', __("Created <i class='fa fa-sort'></i>"), ['escape' => false])?></th>
                             <th class=""><?=__('Actions')?></th>
                         </tr>

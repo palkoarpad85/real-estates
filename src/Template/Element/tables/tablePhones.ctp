@@ -1,13 +1,27 @@
 <?php foreach ($tableValues as $value): ?>
-    <tr>
-        <td><?= $this->Number->format($value->id) ?></td>
+<?php if (h($value->active)==1) {   ?>
+<tr>
+        
        
    
         <td><?= h($value->phoneNumber) ?></td>
         <td><?= h($value->created) ?></td>
         <td>
-           
-
+        <?= $this->Html->link(
+            '<i class="fa fa-info"></i>',
+            array(
+            'controller'=>$this->name,
+            'action'=>'view',
+            $value->id
+            ),
+            array(
+            'data-original-title' => 'Edit',
+            'class'               => 'btn btn-outline-primary btn-xs',     
+            'style'               =>'width: 44px; height: 38px ',       
+            'escape'              => false
+            )
+            );
+            ?> 
            <?= $this->Html->link(
             '<i class="fa fa-edit"></i>',
             array(
@@ -29,12 +43,8 @@
                     'style'               =>'width: 44px; height: 38px ',
                         'confirm' => __('Are you sure you want to delete # {0}?', $value->id)]);
 
-            }else {
-                echo  $this->Form->postLink('<i class="fas fa-reply"></i>',
-                    ['action' => 'restore', $value->id], ['class' => 'btn btn-outline-info  btn-xs','escape' => false,
-                    'style'               =>'width: 44px; height: 38px ',
-                        'confirm' => __('Are you sure you want to restore # {0}?', $value->id)]);
-            } ?>
+            } ?>     
         </td>
     </tr>
+    <?php } ?>
 <?php endforeach; ?>

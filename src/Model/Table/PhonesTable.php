@@ -96,11 +96,18 @@ class PhonesTable extends Table
 
     public function findUserPhones(Query $query, array $opt){
         return       
-        $query->Select(['id','phoneNumber'])
+        $query->Select(['id','phoneNumber','active'])
               ->innerJoinWith('Users', function ($q) use ($opt) {            
                      return $q->WHERE(['Users.id'=> $opt["id"]]);     
-        })      
-        ->WHERE(['Phones.active' => 1]);
-      
+        })  ;
+    }
+    
+    public function findUserPhonesRealestatesAdd(Query $query, array $opt){
+            return       
+            $query->Select(['id','phoneNumber','active'])
+                  ->innerJoinWith('Users', function ($q) use ($opt) {            
+                         return $q->WHERE(['Users.id'=> $opt["id"]]);     
+            })      
+            ->WHERE(['Phones.active' => 1]);
     }
 }

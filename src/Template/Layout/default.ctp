@@ -25,36 +25,38 @@ $cakeDescription = 'User';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-  
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('user.css') ?>
     <?= $this->Html->css('fontawesome-all.css') ?>
     <?= $this->Html->css('select2.min.css') ?>
-
+    <?= $this->Html->css('premium.css') ?>
     <?= $this->Html->script('jquery.min.js') ?>
     <?= $this->Html->script('bootstrap.js') ?>    
-    
+    <?= $this->Html->script('admin.js') ?>
     <?= $this->Html->script('fontawesome-all.js') ?>
     <?= $this->Html->script('select2.full.min.js') ?>
-    
-     
-
-    <?= $this->Html->script('user.js') ?>
+  
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body> 
       
-       
-      <?= $this->element('navbar/top_menu_user'); ?> 
-
+<div id="wrapper">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">LOGO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">    
+      <?= $this->element('navbar/left_menu'); ?>   
+      <?= $this->element('navbar/top_menu'); ?> 
             <?= $this->Flash->render() ?>
 
             <?= $this->fetch('content') ?>
    
     <footer class="footer">
-   
+    
 </footer>
 </body>
 </html>

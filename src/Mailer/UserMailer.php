@@ -61,5 +61,18 @@ class UserMailer extends Mailer
 
     }
 
+    function email($data)
+    {
+
+        $this->to($data['user']['email'])
+        ->from($data["form"])
+        ->profile('default')
+        ->emailFormat('html')
+        ->template($data['template'],'users')
+        ->viewVars(['data'=>$data])
+        ->subject(sprintf($data['subject']));
+
+    }
+
 }
 

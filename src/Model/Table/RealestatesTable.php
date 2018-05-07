@@ -237,17 +237,15 @@ class RealestatesTable extends Table
 
     public function findActiveCity(Query $query, array $opt){
         return       
-        $query->SELECT( ['Realestates.city']) 
-                         
-                ->where(['Realestates.active' => 1])                
-            
-            ->order(['Realestates.city' => 'ASC']);
+            $query->SELECT( ['Realestates.city'])                          
+                    ->where(['Realestates.active' => 1])  
+                    ->order(['Realestates.city' => 'ASC']);
     }
 
     public function findUserRealestates(Query $query, array $opt){
         return       
-        $query                
-            ->where(['Realestates.user' => $opt["userId"]]) 
-            ->order(['Realestates.crd' => 'ASC']);
+            $query                
+                ->where(['Realestates.user' => $opt["userId"]]) 
+                ->order(['Realestates.crd' => 'ASC']);
     }
 }

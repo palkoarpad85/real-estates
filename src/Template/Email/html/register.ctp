@@ -4,11 +4,12 @@
 
 
      ?>
+     <br>
 </p>
 <?= __(
-    "Don't forget, if you want to report an issue or contribute to this project, {0}.",
+    "Thanks registration. ",
     $this->Html->link(
-        __( 'do it there please'),
+        __('confirmation of registration Link'),
         \Cake\Core\Configure::read('Site.full_url').$data["user"]["token"],
         ['style' => 'color:#1ABC9C;text-decoration:none;']
     )

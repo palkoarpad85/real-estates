@@ -4,7 +4,8 @@
  * @var \App\Model\Entity\Realestate[]|\Cake\Collection\CollectionInterface $realestates
  */
 ?>
- <?php $this->layout = 'default';?>
+ <?php
+ $this->layout = 'default';?>
  
 <div class="container">
                       
@@ -46,31 +47,34 @@
     </div>
 <br>
 <div class="container">
+<?= $this->Form->create(null, ['type'=>'get'])?> 
 <div class="form-group">
     <div class="row">
-    <div class="col-sm-2"><?php
+    <div class="col-lg-2"><?php
         echo $this->Form->control('categories._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Categories'),'options' => $categories]); ?>
     </div>
-    <div class="col-sm-2"><?php
+    <div class="col-lg-2"><?php
         echo $this->Form->control('types._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Types'),'options' => $types]); ?>
     </div>
-    <div class="col-sm-2"><?php
-        echo $this->Form->control('citys._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Citys'),'options' => $citys]); ?>
+    <div class="col-lg-2"><?php
+        echo $this->Form->control('citys._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Citys'), 'options' => $citys]); ?>
     </div>
-    <div class="col-sm-2"><?php
+    <div class="col-lg-2"><?php
         echo $this->Form->control('min_price', ['class' => 'form-control ', 'label' => _('Minimum Price')]); ?>
     </div>
-    <div class="col-sm-2"><?php
+    <div class="col-lg-2"><?php
         echo $this->Form->control('max_price', ['class' => 'form-control', 'label' => _('Maximum Price')]); ?>
     </div>
+    <div class="col-md-1"><br><button class="btn btn-success"   id="btnsearch" style="position: absolute;top: 33px;" ><i class='fas fa-search'></i> <?=__("Search")?></button></div>
     </div>
 </div> 
+<?= $this->Form->end();?>
 <br>
    <div class="row"> 
         <?php foreach($realestates as $realestate): ?> 
             <div class="col-md-4">
                 <div class="box-real">
-                <div class="card-body">
+                <div class="card-body" <?php if($realestate->premium > $now)  echo "style=\"background: yellow;\"" ?> >
                 <a href="/realestates/view/<?php echo $realestate->id?>">
                     <h3 class='card-title'> <?= h($this->Number->format($realestate->price)) ?> Ft <?= h($realestate->type['name']) ?>  </h3>
                     <p class='card-text'><?= h($realestate->city) ?></p>
@@ -83,7 +87,9 @@
                     }
                      ?>
                     
-                    </a>
+                    </a><br>
+                    <?php                    
+                    if($realestate->premium > $now)  echo __('Premium');?>
                 </div>
                 </div>
             </div>     
@@ -113,15 +119,14 @@
 
  $('#carousel-text').html($('#slide-content-0').html());
 
- //Handles the carousel thumbnails
+ 
 $('[id^=carousel-selector-]').click( function(){
      var id = this.id.substr(this.id.lastIndexOf("-") + 1);
      var id = parseInt(id);
      $('#myCarousel').carousel(id);
  });
 
-
- // When the carousel slides, auto update the text
+ 
  $('#myCarousel').on('slid.bs.carousel', function (e) {
           var id = $('.item.active').data('slide-number');
          $('#carousel-text').html($('#slide-content-'+id).html());
@@ -132,4 +137,8 @@ $('[id^=carousel-selector-]').click( function(){
     $(document).ready(function() {
     $('.js-multiple').select2();
 });
+
+ 
+ 
+
 </script>

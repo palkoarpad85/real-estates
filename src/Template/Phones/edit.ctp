@@ -103,7 +103,13 @@
                                                 <?php foreach ($entity->realestates as $realestate): ?>
                                                 <div class="row">
                                                     <div class="col-md-1">
-                                                        <?=h($realestate->id)?>
+                                                    <?=$this->Html->link(h($realestate->id),
+                                                                                [   'controller' => 'realestates',
+                                                                                    'action' => 'view',
+                                                                                    h($realestate->id),
+                                                                                ] 
+                                                                            );?>
+                                                        
                                                     </div>
                                                     <div class="col-md-2">
                                                         <?php if (h($realestate->active)==1) {

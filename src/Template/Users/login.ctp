@@ -12,7 +12,7 @@
                         'type'        => 'text',
                         'label'       => false,
                         'required'    => true,
-                        'placeholder' => __('Em@il'),
+                        'placeholder' => __('User name'),
                         'class'       => 'form-control form-control-succes',
                         'escape'      => false,
                         'autofocus'   =>true
@@ -39,6 +39,10 @@
                                       '/users/register',
                                      ['class' => ' btn btn-sm btn-block btn-primary']);?>
             <?= $this->Form->end() ?>
+            <?=  $this->Html->link(__('forgotpassword'),
+                                      '/users/forgotpassword',
+                                     ['class' => ' ']);?>
+
             </div>
 
 

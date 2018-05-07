@@ -1,8 +1,19 @@
  
   <ul class="navbar-nav side-nav">
-  <?php if ( isset($role) && $role =="Admin" ) {
-           
-           ?>
+  <?php
+  $roles = false;
+if($loggedIn){
+
+ foreach($rUsers->roles as $item ){
+    if ($item['name'] =="Admin") {
+      
+      $roles = true;
+      break;
+    }
+  }
+}
+if (isset($role) && $role =="Admin" || $roles ){
+    ?>
   <li class="nav-item active">
    <b> <a class="nav-link" href="#"><?= __('Maintainers')?> <span class="sr-only">(current)</span></a></b>
     <li class="nav-item">
@@ -37,14 +48,22 @@
     <a class="nav-link" href="#"><?= __('maintainers')?> <span class="sr-only">(current)</span></a>
     </li>
     <?php } ?>  
+    <?php if ($loggedIn) {?>
+   <b> <a class="nav-link" href="#"><?= __('Maintainers')?> <span class="sr-only">(current)</span></a></b>
     <li class="nav-item">
-    <a class="nav-link" href="#">Side Menu Items</a>
-    </li>          
-    <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Realestates"), ['plugin' => false,'controller'=>'Realestates','action' => 'uslist'], ['class'=>'nav-link', 'escape' => false])?>
     </li>
-     <li class="nav-item">
-            <a class="nav-link" href="#">Side Menu Items</a>
-     </li>       
+    
+    <b> <a class="nav-link" href="#"><?= __('User')?> <span class="sr-only">(current)</span></a></b>
+    <li class="nav-item">
+    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'nav-link', 'escape' => false])?>
+    </li>
+    <li class="nav-item">
+    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Edit"), ['plugin' => false,'controller'=>'Users','action' => 'edit',$current_user["id"] ], ['class'=>'nav-link', 'escape' => false])?>
+    </li>
+    <li class="nav-item">
+    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Reset password"), ['plugin' => false,'controller'=>'Users','action' => 'resetpassword'], ['class'=>'nav-link', 'escape' => false])?>
+    </li>
+    <?php } ?>
 </ul>
     

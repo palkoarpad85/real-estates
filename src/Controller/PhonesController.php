@@ -48,9 +48,10 @@ class PhonesController extends AppController
     public function view($id = null)
     {
         $entity = $this->Phones->get($id, [
-            'contain' => ['Realestates']
+            'contain' => ['Realestates','Users']
         ]);
 
+         
         $this->set('entity', $entity);
     }
 

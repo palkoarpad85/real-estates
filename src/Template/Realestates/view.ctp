@@ -150,8 +150,8 @@
                     <li class="list-group-item">
                       <?= __("Phones: "); ?><br>
                       <?php foreach ($realestate->phones as $phones): ?>     
-                            <?=  h($phones->phoneNumber); ?>
-                             <br>
+                            <?php if($phones->active){  echo h($phones->phoneNumber);?><?php echo"<br>";} ?>
+                             
                      <?php endforeach; ?>
                     </li>
                     
@@ -161,8 +161,59 @@
             </div>
         </div>
         <hr>
+        <?php if($realestate->comment != null || !empty($realestate->comment)) { ?>
         <div class="col-md-12">            
                 <?= __("Comment: ");?> <li class="list-group-item"><?= $this->Text->autoParagraph(h($realestate->comment)); ?>
+            </li>
+        </div>
+        <?php } ?>
+<br>
+<hr>
+        <div class="col-md-6">            
+                <?= __("Message: ");?>
+             <li class="list-group-item">
+             <?= $this->Form->create(null, [
+                            'url' => ['controller' => 'Realestates', 'action' => 'sendemail']
+                        ]);?> 
+                        <?= $this->Form->unlockField('email');?>
+                        <?= $this->Form->unlockField('messages');?>
+                        <?= $this->Form->unlockField('id');?>
+                        <input type="hidden" name="id" value="<?= h($realestate->id)?>">
+                <div class="form-row">
+                        <div class="col-md-7 ">                        
+                                <div class="form-group has-feedback">
+                                    <?= $this->Form->control('email', array(
+                                        'type' => 'email',
+                                        'label' =>  __("Email") ,                                                       
+                                        'placeholder' => __('Email'),
+                                        'class' => 'form-control',
+                                        'escape' => false
+                                        ,'required'
+                                    )); ?>
+                                    <span class=" form-control-feedback "></span>
+                                </div>                    
+                        </div>
+                     </div>
+                     <div class="form-row">  
+                        <div class="col-md-12">
+                                <div class="form-group has-feedback">
+                                        <?= $this->Form->textarea('messages', array(
+                                            'type' => 'text',
+                                            'label' =>  __("Message") ,                                                       
+                                            'placeholder' => __('Message'),
+                                            'class' => 'form-control',                                            
+                                            'escape' => false
+                                            ,'required'=>true
+                                        )); ?>
+                                        <span class=" form-control-feedback "></span>
+                                </div>
+                        </div>
+               
+                        </div>
+                         
+                        <?= $this->Form->button (__ ('Submit'), ["class" => "btn btn-primary"]) ?>
+                    <?= $this->Form->end () ?>
+                
             </li>
         </div>
 <br>

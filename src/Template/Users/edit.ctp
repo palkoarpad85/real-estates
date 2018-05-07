@@ -68,7 +68,7 @@
                                             <b class="text-left">
                                                 <?=__("Active Realestates count: "); ?>
                                             </b>
-                                            <?=h($realEstatesActiveCount["count"]) ?>
+                                            <?=h($realEstatesActive) ?>
                                                 </a>
                                         </li>
                                     </ul><hr>
@@ -81,21 +81,7 @@
                                             <?=h($user["email"]) ?>
                                                 </a>
                                         </li>
-                                        <li class="timeli">
-                                            <b class="text-left">
-                                                <?=__("biography "); ?>
-                                            </b>
-                                        </li>
-                                        <li class="timeli max-width">     
-                                            <?= $this->Text->truncate(h($user["biography"]),
-                                                    50,
-                                                    [
-                                                    'ellipsis' => '...',
-                                                    'exact' => false,
-                                                    'class'=>'max-width'
-                                                    ]) ?>
-                                                </a>
-                                        </li>
+                                         
                                     </ul>
                                     <hr>
                                     <ul>                                        

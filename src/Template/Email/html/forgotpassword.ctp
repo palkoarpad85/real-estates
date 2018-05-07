@@ -9,9 +9,9 @@
     if($data["template"] == "forgotpassword"){
 
         echo __(
-            "Don't forget, if you want to report an issue or contribute to this project, {0}.",
+            "Forgot password {0}.",
             $this->Html->link(
-                __( 'do it there please'),
+                __( 'Link'),
                 \Cake\Core\Configure::read('Site.full_url_password').$data["user"]["password_code"],
                 ['style' => 'color:#1ABC9C;text-decoration:none;']
             )
@@ -20,9 +20,9 @@
     }
     elseif($data["template"] == "register"){
         echo __(
-            "Don't forget, if you want to report an issue or contribute to this project, {0}.",
+            "Registrations {0}.",
             $this->Html->link(
-                __( 'do it there please'),
+                __( 'Link'),
                 \Cake\Core\Configure::read('Site.full_url_password').$data["user"]["token"],
                 ['style' => 'color:#1ABC9C;text-decoration:none;']
             )

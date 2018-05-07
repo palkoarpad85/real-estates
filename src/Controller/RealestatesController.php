@@ -17,15 +17,15 @@ use Cake\Filesystem\File;
  * @method \App\Model\Entity\Realestate[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class RealestatesController extends AppController
-{
+{   
 	use GoogleTrait;
-
+    use MailerAwareTrait;
 
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         $this->now = new Time();
-        $this->Auth->allow(['index','view','maps']);
+        $this->Auth->allow(['index','view','sendemail']);
     }
 
     /**
@@ -34,11 +34,81 @@ class RealestatesController extends AppController
      * @return \Cake\Http\Response|void
      */
     public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Users', 'Types', 'Categories', 'ConvenienceGrades', 'HeatingTypes', 'ConditionOfProperties', 'Parkings','Images']
-        ];
-        $realestates = $this->paginate($this->Realestates);
+    {   
+        $filter = null;
+        $now = new Time();
+
+        if ($this->request->is('get')){
+            if($this->request->query("categories")
+            || $this->request->query("types")
+            || $this->request->query("citys")
+            || $this->request->query("min_price")
+            || $this->request->query("max_price")){
+               
+         
+               foreach ($this->request->query() as $key => $value) {
+                        if(!empty($value)){ 
+                            if(!empty($value["_ids"])){   
+                                
+                                    $filter[$key] = $value['_ids']; 
+    
+                            }                            
+                            elseif(!empty($key) && !is_array($value)){
+                                $filter[$key]=$value;
+                            }
+                        }                         
+                    }
+ 
+                   
+                if($filter != null)
+                    {
+                        
+                    $query = $this->Realestates->find();
+                        
+                    if(isset($filter['categories'])){                                       
+                        $query->where(['category_id  IN' =>$filter['categories']]);
+                      
+                    }
+                    if(isset($filter['types'])){                                       
+                        $query->where(['type_id IN' =>$filter['types']]);                     
+                    } 
+                    if(isset($filter['citys'])){                                       
+                        $query->where(['city  IN' => $filter["citys"]]);                     
+                    }
+                    if(isset($filter['min_price'])){
+                                           
+                        $query->where(['price >= ' =>$filter['min_price']]  
+                        ); 
+                    }
+                    if(isset($filter['max_price'])){
+                    $query->where(['price <= ' => $filter['max_price']]  
+                        ); 
+                    }
+                    $query->order(['premium' =>'asc']); 
+                    $query->contain(['Images']); 
+                    $query->order(['premium' =>'desc']);     
+                    $realestates = $this->paginate($query);
+                }
+                else{
+                    $this->paginate = [
+                        'contain' => ['Images'],
+                        'order'=>['premium' =>'desc'] 
+                    ];
+                    $realestates = $this->paginate($this->Realestates);
+                }
+ 
+            }
+            else{
+
+                $this->paginate = [
+                    'contain' => ['Images'],
+                    'order'=>['premium' =>'desc'] 
+                ];
+                $realestates = $this->paginate($this->Realestates);
+                
+            }
+
+           
        
         $types = $this->Realestates->Types->find('list', ['limit' => 200])->where([
             'active' => 1
@@ -46,10 +116,12 @@ class RealestatesController extends AppController
                 $opt[]= "";
         
         $citys = $this->Realestates
-        ->find('list', ['valueField' => 'city'])
+        ->find('list', ['valueField' => 'city', 'keyField' => 'city',])
         ->select(['city'])
         ->distinct('city')
         ->where(['active' => 1]);
+
+         
          
         $categories = $this->Realestates->Categories->find('list', ['limit' => 200])->where([
             'active' => 1
@@ -59,8 +131,17 @@ class RealestatesController extends AppController
         $this->set(compact('categories'));
         $this->set(compact('citys'));
         $this->set(compact('types'));
-    }
+        $this->set(compact('now'));
+        
+        }
 
+        else{
+            $this->Flash->error(__('ERROR'));
+            return $this->redirect(['action' => 'index']);
+        }
+       
+
+    }
     /**
      * View method
      *
@@ -181,7 +262,7 @@ class RealestatesController extends AppController
         $heatingTypes          = $this->toList($this->Realestates->HeatingTypes->find('active', ['limit' => 200]));
         $conditionOfProperties = $this->toList($this->Realestates->ConditionOfProperties->find('active', ['limit' => 200]));
         $parkings              = $this->toList($this->Realestates->Parkings->find('active', ['limit' => 200]));        
-        $array                 = $this->Realestates->Phones->find("UserPhones",$user)->toList();
+        $array                 = $this->Realestates->Phones->find("UserPhonesRealestatesAdd",$user)->toList();
 
 
         foreach ($array as $key => $value) { 
@@ -295,11 +376,11 @@ class RealestatesController extends AppController
         $heatingTypes          = $this->toList($this->Realestates->HeatingTypes->find('active', ['limit' => 200]));
         $conditionOfProperties = $this->toList($this->Realestates->ConditionOfProperties->find('active', ['limit' => 200]));
         $parkings              = $this->toList($this->Realestates->Parkings->find('active', ['limit' => 200]));        
-        $array                 = $this->Realestates->Phones->find("UserPhones",$user)->toList();
+        $array                 = $this->Realestates->Phones->find("UserPhonesRealestatesAdd",$user)->toList();
 
 
-        foreach ($array as $key => $value) { 
-            $phones[$value["id"]]=$value["phoneNumber"];
+        foreach ($array as $key => $value) {              
+            $phones[$value["id"]] = $value["phoneNumber"];
         }
         
      
@@ -545,4 +626,38 @@ class RealestatesController extends AppController
         $this->set(compact('citys'));
         $this->set(compact('types'));
     }
+    
+    public function sendemail(){
+        $this->request->allowMethod(['post']);
+ 
+        $emaildata = $this->request["data"];
+ 
+        $email = $emaildata["email"];
+        $id = $emaildata["id"];
+        $messages = $emaildata["messages"];
+        $realestate = $this->Realestates->get($id, [
+            'contain' => ['Users']
+        ]);
+ 
+         $usermail;
+         $usermail["user"]=$realestate->user;
+         $usermail["id"]=$id;
+         $usermail["form"]=$email;
+         $usermail["message"]=$messages;         
+         $usermail["template"] = "email";
+         $usermail["subject"]  = __('Realestates ');
+         
+         if($this->getMailer('User')->send("email", [$usermail])){
+            $this->Flash->success(__('The email success send.'));
+            return $this->redirect(['action' => 'index']);
+   
+         }else{
+            $this->Flash->error(__('Try again !'));
+            return $this->redirect(['action' => 'index']);
+   
+         }
+         
+     }
+
+
 }

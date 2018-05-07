@@ -19,7 +19,7 @@ class PermissionsController extends AppController
     {
         parent::beforeFilter($event);
         $this->now = new Time();
-       // $this->Auth->allow(['add','edit','index','delete']);  
+        
     }
 
     /**

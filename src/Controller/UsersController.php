@@ -30,7 +30,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->now = new Time();
 
-        $this->Auth->allow(['login','register','resetpassword','changepassword','view','verify','forgotPassword']);
+        $this->Auth->allow(['login','register','resetpassword','changepassword','verify','forgotPassword']);
     }
 
 
@@ -91,11 +91,11 @@ class UsersController extends AppController
             if ($this->Users->save($user) && $this->sendEmail($user,"register")) {
                 $user->created_by=$user->id;
                 if ($this->Users->save($user)) {
-                    $this->Flash->success(__('The user has been saved.'));
+                    $this->Flash->success(__('The register success'));
                 }
                 return $this->redirect(['controller'=>'realestates','action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The register could not be saved. Please, try again.'));
         }
         $this->set(compact('user', $user));
 
@@ -237,13 +237,16 @@ class UsersController extends AppController
                         $this->redirect(['action' => 'index']);
                     } else {
                         $this->Flash->error('Error changing password. Please try again!');
+                        return $this->redirect(['controller'=>'realestates','action' => 'index']);
                     }
                 }
             } else {
                 $this->Flash->error('Sorry your password token has been expired.');
+                return $this->redirect(['controller'=>'realestates','action' => 'index']);
             }
         } else {
             $this->Flash->error('Error loading password reset.');
+            return $this->redirect(['controller'=>'realestates','action' => 'index']);
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -353,7 +356,7 @@ class UsersController extends AppController
         $active   = null;
 
      }
-        //  dd($tableValues);   
+            
         $this->set(compact('role'));
         $this->set(compact('email'));
         $this->set(compact('name'));
@@ -398,7 +401,7 @@ class UsersController extends AppController
         $user = $this->request->session()->read('Auth.User');
         $opt["id"] = $user['id'];
         
-        $user = $this->Users->get($id, [
+        $user = $this->Users->get($user['id'], [
             'contain' => [ 'Realestates']]);
        
        $realEstatesCount       = count($user->realestates);      
@@ -421,7 +424,7 @@ class UsersController extends AppController
     public function edit($id = null){
 
         $authUserId = $this->request->session()->read('Auth.User');
-        if($id == $authUserId){
+        if($id == $authUserId["id"]){
 
         $user = $this->Users->get($id, [
             'contain' => [ 'Realestates']]);
@@ -444,24 +447,27 @@ class UsersController extends AppController
                     return $this->redirect(['action' => 'edit',$id]);
                 }else{
                     $this->Flash->success(__('The user has been saved.'));
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'edit',$id]);
                 }
                 
+            }else{
+                $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            
         }
         $realEstatesCount       = count($user->realestates);
-        $opt["id"] =$id; 
+        $opt["id"] = $id; 
         $realEstatesActiveCount = $this->Users->find("ActiveRealestates",$opt)->first();  
- 
+        $realEstatesActive   = $this->Users->find("ActiveRealestates",$opt)->toArray();
+        $this->set('realEstatesActive', count($realEstatesActive));
         $this->set('user', $user);
         $this->set('realEstatesCount', $realEstatesCount);
         $this->set('realEstatesActiveCount', $realEstatesActiveCount);
-    }
-    else{
+        }
+        else{
         $this->Flash->error(__('You dont have access'));
         return $this->redirect(['action' => 'index']);
-    }  
+        }  
     }
 
     /**

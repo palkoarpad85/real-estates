@@ -15,7 +15,7 @@
         <input type="text" readonly value="<?= isset($email)? $email : "" ?>" class="form-control">
 
         <div class="input-group-btn">
-            <button class="btn btn-lg btn-primary"  style="margin-left: 5px  " type="submit">Login</button>
+            <button class="btn btn-lg btn-primary"  style="margin-left: 5px  " type="submit">Verify</button>
         </div>
     </div>
     <?php echo $this->Form->end(); ?>

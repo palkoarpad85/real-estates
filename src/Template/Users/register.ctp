@@ -57,13 +57,7 @@
 
     </div>
 
-    <div class="form-group has-feedback">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck2" >
-            <label class="custom-control-label bg-primary text-white" for="customCheck2"> I agree to the terms</label>
-        </div>
-
-    </div>
+     
 
     <div class="form-group has-feedback">
         <?= $this->Form->button(__('Register'),array(

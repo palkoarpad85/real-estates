@@ -1,10 +1,10 @@
 <ul class="navbar-nav  justify-content-end rigth_menu">
+<?php if ($loggedIn) {?>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <?=$this->Html->link( __("<i class='fas fa-plus-circle'></i> Ads"), ['plugin' => false,'controller'=>'Realestates','action' => 'add'], ['class'=>'nav-link ', 'escape' => false])?>
+                
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="far fa-envelope"></i></a>
-          </li>
+<?php }?> 
           <li class="nav-item">
            
           <li class="nav-item dropdown">
