@@ -5,6 +5,8 @@
  */
 ?>
     <?php $this->layout = 'admin';?>
+    <?php __("<i class='fa fa-tachometer-alt'></i> Home")?>
+
     <div class="Conveniencegrades form large-9 medium-8 columns content">
         
             <section class="content-header">
@@ -47,7 +49,7 @@
                                 <?=$this->Form->create($entity)?>
                                     <div class="form-group">
                                         <div class="col-sm-5">
-                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Hungary')])?>
+                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' =>__('Hungary')])?>
                                         </div>
                                     </div>
                                     <div class="form-group">                                     

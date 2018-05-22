@@ -11,7 +11,7 @@
     ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
     ['class' => 'breadcrumb-item ', 'escape' => false])?>
     </li>
-    <li  class="breadcrumb-item active" aria-current="page"><?=__("<i class='fa fa-outdent'></i> Conditionofproperties",
+    <li  class="breadcrumb-item active" aria-current="page"><?="<i class='fa fa-outdent'></i> " .__("conveniencegrade",
     ['class' => 'breadcrumb-item active', 'escape' => false])?></li>
     </ol>
     </nav>

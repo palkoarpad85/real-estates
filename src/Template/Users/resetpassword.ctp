@@ -43,7 +43,7 @@
             <span class=" form-control-feedback"></span>
         </div>
        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><?= __('Reset Password')?></button>
         <br>
         
     
@@ -65,7 +65,7 @@
                 'type' => 'password',
                 'label' => false,
                 'required' => true,
-                'placeholder' => __('Password'),
+                'placeholder' => __('Old Password'),
                 'class' => 'form-control',
                 'escape' => false
             )); ?>
@@ -94,7 +94,7 @@
             <span class=" form-control-feedback"></span>
         </div>
        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><?=__('Reset Password')?></button>
         <br>
         
     

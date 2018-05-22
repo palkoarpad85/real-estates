@@ -44,14 +44,12 @@ if (isset($role) && $role =="Admin" || $roles ){
     <?=$this->Html->link( __("<i class='fas fa-low-vision'></i> Permissions"), ['plugin' => false,'controller'=>'Permissions','action' => 'index'], ['class'=>'nav-link', 'escape' => false])?>
     </li>
    </li>
-    <li class="nav-item active">
-    <a class="nav-link" href="#"><?= __('maintainers')?> <span class="sr-only">(current)</span></a>
-    </li>
+   
     <?php } ?>  
     <?php if ($loggedIn) {?>
-   <b> <a class="nav-link" href="#"><?= __('Maintainers')?> <span class="sr-only">(current)</span></a></b>
+   <b> <a class="nav-link" href="#"><?= __('Menu')?> <span class="sr-only">(current)</span></a></b>
     <li class="nav-item">
-    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Realestates"), ['plugin' => false,'controller'=>'Realestates','action' => 'uslist'], ['class'=>'nav-link', 'escape' => false])?>
+    <?=$this->Html->link( __("<i class='fas fa-indent'></i>My Realestates"), ['plugin' => false,'controller'=>'Realestates','action' => 'uslist'], ['class'=>'nav-link', 'escape' => false])?>
     </li>
     
     <b> <a class="nav-link" href="#"><?= __('User')?> <span class="sr-only">(current)</span></a></b>
@@ -59,10 +57,10 @@ if (isset($role) && $role =="Admin" || $roles ){
     <?=$this->Html->link( __("<i class='fas fa-indent'></i> Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'nav-link', 'escape' => false])?>
     </li>
     <li class="nav-item">
-    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Edit"), ['plugin' => false,'controller'=>'Users','action' => 'edit',$current_user["id"] ], ['class'=>'nav-link', 'escape' => false])?>
+    <?=$this->Html->link( __("<i class='fas fa-edit'></i> Edit"), ['plugin' => false,'controller'=>'Users','action' => 'edit',$current_user["id"] ], ['class'=>'nav-link', 'escape' => false])?>
     </li>
     <li class="nav-item">
-    <?=$this->Html->link( __("<i class='fas fa-indent'></i> Reset password"), ['plugin' => false,'controller'=>'Users','action' => 'resetpassword'], ['class'=>'nav-link', 'escape' => false])?>
+    <?=$this->Html->link( __("<i class='fas fa-unlock'></i> Reset password"), ['plugin' => false,'controller'=>'Users','action' => 'resetpassword'], ['class'=>'nav-link', 'escape' => false])?>
     </li>
     <?php } ?>
 </ul>

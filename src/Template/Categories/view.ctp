@@ -108,40 +108,7 @@
 
                                     </tbody>
                                 </table>
-                                <div id="accordianId" role="tablist" aria-multiselectable="true" style="width:100%">
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="section1HeaderId">
-                                            <h5 class="mb-0">
-                                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
-                                                    <?=__("Roles")?>
-                                                </a>
-                                            </h5>
-                                        </div>
-                                        <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
-                                            <div class="card-body">
-                                                <div class="row font-weight-bold">
-                                                    <div class="col-md-1">
-                                                        Id
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <?= __('active')?>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <?= __('name')?>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <?=__('created')?>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <?=__('Action')?>
-                                                    </div>
-                                                </div>
-                                                
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

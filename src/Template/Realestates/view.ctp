@@ -74,7 +74,7 @@
                             <?= __('State')?>:
                             <?= h($realestate->city) ?>
                         </h1>
-                        <h3><?= h('district') ?>:
+                        <h3><?= __('district') ?>:
                             <?= h($realestate->district) ?>                            
                         </h3>
                         <h3>
@@ -211,7 +211,7 @@
                
                         </div>
                          
-                        <?= $this->Form->button (__ ('Submit'), ["class" => "btn btn-primary"]) ?>
+                        <?= $this->Form->button (__ ('Send'), ["class" => "btn btn-primary"]) ?>
                     <?= $this->Form->end () ?>
                 
             </li>

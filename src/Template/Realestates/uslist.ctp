@@ -11,7 +11,7 @@
     ['plugin' => false, 'controller' => 'Realestates', 'action' => 'dashboard'],
     ['class' => 'breadcrumb-item ', 'escape' => false])?>
     </li>
-    <li  class="breadcrumb-item active" aria-current="page"><?=__("<i class='fa fa-outdent'></i> Realestates",
+    <li  class="breadcrumb-item active" aria-current="page"><?="<i class='fa fa-outdent'></i> ".__("Realestates",
     ['class' => 'breadcrumb-item active', 'escape' => false])?></li>
     </ol>
     </nav>
@@ -47,8 +47,8 @@
                                         ]
                                 );?>
                             </td>
-                            <td><input type="text" class="form-control" style="width:150px" id="name" name="name" value="<?php if(isset($name)) echo $name ?>" placeholder="Search..."></td>
-                            <td><input type="text" class="form-control" style="width:150px"  id="username" name="username" value="<?php if(isset($username)) echo $username ?>"  placeholder="Search..."></td> 
+                            <td><input type="text" class="form-control" style="width:150px" id="name" name="name" value="<?php if(isset($name)) echo $name ?>" placeholder="<?=__('Search...')?>"></td>
+                            <td><input type="text" class="form-control" style="width:150px"  id="username" name="username" value="<?php if(isset($username)) echo $username ?>"  placeholder="<?=__('Search...')?>"></td> 
                             <td></td>  
                             <td colspan="2"><button class="btn btn-success"><i class='fas fa-search'></i> <?=__("Search")?></button> 
                             <?=$this->Html->link(__("<i class='fas fa-times'></i> Reset"),

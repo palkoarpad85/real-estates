@@ -1,6 +1,6 @@
 
     <?php $this->layout = 'login';?>
-    <h1 class="welcome text-center"><?= __('Welcome to Ice Code')?></h1>
+    <h1 class="welcome text-center"><?= __('')?></h1>
 
         <h2 class='login_title text-center'><?= __('Login')?></h2>
         <hr>
@@ -33,7 +33,7 @@
                     )); ?>
                     <span class=" form-control-feedback"></span>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"><?= __('Login')?></button>
                 <br>
                 <?=  $this->Html->link(__('Register'),
                                       '/users/register',

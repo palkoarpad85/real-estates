@@ -20,12 +20,12 @@
                         ['class' => 'breadcrumb-item ', 'escape' => false])?>
                         </li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <?=$this->Html->link(__("<i class='fa fa-outdent'></i> " . $this->name),
+                            <?=$this->Html->link("<i class='fa fa-outdent'></i> " . __($this->name),
                         ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
                         ['class' => 'breadcrumb-item ', 'escape' => false])?>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            <?=__("<i class='fas fa-plus'></i> Edit " . $this->name)?>
+                            <?= "<i class='fas fa-plus'></i>  ".__("Edit") ." ". __($this->name)?>
                         </li>
                     </ol>
                 </nav>
@@ -50,7 +50,7 @@
                                     </h4>
                                     <div class=" text-center">       
                                     <button type="button"  class="btn btn-default btn-file btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                    <?= __('Change Profile Picture  ')?>
+                                    <?= __('Change Profile Picture')?>
                                     </button>                                                           
                                      </div>           
                                     <hr>
@@ -76,7 +76,7 @@
                                         
                                         <li class="timeli max-width">
                                             <b class="text-left">
-                                                <?=__("Email "); ?>
+                                                <?=__("Email"); ?>
                                             </b>
                                             <?=h($user["email"]) ?>
                                                 </a>
@@ -90,7 +90,7 @@
                                                 <?=__("Change password: "); ?>
                                             </b>
                                             <?=  $this->Html->link(
-                                                            'Change password',                                                            
+                                                            __('Change password'),                                                            
                                                             ['controller' => 'Users', 'action' => 'resetpassword', $user["id"]]
                                                         ); ?>
                                                 </a>
@@ -100,15 +100,24 @@
                                                 <?=__("Edit Phone: "); ?>
                                             </b>
                                             <?=  $this->Html->link(
-                                                            'Edit Phone',                                                            
+                                                            __('Edit Phone'),                                                            
                                                             ['controller' => 'Phones', 'action' => 'index']
                                                         ); ?>
                                                 </a>
                                         </li>
-                                        <li class="timeli">
-                                             
-                                        </li>
+                                       
                                     </ul>
+                                    <ul>
+                                    <li class="timeli">
+                                        <b class="text-left">
+                                                <?=__("Delete: "); ?>
+                                            </b>
+                                            <?=  $this->Form->postLink('<i class="fas fa-trash-alt"></i>',
+                                                ['action' => 'delete', $user["id"]], ['class' => 'btn btn-outline-info  btn-xs','escape' => false,
+                                                'style'               =>'width: 44px; height: 38px ',
+                                                    'confirm' => __('Are you sure you want to delete # {0}?', $user["username"])]); ?>
+                                                </a>
+                                        </li></ul>
 
                                 </div>
                                 <!-- /.box-body -->
@@ -117,33 +126,33 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="tab-content" style="background-color:#eee;">
-                                    <div>                                         
+                                    <div>                   <br>                      
                                         <?= $this->Form->create($user ,["class"=>"form-horizontal"]) ?>
                                             <fieldset>
-                                                <!-- Form Name -->
+                                                <!-- Form name -->
                                                 <legend><?= __("User Edit") ?></legend>
 
                                                 <!-- Text input-->
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label" for="textinput"><?= __("User Name") ?></label>
+                                                    <label class="col-sm-3 control-label" for="textinput"><?= __("User name") ?></label>
                                                     <div class="col-sm-12 col-md-4">                                                        
-                                                        <?= $this->Form->control('username',["class"=>"form-control","placeholder" =>__('User Name'),"label"=> false] ); ?>
+                                                        <?= $this->Form->control('username',["class"=>"form-control","placeholder" =>__('User name'),"label"=> false] ); ?>
                                                     </div>
                                                 </div>
 
                                                 <!-- Text input-->
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('Last Name') ?></label>
+                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('Last name') ?></label>
                                                     <div class="col-sm-12 col-md-4">
-                                                    <?= $this->Form->control('last_name',["class"=>"form-control","placeholder" =>__('Last Name'),"label"=> false] ); ?>                                                        
+                                                    <?= $this->Form->control('last_name',["class"=>"form-control","placeholder" =>__('Last name'),"label"=> false] ); ?>                                                        
                                                     </div>
                                                 </div>
 
                                                 <!-- Text input-->
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('First Name') ?></label>
+                                                    <label class="col-sm-2 control-label" for="textinput"><?= __('First name') ?></label>
                                                     <div class="col-sm-12 col-md-4">
-                                                    <?= $this->Form->control('first_name',["class"=>"form-control","placeholder" =>__('First Name'),"label"=> false] ); ?>
+                                                    <?= $this->Form->control('first_name',["class"=>"form-control","placeholder" =>__('First name'),"label"=> false] ); ?>
                                                     </div>
                                                 </div>
 

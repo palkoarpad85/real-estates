@@ -10,7 +10,7 @@ use Cake\I18n\Number;
 
         <section class="content-header">
             <h2>
-                <?=__('View a ' . $this->name)?>
+                <?= __($this->name)?>
             </h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb ">
@@ -20,12 +20,12 @@ use Cake\I18n\Number;
                         ['class' => 'breadcrumb-item ', 'escape' => false])?>
                     </li>
                     <li class="breadcrumb-item" aria-current="page">
-                        <?=$this->Html->link(__("<i class='fa fa-outdent'></i> " . $this->name),
+                        <?=$this->Html->link("<i class='fa fa-outdent'></i> " . __($this->name),
                         ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
                         ['class' => 'breadcrumb-item ', 'escape' => false])?>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        <?=__("<i class='fas fa-plus'></i> View " . $this->name)?>
+                        <?="<i class='fas fa-plus'></i> ".__("View")." " . __($this->name)?>
                     </li>
                 </ol>
             </nav>
@@ -80,7 +80,7 @@ use Cake\I18n\Number;
                                         </li>
                                         <li>
                                             <b class="text-left">
-                                                <?=__("biography "); ?>
+                                                <?=__("Biography"); ?>
                                             </b>
                                             </li>
                                             <li>
@@ -105,7 +105,7 @@ use Cake\I18n\Number;
 
                         <div class="col-md-9 ">
                         <div class="nav-tabs-custom">
-                          <h2><?= __("My ads")?></h2>                  
+                          <h2><?= __("Timeline")?></h2>                  
             <div class="tab-content">
               
               <div class="tab-pane active" id="timeline">
@@ -135,7 +135,7 @@ use Cake\I18n\Number;
                             null                            
                             );?></span>
                             <div class="timeline-header">
-                            <h5 class="timeline-header"><b> <?=$value["type"]['name'] ?></b> <?=$value["state"] ?> <?= _("State") ?> <?=$value["city"] ?> <?=$value["street"] ?></h5>
+                            <h5 class="timeline-header"><b> <?=$value["type"]['name'] ?></b> <?=$value["state"] ?> <?=__("State") ?> <?=$value["city"] ?> <?=$value["street"] ?></h5>
                             
                          </div>
                       <div class="timeline-body">
@@ -146,7 +146,7 @@ use Cake\I18n\Number;
                       </div>
                       <div class="timeline-footer">
                         
-              <?=$this->Html->link( __("<i class='far fa-user'></i> View"),
+              <?=$this->Html->link("<i class='far fa-user'></i>". __("View"),
                ['plugin' => false,'controller'=>'Realestates','action' => 'view', $value["id"]],
                 ['class'=>'btn btn-primary btn-xs', 'escape' => false])?>     
                         

@@ -10,9 +10,6 @@
     <?php $public = \Cake\Core\Configure::read('Api.StripePublishableKey'); 
     print_r("Stripe.setPublishableKey('".$public."');");
     ?>
-
-    
-
     //callback to handle the response from stripe
     function stripeResponseHandler(status, response) {
         if (response.error) {
@@ -88,7 +85,7 @@
     </div> <!-- form-group.// -->
     
     <div class="form-group">
-    <label for="cardNumber">Card number</label>
+    <label for="cardNumber"><?=__("Card number")?></label>
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
@@ -107,7 +104,7 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="form-group">
-                <label><span class="hidden-xs">Expiration</span> </label>
+                <label><span class="hidden-xs"><?=__("Expiration")?></span> </label>
                 <div class="form-inline">
                         <?php  echo $this->Form->control('card-expiry-month', array(
                             'placeholder' =>__('exp_month'),
@@ -152,7 +149,7 @@
         <?= $this->Form->unlockField('tokenreal');?>
         <!-- /input-group -->
 
-        <button type="submit" class = "subscribe btn btn-primary btn-block" id="payBtn">Submit Payment</button>
+        <button type="submit" class = "subscribe btn btn-primary btn-block" id="payBtn"><?=__("Submit Payment")?></button>
         <?= $this->Form->end () ?>
     
     </div> <!-- card-body.// -->

@@ -53,7 +53,7 @@
                                 <?=$this->Form->create($entity)?>
                                     <div class="form-group">
                                         <div class="col-sm-5">
-                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Name')])?>
+                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' =>__('Name')])?>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -62,7 +62,7 @@
                                                                     [
                                                                         'class' => 'form-control js-multiple',
                                                                         'multiple'=>'multiple', 
-                                                                        'label' => _('Users'),
+                                                                        'label' =>__('Users'),
                                                                         'options' => $users
                                                                      ]); ?>
                                         </div>
@@ -74,7 +74,7 @@
                                                                     [                                                                        
                                                                         'class' => 'form-control js-multiple',
                                                                         'multiple'=>'multiple', 
-                                                                        'label' => _('Permissions'),
+                                                                        'label' =>__('Permissions'),
                                                                         'options' => $permissions
                                                                      ]); ?>
                                         </div>

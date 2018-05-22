@@ -135,7 +135,7 @@ use Cake\I18n\Number;
                             null                            
                             );?></span>
                             <div class="timeline-header">
-                            <h5 class="timeline-header"><b> <?=$value["type"]['name'] ?></b> <?=$value["state"] ?> <?= _("State") ?> <?=$value["city"] ?> <?=$value["street"] ?></h5>
+                            <h5 class="timeline-header"><b> <?=$value["type"]['name'] ?></b> <?=$value["state"] ?> <?=__("State") ?> <?=$value["city"] ?> <?=$value["street"] ?></h5>
                             
                          </div>
                       <div class="timeline-body">

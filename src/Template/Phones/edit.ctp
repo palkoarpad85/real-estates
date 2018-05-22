@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-6">
                                         <?=$this->Form->control('phoneNumber', ['class'   => 'form-control',
-                                                                                  'label'     => _('Phone Number'),
+                                                                                  'label'     =>__('Phone Number'),
                                                                                   'data-mask' =>'00 00 000 0000'
                                                                                  
                                                                              ])?>

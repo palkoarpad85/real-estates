@@ -1,6 +1,5 @@
 <?php $this->layout = 'login'; ?>
-
-    <strong><h1 class=" text-center "><?= __('Welcome to Ingatlan')?></h1>
+<br>
 
     <h2 class=' text-center'><?= __('Forgot password')?></h2></strong>
 <div class="container" >

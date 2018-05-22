@@ -81,7 +81,7 @@ class PaymentController extends AppController
                                        
                     $real->premium=$premuimend;
                     if ($this->Realestates->save($real)) {
-                        $this->Flash->success(__('The realestate has been saved.'));
+                        $this->Flash->success(__('The payment success.'));
                     }                    
                 }
               }

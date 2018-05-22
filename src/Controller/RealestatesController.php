@@ -64,7 +64,10 @@ class RealestatesController extends AppController
                     {
                         
                     $query = $this->Realestates->find();
-                        
+                    
+                    $query->where(['active' => 1]  
+                     ); 
+                    
                     if(isset($filter['categories'])){                                       
                         $query->where(['category_id  IN' =>$filter['categories']]);
                       
@@ -90,21 +93,28 @@ class RealestatesController extends AppController
                     $realestates = $this->paginate($query);
                 }
                 else{
-                    $this->paginate = [
-                        'contain' => ['Images'],
-                        'order'=>['premium' =>'desc'] 
-                    ];
-                    $realestates = $this->paginate($this->Realestates);
+                    $query = $this->Realestates->find();
+                    
+                    $query->where(['active' => 1]); 
+                    $query->order(['premium' =>'asc']); 
+                    $query->contain(['Images']); 
+                    $query->order(['premium' =>'desc']);
+                    $query->order(['created' =>'desc']);       
+                    $realestates = $this->paginate($query);       
                 }
  
             }
             else{
 
-                $this->paginate = [
-                    'contain' => ['Images'],
-                    'order'=>['premium' =>'desc'] 
-                ];
-                $realestates = $this->paginate($this->Realestates);
+                $query = $this->Realestates->find();
+                    
+                $query->where(['active' => 1]); 
+                $query->order(['premium' =>'asc']); 
+                $query->contain(['Images']); 
+
+                $query->order(['premium' =>'desc']); 
+                $query->order(['created' =>'desc']);     
+                $realestates = $this->paginate($query);               
                 
             }
 

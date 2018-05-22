@@ -1,0 +1,2047 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2018-01-05 08:48+0000\n"
+"PO-Revision-Date: 2018-01-05 13:49+0100\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.5\n"
+"Last-Translator: \n"
+"Language: hu_HU\n"
+
+
+msgid "<i class='fas fa-indent'></i> Categories"
+msgstr "<i class='fas fa-indent'></i> Kategória"
+
+msgid "<i class='fas fa-bath'></i> Conditionofproperties"
+msgstr "<i class='fas fa-bath'></i> Ingatlan állapota"
+
+msgid "<i class='fas fa-bed'></i> Conveniencegrades"
+msgstr "<i class='fas fa-bed'></i> Komfort"
+
+msgid "<i class='fas fa-thermometer-full'></i> Heatingtypes"
+msgstr "<i class='fas fa-thermometer-full'></i> Fűtés"
+
+msgid "<i class='fas fa-car'></i> Parkings"
+msgstr "<i class='fas fa-car'></i> Parkolás"
+
+msgid "<i class='far fa-building'></i> Types"
+msgstr "<i class='far fa-building'></i> Típusok"
+
+msgid "<i class='fas fa-users'></i> Users"
+msgstr "<i class='fas fa-users'></i> Felhasználók"
+
+msgid "<i class='fas fa-lock'></i> Roles"
+msgstr "<i class='fas fa-lock'></i> Szerep"
+
+msgid "<i class='fas fa-low-vision'></i> Permissions"
+msgstr "<i class='fas fa-low-vision'></i> Hozzáférés"
+
+msgid "Menu"
+msgstr "Menü"
+
+msgid "<i class='fas fa-indent'></i>My Realestates"
+msgstr "<i class='fas fa-indent'></i> Saját ingatlanok"
+
+msgid "<i class='fas fa-indent'></i> Profile"
+msgstr "<i class='fas fa-indent'></i> Profil"
+
+msgid "<i class='fas fa-edit'></i> Edit"
+msgstr "<i class='fas fa-edit'></i> Módosítás"
+
+msgid "<i class='fas fa-unlock'></i> Reset password"
+msgstr "<i class='fas fa-unlock'></i> Jelszó módosítás"
+
+msgid "English"
+msgstr "Angol"
+
+msgid " Create Category"
+msgstr "<i class='fa fa-plus'></i> Mentés"
+
+#: Controller/CategoriesController.php:71;106
+#: Controller/ConditionofpropertiesController.php:71;106
+#: Controller/ConveniencegradesController.php:74;109
+#: Controller/HeatingtypesController.php:71;106
+#: Controller/ParkingsController.php:74;109
+#: Controller/TypesController.php:74;109
+msgid "The parking has been saved."
+msgstr "A parkolás felvitele kész."
+
+#: Controller/CategoriesController.php:75;110
+#: Controller/ConditionofpropertiesController.php:75;110
+#: Controller/ConveniencegradesController.php:78;113
+#: Controller/HeatingtypesController.php:75;110
+#: Controller/ParkingsController.php:78;113
+#: Controller/TypesController.php:78;113
+msgid "The parking could not be saved. Please, try again."
+msgstr "Nem sikerült a mentés  próbáld ujra."
+
+#: Controller/CategoriesController.php:138
+#: Controller/ConditionofpropertiesController.php:138
+#: Controller/ConveniencegradesController.php:141
+#: Controller/HeatingtypesController.php:138
+#: Controller/ParkingsController.php:141 Controller/TypesController.php:141
+msgid "The category has been deleted."
+msgstr "A kategória törlése kész."
+
+#: Controller/CategoriesController.php:140
+#: Controller/ConditionofpropertiesController.php:140
+#: Controller/ConveniencegradesController.php:143
+#: Controller/HeatingtypesController.php:140
+#: Controller/ParkingsController.php:143 Controller/TypesController.php:143
+msgid "The category could not be deleted. Please, try again."
+msgstr "A kategória nem törölhető. Kérjük próbálja meg újra."
+
+#: Controller/CategoriesController.php:169
+#: Controller/ConditionofpropertiesController.php:169
+#: Controller/ConveniencegradesController.php:171
+#: Controller/HeatingtypesController.php:169
+#: Controller/ParkingsController.php:171
+#: Controller/RealestatesController.php:483 Controller/TypesController.php:171
+msgid "The Categories has been restore."
+msgstr "A kategória visszaállítása sikerült."
+
+#: Controller/CategoriesController.php:171
+#: Controller/ConditionofpropertiesController.php:171
+#: Controller/ConveniencegradesController.php:173
+#: Controller/HeatingtypesController.php:171
+#: Controller/ParkingsController.php:173
+#: Controller/RealestatesController.php:485 Controller/TypesController.php:173
+msgid "The Categories could not be restore. Please, try again."
+msgstr "A kategória nem lehet visszaállítani. Kérjük próbálja meg újra."
+
+#: Controller/ImagesController.php:91
+#: Controller/RealestatesController.php:341;422
+msgid "Unable to upload file, please try again."
+msgstr "Nem sikerült feltölteni a fájlt, próbálkozzon újra."
+
+#: Controller/ImagesController.php:94
+#: Controller/RealestatesController.php:344;425
+msgid "Please choose a file to upload."
+msgstr "Kérjük, válasszon feltöltendő fájlt."
+
+#: Controller/ImagesController.php:106 Controller/RealestatesController.php:433
+msgid "The image has been saved."
+msgstr "A kép mentve."
+
+#: Controller/ImagesController.php:110 Controller/RealestatesController.php:436
+msgid "The image could not be saved. Please, try again."
+msgstr "A kép nem menthető. Kérjük próbálja meg újra."
+
+#: Controller/ImagesController.php:178
+msgid "The image has been deleted."
+msgstr "A kép törölve.."
+
+#: Controller/ImagesController.php:180
+msgid "The image could not be deleted. Please, try again."
+msgstr "A kép nem törölhető. Kérjük próbálja meg újra."
+
+#: Controller/PaymentController.php:42
+msgid "Try again."
+msgstr "Próbáld meg újra."
+
+#: Controller/PaymentController.php:110
+#: Controller/RealestatesController.php:352
+msgid "The realestate has been saved."
+msgstr "A ingatlan felvitele kész."
+
+#: Controller/RealestatesController.php:290
+msgid "Un a google addres is empty try again."
+msgstr "Google cím üres próbálja újra."
+
+#: Controller/RealestatesController.php:355
+msgid "The realestate could not be saved. Please, try again."
+msgstr "Az ingatlan nem menthető meg. Kérlek próbáld újra."
+
+#: Controller/RealestatesController.php:505
+msgid "The realestate has been deleted."
+msgstr "A ingatlan törlése kész."
+
+#: Controller/RealestatesController.php:507
+msgid "The realestate could not be deleted. Please, try again."
+msgstr "Az ingatlan nem törölhető. Kérjük próbálja meg újra."
+
+#: Controller/RealestatesController.php:700
+msgid "Message send "
+msgstr "Küldés "
+
+#: Controller/RealestatesController.php:702
+msgid "Message don t send "
+msgstr "Az üzenet  nem  lett el küldve "
+
+#: Template/Categories/add.ctp:9;14;23 Template/Categories/index.ctp:32
+#: Template/Conditionofproperties/add.ctp:9;14;23
+#: Template/Conditionofproperties/index.ctp:32
+#: Template/Conveniencegrades/add.ctp:9;14;23
+#: Template/Conveniencegrades/index.ctp:32
+#: Template/Heatingtypes/add.ctp:9;14;23 Template/Heatingtypes/index.ctp:32
+#: Template/Images/edit.ctp:32 Template/Parkings/add.ctp:9;14;23
+#: Template/Parkings/index.ctp:32 Template/Payment/payment.ctp:16
+#: Template/Realestates/add.ctp:11;16;26 Template/Realestates/adminindex.ctp:32
+#: Template/Realestates/adminindexlist.ctp:32
+#: Template/Realestates/edit.ctp:11;16 Template/Realestates/indexlist.ctp:32
+#: Template/Types/add.ctp:9;14;23 Template/Types/index.ctp:32
+msgid "Add"
+msgstr "Új felvétele"
+
+#: Template/Categories/add.ctp:12 Template/Categories/edit.ctp:12
+#: Template/Categories/index.ctp:19 Template/Categories/view.ctp:13
+#: Template/Conditionofproperties/add.ctp:12
+#: Template/Conditionofproperties/edit.ctp:12
+#: Template/Conditionofproperties/index.ctp:19
+#: Template/Conditionofproperties/view.ctp:13
+#: Template/Conveniencegrades/add.ctp:12 Template/Conveniencegrades/edit.ctp:12
+#: Template/Conveniencegrades/index.ctp:19
+#: Template/Conveniencegrades/view.ctp:13 Template/Heatingtypes/add.ctp:12
+#: Template/Heatingtypes/edit.ctp:12 Template/Heatingtypes/index.ctp:19
+#: Template/Heatingtypes/view.ctp:13 Template/Parkings/add.ctp:12
+#: Template/Parkings/edit.ctp:12 Template/Parkings/index.ctp:19
+#: Template/Parkings/view.ctp:13 Template/Payment/payment.ctp:14
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:7
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:7
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:17
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:7
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:7
+#: Template/Realestates/add.ctp:14 Template/Realestates/admindashboard.ctp:16
+#: Template/Realestates/adminindexlist.ctp:19
+#: Template/Realestates/contact.ctp:15 Template/Realestates/edit.ctp:14
+#: Template/Realestates/indexlist.ctp:19 Template/Realestates/premium.ctp:7
+#: Template/Types/add.ctp:12 Template/Types/edit.ctp:12
+#: Template/Types/index.ctp:19 Template/Types/view.ctp:13
+#: View/Helper/HtmlHelper.php:794
+msgid "Home"
+msgstr "Főoldal"
+
+#: Template/Categories/add.ctp:32;33 Template/Categories/edit.ctp:32;33
+#: Template/Categories/view.ctp:34 Template/Conditionofproperties/add.ctp:32;33
+#: Template/Conditionofproperties/edit.ctp:32;33
+#: Template/Conditionofproperties/view.ctp:34
+#: Template/Conveniencegrades/add.ctp:32;33
+#: Template/Conveniencegrades/edit.ctp:32;33
+#: Template/Conveniencegrades/view.ctp:34 Template/Heatingtypes/add.ctp:32;33
+#: Template/Heatingtypes/edit.ctp:32;33 Template/Heatingtypes/view.ctp:34
+#: Template/Parkings/add.ctp:32;33 Template/Parkings/edit.ctp:32;33
+#: Template/Parkings/view.ctp:34 Template/Types/add.ctp:32;33
+#: Template/Types/edit.ctp:32;33 Template/Types/view.ctp:34
+msgid "hu_name"
+msgstr "Magyar"
+
+#: Template/Categories/add.ctp:43;44 Template/Categories/edit.ctp:42;43
+#: Template/Categories/view.ctp:39 Template/Conditionofproperties/add.ctp:43;44
+#: Template/Conditionofproperties/edit.ctp:42;43
+#: Template/Conditionofproperties/view.ctp:39
+#: Template/Conveniencegrades/add.ctp:43;44
+#: Template/Conveniencegrades/edit.ctp:42;43
+#: Template/Conveniencegrades/view.ctp:39 Template/Heatingtypes/add.ctp:43;44
+#: Template/Heatingtypes/edit.ctp:42;43 Template/Heatingtypes/view.ctp:39
+#: Template/Parkings/add.ctp:43;44 Template/Parkings/edit.ctp:42;43
+#: Template/Parkings/view.ctp:39 Template/Types/add.ctp:43;44
+#: Template/Types/edit.ctp:42;43 Template/Types/view.ctp:39
+msgid "eng_name"
+msgstr "Angol"
+
+#: Template/Categories/add.ctp:51 Template/Categories/edit.ctp:57
+#: Template/Conditionofproperties/add.ctp:51
+#: Template/Conditionofproperties/edit.ctp:57
+#: Template/Conveniencegrades/add.ctp:51 Template/Conveniencegrades/edit.ctp:57
+#: Template/Heatingtypes/add.ctp:51 Template/Heatingtypes/edit.ctp:57
+#: Template/Images/add.ctp:23 Template/Parkings/add.ctp:51
+#: Template/Parkings/edit.ctp:57
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:129
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:192
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:100
+#: Template/Realestates/add.ctp:398 Template/Realestates/edit.ctp:438
+#: Template/Types/add.ctp:51 Template/Types/edit.ctp:57
+#: View/Helper/FormHelper.php:1900
+msgid "Submit"
+msgstr "Mentés"
+
+#: Template/Categories/edit.ctp:9;14
+#: Template/Conditionofproperties/edit.ctp:9;14
+#: Template/Conveniencegrades/edit.ctp:9;14 Template/Heatingtypes/edit.ctp:9;14
+#: Template/Parkings/edit.ctp:9;14
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:84
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:190
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:68
+#: Template/Realestates/edit.ctp:26 Template/Types/edit.ctp:9;14
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: Template/Categories/edit.ctp:24 Template/Conditionofproperties/edit.ctp:24
+#: Template/Conveniencegrades/edit.ctp:24 Template/Heatingtypes/edit.ctp:24
+#: Template/Parkings/edit.ctp:24 Template/Types/edit.ctp:24
+msgid "EDIT"
+msgstr "Szerkesztés"
+
+#: Template/Categories/edit.ctp:52 Template/Conditionofproperties/edit.ctp:52
+#: Template/Conveniencegrades/edit.ctp:52 Template/Heatingtypes/edit.ctp:52
+#: Template/Parkings/edit.ctp:52 Template/Types/edit.ctp:52
+msgid "active"
+msgstr "Aktív"
+
+#: Template/Categories/index.ctp:16 Template/Conditionofproperties/index.ctp:16
+#: Template/Conveniencegrades/index.ctp:16 Template/Heatingtypes/index.ctp:16
+#: Template/Images/edit.ctp:16 Template/Parkings/index.ctp:16
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:14
+#: Template/Realestates/adminindex.ctp:16
+#: Template/Realestates/adminindexlist.ctp:16
+#: Template/Realestates/indexlist.ctp:16 Template/Types/index.ctp:16
+msgid "List"
+msgstr "Listája"
+
+#: Template/Categories/index.ctp:62;74
+#: Template/Conditionofproperties/index.ctp:62;74
+#: Template/Conveniencegrades/index.ctp:62;74
+#: Template/Heatingtypes/index.ctp:62;74 Template/Images/edit.ctp:49;62
+#: Template/Parkings/index.ctp:62;74 Template/Realestates/adminindex.ctp:66;84
+#: Template/Realestates/adminindexlist.ctp:48;65
+#: Template/Realestates/indexlist.ctp:48;65 Template/Types/index.ctp:62;74
+msgid "Id <i class='fa fa-sort'></i>"
+msgstr "Id <i class='fa fa-sort'></i>"
+
+#: Template/Categories/index.ctp:63;75
+#: Template/Conditionofproperties/index.ctp:63;75
+#: Template/Conveniencegrades/index.ctp:63;75
+#: Template/Heatingtypes/index.ctp:63;75 Template/Images/edit.ctp:50;63
+#: Template/Parkings/index.ctp:63;75
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:37;95
+#: Template/Realestates/adminindex.ctp:85 Template/Types/index.ctp:63;75
+msgid "Active <i class='fa fa-sort'></i>"
+msgstr "Aktív <i class='fa fa-sort'></i>"
+
+#: Template/Categories/index.ctp:64;76
+#: Template/Conditionofproperties/index.ctp:64;76
+#: Template/Conveniencegrades/index.ctp:64;76
+#: Template/Heatingtypes/index.ctp:64;76 Template/Images/edit.ctp:64
+#: Template/Parkings/index.ctp:64;76 Template/Types/index.ctp:64;76
+msgid "Hu_name <i class='fa fa-sort'></i>"
+msgstr "Magyar <i class='fa fa-sort'></i>"
+
+#: Template/Categories/index.ctp:65;77
+#: Template/Conditionofproperties/index.ctp:65;77
+#: Template/Conveniencegrades/index.ctp:65;77
+#: Template/Heatingtypes/index.ctp:65;77 Template/Parkings/index.ctp:65;77
+#: Template/Types/index.ctp:65;77
+msgid "Eng_name <i class='fa fa-sort'></i>"
+msgstr "Angol  <i class='fa fa-sort'></i>"
+
+#: Template/Categories/index.ctp:66;78
+#: Template/Conditionofproperties/index.ctp:66;78
+#: Template/Conveniencegrades/index.ctp:66;78
+#: Template/Heatingtypes/index.ctp:66;78 Template/Images/edit.ctp:54;67
+#: Template/Images/view.ctp:9 Template/Parkings/index.ctp:66;78
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:46
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:173
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:43;101
+#: Template/Realestates/adminindex.ctp:75;93
+#: Template/Realestates/adminindexlist.ctp:56;73
+#: Template/Realestates/indexlist.ctp:56;73 Template/Types/index.ctp:66;78
+msgid "Actions"
+msgstr "Akció"
+
+#: Template/Categories/index.ctp:85 Template/Conditionofproperties/index.ctp:85
+#: Template/Conveniencegrades/index.ctp:85 Template/Heatingtypes/index.ctp:85
+#: Template/Parkings/index.ctp:85
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:108
+#: Template/Realestates/adminindex.ctp:100
+#: Template/Realestates/adminindexlist.ctp:80
+#: Template/Realestates/index.ctp:110 Template/Realestates/indexlist.ctp:80
+#: Template/Types/index.ctp:85
+msgid "first"
+msgstr "Első"
+
+#: Template/Categories/index.ctp:86 Template/Conditionofproperties/index.ctp:86
+#: Template/Conveniencegrades/index.ctp:86 Template/Heatingtypes/index.ctp:86
+#: Template/Parkings/index.ctp:86
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:109
+#: Template/Realestates/adminindex.ctp:101
+#: Template/Realestates/adminindexlist.ctp:81
+#: Template/Realestates/index.ctp:111 Template/Realestates/indexlist.ctp:81
+#: Template/Types/index.ctp:86
+msgid "previous"
+msgstr "Előzö"
+
+#: Template/Categories/index.ctp:88 Template/Conditionofproperties/index.ctp:88
+#: Template/Conveniencegrades/index.ctp:88 Template/Heatingtypes/index.ctp:88
+#: Template/Parkings/index.ctp:88
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:111
+#: Template/Realestates/adminindex.ctp:103
+#: Template/Realestates/adminindexlist.ctp:83
+#: Template/Realestates/index.ctp:113 Template/Realestates/indexlist.ctp:83
+#: Template/Types/index.ctp:88
+msgid "next"
+msgstr "következő"
+
+#: Template/Categories/index.ctp:89 Template/Conditionofproperties/index.ctp:89
+#: Template/Conveniencegrades/index.ctp:89 Template/Heatingtypes/index.ctp:89
+#: Template/Parkings/index.ctp:89
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:112
+#: Template/Realestates/adminindex.ctp:104
+#: Template/Realestates/adminindexlist.ctp:84
+#: Template/Realestates/index.ctp:114 Template/Realestates/indexlist.ctp:84
+#: Template/Types/index.ctp:89
+msgid "last"
+msgstr "Utolsó"
+
+#: Template/Categories/index.ctp:91 Template/Conditionofproperties/index.ctp:91
+#: Template/Conveniencegrades/index.ctp:91 Template/Heatingtypes/index.ctp:91
+#: Template/Parkings/index.ctp:91
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:114
+#: Template/Realestates/adminindex.ctp:106
+#: Template/Realestates/adminindexlist.ctp:86
+#: Template/Realestates/index.ctp:116 Template/Realestates/indexlist.ctp:86
+#: Template/Types/index.ctp:91
+msgid ""
+"Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} "
+"total"
+msgstr ""
+"Lap {{page}} ból {{pages}}, mutat {{current}} rekodot {{count}} összesen"
+
+#: Template/Categories/index.ctp:133 Template/Categories/view.ctp:68
+#: Template/Conditionofproperties/index.ctp:133
+#: Template/Conditionofproperties/view.ctp:68
+#: Template/Conveniencegrades/index.ctp:133
+#: Template/Conveniencegrades/view.ctp:68 Template/Heatingtypes/index.ctp:133
+#: Template/Heatingtypes/view.ctp:68 Template/Images/view.ctp:39
+#: Template/Parkings/index.ctp:133 Template/Parkings/view.ctp:68
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:119
+#: Template/Plugin/AdminLTE/Element/ImagesTable.ctp:4
+#: Template/Plugin/AdminLTE/Element/table.ctp:4
+#: Template/Realestates/add.ctp:286;303 Template/Realestates/adminindex.ctp:148
+#: Template/Realestates/edit.ctp:298;316 Template/Realestates/index.ctp:159
+#: Template/Types/index.ctp:133 Template/Types/view.ctp:68
+msgid "Yes"
+msgstr "Igen"
+
+#: Template/Categories/index.ctp:138 Template/Categories/view.ctp:68
+#: Template/Conditionofproperties/index.ctp:138
+#: Template/Conditionofproperties/view.ctp:68
+#: Template/Conveniencegrades/index.ctp:138
+#: Template/Conveniencegrades/view.ctp:68 Template/Heatingtypes/index.ctp:138
+#: Template/Heatingtypes/view.ctp:68 Template/Images/view.ctp:39
+#: Template/Parkings/index.ctp:138 Template/Parkings/view.ctp:68
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:119
+#: Template/Plugin/AdminLTE/Element/ImagesTable.ctp:6
+#: Template/Plugin/AdminLTE/Element/table.ctp:6
+#: Template/Realestates/add.ctp:286;303 Template/Realestates/adminindex.ctp:153
+#: Template/Realestates/edit.ctp:298;316 Template/Realestates/index.ctp:164
+#: Template/Realestates/view.ctp:90;92;96;98
+#: Template/Realestates/viewuser.ctp:92;94;98;100 Template/Types/index.ctp:138
+#: Template/Types/view.ctp:68
+msgid "No"
+msgstr "Nem"
+
+#: Template/Categories/view.ctp:10;15
+#: Template/Conditionofproperties/view.ctp:10;15
+#: Template/Conveniencegrades/view.ctp:10;15
+#: Template/Heatingtypes/view.ctp:10;15 Template/Parkings/view.ctp:10;15
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:83
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:189
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:61
+#: Template/Types/view.ctp:10;15
+msgid "View"
+msgstr "Nézet"
+
+#: Template/Categories/view.ctp:25 Template/Conditionofproperties/view.ctp:25
+#: Template/Conveniencegrades/view.ctp:25 Template/Heatingtypes/view.ctp:25
+#: Template/Parkings/view.ctp:25 Template/Types/view.ctp:25
+msgid "VIEW"
+msgstr "Nézet"
+
+#: Template/Categories/view.ctp:44 Template/Conditionofproperties/view.ctp:44
+#: Template/Conveniencegrades/view.ctp:44 Template/Heatingtypes/view.ctp:44
+#: Template/Images/view.ctp:26 Template/Parkings/view.ctp:44
+#: Template/Types/view.ctp:44
+msgid "Created By"
+msgstr "Létrehozó"
+
+#: Template/Categories/view.ctp:50 Template/Conditionofproperties/view.ctp:50
+#: Template/Conveniencegrades/view.ctp:50 Template/Heatingtypes/view.ctp:50
+#: Template/Images/view.ctp:34 Template/Parkings/view.ctp:50
+#: Template/Types/view.ctp:50
+msgid "Created"
+msgstr "Létrehozva"
+
+#: Template/Categories/view.ctp:55 Template/Conditionofproperties/view.ctp:55
+#: Template/Conveniencegrades/view.ctp:55 Template/Heatingtypes/view.ctp:55
+#: Template/Parkings/view.ctp:55 Template/Types/view.ctp:55
+msgid "Modified By"
+msgstr "Módosítota"
+
+#: Template/Categories/view.ctp:61 Template/Conditionofproperties/view.ctp:61
+#: Template/Conveniencegrades/view.ctp:61 Template/Heatingtypes/view.ctp:61
+#: Template/Parkings/view.ctp:61 Template/Types/view.ctp:61
+msgid "Modified"
+msgstr "Módosítva"
+
+#: Template/Categories/view.ctp:66 Template/Conditionofproperties/view.ctp:66
+#: Template/Conveniencegrades/view.ctp:66 Template/Heatingtypes/view.ctp:66
+#: Template/Images/view.ctp:38 Template/Parkings/view.ctp:66
+#: Template/Types/view.ctp:66
+msgid "Active"
+msgstr "Aktív"
+
+#: Template/Error/error400.ctp:5;8 Template/Error/error500.ctp:5;8
+msgid "Error 500"
+msgstr "Hiba 500"
+
+#: Template/Images/add.ctp:10 Template/Realestates/add.ctp:348
+#: Template/Realestates/edit.ctp:428
+msgid "add photos"
+msgstr "Fotók felvitele"
+
+#: Template/Images/edit.ctp:51
+msgid "created <i class='fa fa-sort'></i>"
+msgstr "létrehozva<i class='fa fa-sort'></i>"
+
+#: Template/Images/edit.ctp:53;66
+msgid "picture <i class='fa fa-sort'></i>"
+msgstr "Képek <i class='fa fa-sort'></i>"
+
+#: Template/Images/view.ctp:10
+msgid "Edit Image"
+msgstr "Kép szerkeztés"
+
+#: Template/Images/view.ctp:11
+msgid "Delete Image"
+msgstr "Törlés"
+
+#: Template/Images/view.ctp:11
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:191
+#: Template/Plugin/AdminLTE/Element/ImagesTable.ctp:18
+#: Template/Plugin/AdminLTE/Element/realTable.ctp:75
+#: Template/Plugin/AdminLTE/Element/realTablel.ctp:90
+#: Template/Plugin/AdminLTE/Element/table.ctp:48
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:86
+msgid "Are you sure you want to delete # {0}?"
+msgstr "Biztos törölni akarod id #{0}?"
+
+#: Template/Images/view.ctp:12
+msgid "List Images"
+msgstr "Lista"
+
+#: Template/Images/view.ctp:13
+msgid "New Image"
+msgstr "Új kép"
+
+#: Template/Images/view.ctp:14
+msgid "List Realestates"
+msgstr "Ingatlan"
+
+#: Template/Images/view.ctp:15
+msgid "New Realestate"
+msgstr "Új ingatlan"
+
+#: Template/Images/view.ctp:22 Template/Payment/payment.ctp:81
+msgid "Name"
+msgstr "Név"
+
+#: Template/Images/view.ctp:30
+msgid "Id"
+msgstr "Id"
+
+#: Template/Layout/error.ctp:35
+#: Template/Plugin/AdminLTE/Element/Flash/error.ctp:4
+msgid "Error"
+msgstr "Hiba"
+
+#: Template/Layout/error.ctp:43
+#: Template/Plugin/AdminLTE/Bake/Element/form.ctp:13
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:47
+msgid "Back"
+msgstr "Vissza"
+
+#: Template/Payment/payment.ctp:11;70
+msgid "Premium"
+msgstr "Prémium"
+
+#: Template/Payment/payment.ctp:95
+msgid "Card number"
+msgstr "Bank kártya száma"
+
+#: Template/Payment/payment.ctp:108
+msgid "CVC"
+msgstr "CVC"
+
+#: Template/Payment/payment.ctp:123
+msgid "exp_month"
+msgstr "Hónap"
+
+#: Template/Payment/payment.ctp:136
+msgid "exp_year"
+msgstr "Év"
+
+#: Template/Plugin/AdminLTE/Bake/Element/form.ctp:9
+msgid " Inflector::humanize($action) "
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Bake/Element/form.ctp:26
+msgid "Form"
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Bake/Element/form.ctp:77
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:61
+msgid "Save"
+msgstr "Mentés"
+
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:14
+msgid "New"
+msgstr "Új"
+
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:24
+msgid "List of"
+msgstr "Lista"
+
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:28
+msgid "Fill in to start search"
+msgstr "Keresés"
+
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:30
+msgid "Filter"
+msgstr "Filter"
+
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:85
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:191
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:60
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:77
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:60
+msgid "Delete"
+msgstr "Törlés"
+
+#: Template/Plugin/AdminLTE/Bake/Template/index.ctp:85
+msgid "Confirm to delete this entry?"
+msgstr "Erősítse meg ezt a bejegyzést törölni?"
+
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:43
+msgid "<%= $singularHumanName %>"
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:59
+msgid "Information"
+msgstr "Információ"
+
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:69
+msgid "<%= Inflector::humanize($details["
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:75;96;117;126
+msgid "<%= Inflector::humanize($field) %>"
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:86
+msgid ""
+"<%= Inflector::humanize(Inflector::singularize(Inflector::"
+"underscore($alias))) %>"
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Bake/Template/view.ctp:153
+msgid "Related {0}"
+msgstr ""
+
+#: Template/Plugin/AdminLTE/Element/ImagesTable.ctp:24
+#: Template/Plugin/AdminLTE/Element/realTable.ctp:81
+#: Template/Plugin/AdminLTE/Element/realTablel.ctp:96
+#: Template/Plugin/AdminLTE/Element/table.ctp:54
+msgid "Are you sure you want to restore # {0}?"
+msgstr "Biztos vissza akarod állítani id #{0}?"
+
+#: Template/Plugin/AdminLTE/Element/nav-top.ctp:10
+msgid "New realestates"
+msgstr "Új hirdetés"
+
+#: Template/Plugin/AdminLTE/Element/nav-top.ctp:35
+msgid "Profile"
+msgstr "Profil"
+
+#: Template/Plugin/AdminLTE/Element/nav-top.ctp:38
+#: Template/Plugin/AdminLTE/Layout/top.ctp:209
+#: View/Helper/UserHelper.php:116;131;145
+msgid "Logout"
+msgstr "Kilépés"
+
+#: Template/Plugin/AdminLTE/Element/nav-top.ctp:48
+msgid "Login/Register"
+msgstr "Belépés / Regisztráció"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:16
+#: Template/Realestates/add.ctp:36 Template/Realestates/edit.ctp:39
+msgid "Type"
+msgstr "Típus"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:18;30;43;82;97;156;171;187;199;211
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:39
+#: Template/Plugin/AdminLTE/Layout/login.ctp:52
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:112
+#: Template/Realestates/add.ctp:38;52;122;138;174;190;224;238;252;290;307;321
+#: Template/Realestates/edit.ctp:37;53;127;144;182;199;236;249;265;302;320;334
+msgid "choose one"
+msgstr "Válasszon"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:28
+#: Template/Realestates/add.ctp:50 Template/Realestates/edit.ctp:52
+msgid "Category"
+msgstr "Kategória"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:41
+#: Template/Realestates/add.ctp:79 Template/Realestates/edit.ctp:85
+msgid "City"
+msgstr "Város"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:54;56;65;67
+#: Template/Realestates/view.ctp:121 Template/Realestates/viewuser.ctp:123
+msgid "price"
+msgstr "Ár"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:80
+msgid "rooms_numbers"
+msgstr "Szobák száma"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:87;102;161;176
+msgid "more than"
+msgstr "több"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:95
+msgid "half_room_numbers"
+msgstr "Fél szobák száma"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:110;111;118;119
+msgid "land_area"
+msgstr "Terület"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:126;137
+msgid "year"
+msgstr "Év"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:128;139
+msgid "build year"
+msgstr "Építés éve"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:154
+#: Template/Realestates/edit.ctp:197
+msgid "floor_number"
+msgstr "Emeletek száma"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:169
+msgid "floor_number_sum"
+msgstr "Emeletek  száma összesen"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:185
+#: Template/Realestates/add.ctp:237
+msgid "Heatingtypes"
+msgstr "Fűtéstípus"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:197
+#: Template/Realestates/add.ctp:223 Template/Realestates/edit.ctp:235
+msgid "Convenience grade"
+msgstr "Kényelmi fokozat"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:209
+msgid "condition of property"
+msgstr "Ingatlan állapota"
+
+#: Template/Plugin/AdminLTE/Element/search.ctp:247
+msgid "Search"
+msgstr "Keresés"
+
+#: Template/Plugin/AdminLTE/Element/Flash/default.ctp:4
+msgid "Alert"
+msgstr "Figyelem"
+
+#: Template/Plugin/AdminLTE/Element/Flash/success.ctp:4
+msgid "Success"
+msgstr "Sikeres"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:7
+msgid "Main"
+msgstr "Fő menű"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:16
+msgid "<i class='fa fa-university'></i> Ads"
+msgstr "<i class='fa fa-university'></i> Saját ingatlanok"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:18
+msgid "<i class='fa fa-building'></i> Realestates"
+msgstr "<i class='fa fa-building'></i>  Ingatlan"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:20
+msgid "<i class='fa fa-envelope'></i> Contact"
+msgstr "<i class='fa fa-envelope'></i>  Kapcsolat"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:27
+msgid " Language"
+msgstr "Nyelv választás"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:35
+#: Template/Plugin/AdminLTE/Layout/login.ctp:48
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:108
+msgid "English"
+msgstr "Angol"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:35
+#: Template/Plugin/AdminLTE/Layout/login.ctp:48
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:108
+msgid "Hungary"
+msgstr "Magyar"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:42
+#: Template/Plugin/AdminLTE/Layout/login.ctp:55
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:115
+msgid "Change Language"
+msgstr "Nyelv választás"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:52
+msgid "Maintainers"
+msgstr "Karbantartók"
+
+msgid "maintainers"
+msgstr "Karbantartók"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:58
+msgid "<i class='fa fa-user'></i>  Users"
+msgstr "<i class='fa fa-user'></i> Felhasználok"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:59
+msgid "<i class='fa fa-car'></i>  Parkings"
+msgstr "<i class='fa fa-car'></i>  Parkolás"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:60
+msgid "<i class='fa fa-thermometer-full'></i>  Heatingtypes"
+msgstr "<i class='fa fa-thermometer-full'></i>  Fűtéstípus"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:61
+msgid "<i class='fa fa-outdent'></i>  Categories"
+msgstr "<i class='fa fa-outdent'></i>  Kategória"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:62
+msgid "<i class='fa fa-star'></i>  Conditionofproperties"
+msgstr "<i class='fa fa-star'></i> Ingatlan állapota"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:63
+msgid "<i class='fa fa-bath'></i>  Conveniencegrades"
+msgstr "<i class='fa fa-bath'></i> Kényelem fokozat"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:64
+msgid "<i class='fa fa-bed'></i>  Types"
+msgstr "<i class='fa fa-bed'></i> Típusok"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:65
+msgid "<i class='fa fa-cog'></i>  Dashboard"
+msgstr "<i class='fa fa-cog'></i> Írányitópult"
+
+#: Template/Plugin/AdminLTE/Element/aside/sidebar-menu.ctp:66
+msgid "<i class='fa fa-university'></i>  All realestates"
+msgstr "<i class='fa fa-university'></i> Összes ingatlan"
+
+#: Template/Plugin/AdminLTE/Layout/login.ctp:35
+msgid "Sign in to start your session"
+msgstr "Jelentkezz be."
+
+#: Template/Plugin/AdminLTE/Layout/top.ctp:205
+msgid "Prosfile"
+msgstr "Profil"
+
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:3;9
+msgid "Change Password"
+msgstr "Jelszó változttás"
+
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:8
+msgid "User"
+msgstr "Felhasználó"
+
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:28
+msgid "Current Password"
+msgstr "Aktuális jelszó"
+
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:41
+msgid "New Password"
+msgstr "Új jelszó"
+
+#: Template/Plugin/CakeDC/Users/Users/change_password.ctp:52
+msgid "Confirm Passowrd"
+msgstr "Jelszó megerősítése"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:4
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:4
+msgid "User Profile"
+msgstr "Profil"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:8
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:13;18;29
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:8
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:8
+msgid "Users"
+msgstr "Felhasználók"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:9
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:9
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:9
+msgid "User profile"
+msgstr "Profil"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:27
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:27
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:28
+msgid "Realestates"
+msgstr "Ingatlan"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:39
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:39
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:40
+msgid "Biography"
+msgstr "Rólam"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:43
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:43
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:44
+msgid "Email"
+msgstr "Email"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:51
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:51
+msgid "Change User"
+msgstr "Felhasználó  módosítás"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:54
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:54
+msgid "Change password"
+msgstr "Jelszó változtatás"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:73
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:74
+msgid "Settings"
+msgstr "Beállítás"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:84;86
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:147;149
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:27
+msgid "username"
+msgstr "felhasználó név"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:97
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:160
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:38
+msgid "E-m@il"
+msgstr "E-m@il"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:106;108
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:169;171
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:71
+msgid "First name"
+msgstr "Keresztnév"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:117;119
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:181;182
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:83
+msgid "Last name"
+msgstr "Vezetéknév"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:126
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:189
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:93
+msgid "Accept TOS conditions?"
+msgstr "ÁSZF elfogadása"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:38;96
+msgid "Username <i class='fa fa-sort'></i>"
+msgstr "Felhasználó név <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:39
+msgid "First name <i class='fa fa-sort'></i>"
+msgstr "Keresztnév  <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:40
+msgid "Last name <i class='fa fa-sort'></i>"
+msgstr "Vezetéknév  <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:41;99
+msgid "Email <i class='fa fa-sort'></i>"
+msgstr "Email <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:42;100
+msgid "Role <i class='fa fa-sort'></i>"
+msgstr "jogosultság <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:97
+msgid "First_name <i class='fa fa-sort'></i>"
+msgstr "Keresztnév  <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/index.ctp:98
+msgid "Last_name <i class='fa fa-sort'></i>"
+msgstr "Vezetéknév <i class='fa fa-sort'></i>"
+
+#: Template/Plugin/CakeDC/Users/Users/login.ctp:26
+msgid "Em@il"
+msgstr "Em@il"
+
+#: Template/Plugin/CakeDC/Users/Users/login.ctp:36
+msgid "Passoword"
+msgstr "Jelszó"
+
+#: Template/Plugin/CakeDC/Users/Users/login.ctp:58
+msgid "Register"
+msgstr "Regisztráció"
+
+#: Template/Plugin/CakeDC/Users/Users/login.ctp:64
+msgid "Reset Password"
+msgstr "Jelszó módosítás"
+
+#: Template/Plugin/CakeDC/Users/Users/login.ctp:69
+msgid "Login"
+msgstr "Belépés"
+
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:73
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:59
+msgid "Timeline"
+msgstr "Idő vonal"
+
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:101
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:84
+#: Template/Realestates/view.ctp:130 Template/Realestates/viewuser.ctp:131
+msgid "comment"
+msgstr "Komment"
+
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:116
+#: Template/Plugin/CakeDC/Users/Users/view.ctp:99
+#: Template/Realestates/edit.ctp:376 Template/Realestates/index.ctp:47
+#: Template/Realestates/premium.ctp:40;64;89
+msgid "INFO"
+msgstr "infó"
+
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:49
+msgid "Password"
+msgstr "Új jelszó"
+
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:60
+msgid "Confirm Password"
+msgstr "Jelszó megerősítése"
+
+#: Template/Plugin/CakeDC/Users/Users/request_reset_password.ctp:8;19
+msgid "Please enter your email to reset your password"
+msgstr "Kérjük, adja meg e-mail címét a jelszó visszaállításához"
+
+#: Template/Plugin/CakeDC/Users/Users/request_reset_password.ctp:27
+#: Template/Plugin/CakeDC/Users/Users/resend_token_validation.ctp:28
+msgid "Send"
+msgstr "Küldés"
+
+#: Template/Plugin/CakeDC/Users/Users/resend_token_validation.ctp:13;20
+msgid "Resend Validation email"
+msgstr "Validálási e-mail újraküldése"
+
+#: Template/Plugin/CakeDC/Users/Users/verify.ctp:13
+msgid "Verification Code"
+msgstr "Megerősítő kód"
+
+#: Template/Plugin/CakeDC/Users/Users/verify.ctp:15
+msgid ""
+"<span class=\"glyphicon glyphicon-log-in\" aria-hidden=\"true\"></span> "
+"Verify"
+msgstr ""
+"<span class=\"glyphicon glyphicon-log-in\" aria-hidden=\"true\"></span> "
+"Ellenőrizve"
+
+#: Template/Realestates/add.ctp:64;65 Template/Realestates/edit.ctp:66;67
+msgid "Built year"
+msgstr "Építés éve"
+
+#: Template/Realestates/add.ctp:96;97 Template/Realestates/edit.ctp:101;102
+msgid "Price"
+msgstr "összeg"
+
+#: Template/Realestates/add.ctp:120 Template/Realestates/edit.ctp:125
+msgid "Rooms numbers"
+msgstr "Szobák száma"
+
+#: Template/Realestates/add.ctp:136 Template/Realestates/edit.ctp:142
+msgid "Half room numbers"
+msgstr "Fél szobák száma"
+
+#: Template/Realestates/add.ctp:153;154;205;206
+#: Template/Realestates/edit.ctp:160;161
+msgid "Floor area"
+msgstr "Szobák száma"
+
+#: Template/Realestates/add.ctp:172 Template/Realestates/edit.ctp:180
+msgid "Floor numbers sum"
+msgstr "Emeletek száma összesen"
+
+#: Template/Realestates/add.ctp:188
+msgid "Floor number"
+msgstr "Szobák száma"
+
+#: Template/Realestates/add.ctp:251 Template/Realestates/edit.ctp:266
+msgid "Parking"
+msgstr "Parkolás"
+
+#: Template/Realestates/add.ctp:267;268 Template/Realestates/edit.ctp:282;283
+msgid "Balcon size"
+msgstr "Terasz méret"
+
+#: Template/Realestates/add.ctp:288 Template/Realestates/edit.ctp:300
+msgid "Elevator"
+msgstr "Lift"
+
+#: Template/Realestates/add.ctp:305 Template/Realestates/edit.ctp:318
+msgid "External storage"
+msgstr "Tároló"
+
+#: Template/Realestates/add.ctp:320 Template/Realestates/edit.ctp:335
+#: Template/Realestates/view.ctp:104 Template/Realestates/viewuser.ctp:106
+msgid "Condition of property"
+msgstr "Ingatlan állapota"
+
+#: Template/Realestates/add.ctp:333 Template/Realestates/edit.ctp:348;351
+msgid "Comment"
+msgstr "Komment"
+
+#: Template/Realestates/add.ctp:358 Template/Realestates/view.ctp:106
+#: Template/Realestates/viewuser.ctp:108
+msgid "phone"
+msgstr "Telefon"
+
+#: Template/Realestates/add.ctp:360 Template/Realestates/edit.ctp:392;393
+msgid "Phone Number"
+msgstr "Telefon szám"
+
+#: Template/Realestates/admindashboard.ctp:12;17;27
+msgid "Irányítópult"
+msgstr ""
+
+#: Template/Realestates/admindashboard.ctp:39
+msgid "Aktív"
+msgstr "Aktív"
+
+#: Template/Realestates/adminindex.ctp:19
+msgid "home"
+msgstr "Főoldal"
+
+#: Template/Realestates/adminindex.ctp:67
+msgid "Aktív <i class='fa fa-sort'></i>"
+msgstr "Aktív <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:68
+msgid "Felhasználó <i class='fa fa-sort'></i>"
+msgstr "Felhasználó <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:69
+msgid "Kategoria <i class='fa fa-sort'></i>"
+msgstr "Kategória <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:70
+msgid "Típus <i class='fa fa-sort'></i>"
+msgstr "Típus <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:71
+msgid "Város <i class='fa fa-sort'></i>"
+msgstr "Város <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:72
+msgid "Ár <i class='fa fa-sort'></i>"
+msgstr "Ár <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:73
+msgid "Fűtés típus <i class='fa fa-sort'></i>"
+msgstr "Fűtés típus <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:74
+msgid "Prémium <i class='fa fa-sort'></i>"
+msgstr "Prémium <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:86
+#: Template/Realestates/adminindexlist.ctp:49;66
+#: Template/Realestates/indexlist.ctp:49;66
+msgid "user <i class='fa fa-sort'></i>"
+msgstr "Felhasználók <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:87
+#: Template/Realestates/adminindexlist.ctp:50;67
+#: Template/Realestates/indexlist.ctp:50;67
+msgid "category <i class='fa fa-sort'></i>"
+msgstr "Kategória <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:88
+#: Template/Realestates/adminindexlist.ctp:51;68
+#: Template/Realestates/indexlist.ctp:51;68
+msgid "type <i class='fa fa-sort'></i>"
+msgstr "Típus<i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:89
+#: Template/Realestates/adminindexlist.ctp:52;69
+#: Template/Realestates/indexlist.ctp:52;69
+msgid "city <i class='fa fa-sort'></i>"
+msgstr "Város <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:90
+#: Template/Realestates/adminindexlist.ctp:53;70
+#: Template/Realestates/indexlist.ctp:53;70
+msgid "price <i class='fa fa-sort'></i>"
+msgstr "Ár <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:91
+#: Template/Realestates/adminindexlist.ctp:54;71
+#: Template/Realestates/indexlist.ctp:54;71
+msgid "heatingtype <i class='fa fa-sort'></i>"
+msgstr "Fűtés típus <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/adminindex.ctp:92
+#: Template/Realestates/adminindexlist.ctp:55;72
+#: Template/Realestates/indexlist.ctp:55;72
+msgid "premium <i class='fa fa-sort'></i>"
+msgstr "Prémium <i class='fa fa-sort'></i>"
+
+#: Template/Realestates/contact.ctp:11;16;25
+msgid "Contacts"
+msgstr "Kapcsolat"
+
+#: Template/Realestates/contact.ctp:39;41;43
+#: Template/Realestates/view.ctp:151;154
+#: Template/Realestates/viewuser.ctp:152;154;156
+msgid "email"
+msgstr "email"
+
+#: Template/Realestates/contact.ctp:52;54;55;56
+#: Template/Realestates/view.ctp:164;167;168
+#: Template/Realestates/viewuser.ctp:165;167;168;169
+msgid "messages"
+msgstr "üzenet"
+
+#: Template/Realestates/contact.ctp:65
+msgid "send"
+msgstr "Küldés"
+
+#: Template/Realestates/edit.ctp:215;216
+msgid "Land area"
+msgstr "Terület"
+
+#: Template/Realestates/edit.ctp:250
+msgid "Heatingtype"
+msgstr "Fűtés típus"
+
+#: Template/Realestates/edit.ctp:368
+msgid "<i class=\"fa fa-info\"></i> Picture"
+msgstr "<i class='fa fa-car'></i>  Képek"
+
+#: Template/Realestates/index.ctp:84 Template/Realestates/view.ctp:23
+#: Template/Realestates/viewuser.ctp:23
+msgid "state"
+msgstr "megye"
+
+#: Template/Realestates/premium.ctp:4;9;19
+msgid "Payment"
+msgstr "Fizetés"
+
+#: Template/Realestates/premium.ctp:26
+msgid "1 months"
+msgstr "1 hónap"
+
+#: Template/Realestates/premium.ctp:50
+msgid "3 months"
+msgstr "3 hónap"
+
+#: Template/Realestates/premium.ctp:74
+msgid "12 months"
+msgstr "12 hónap"
+
+#: Template/Realestates/premium.ctp:26
+msgid "1 months Highlights"
+msgstr "1 hónap kiemelt megjelenés"
+
+#: Template/Realestates/premium.ctp:50
+msgid "3 months Highlights"
+msgstr "3 hónap kiemelt megjelenés"
+
+#: Template/Realestates/premium.ctp:74
+msgid "12 months Highlights"
+msgstr "12 hónap kiemelt megjelenés"
+
+
+#: Template/Realestates/view.ctp:82 Template/Realestates/viewuser.ctp:84
+msgid "rooms numbers"
+msgstr "Szobák száma"
+
+#: Template/Realestates/view.ctp:83 Template/Realestates/viewuser.ctp:85
+msgid "half room numers"
+msgstr "fél szobák száma"
+
+#: Template/Realestates/view.ctp:84 Template/Realestates/viewuser.ctp:86
+msgid "floor number"
+msgstr "Emeletek száma"
+
+#: Template/Realestates/view.ctp:85 Template/Realestates/viewuser.ctp:87
+msgid "floor number sum"
+msgstr "Emeletek  száma összesen"
+
+#: Template/Realestates/view.ctp:86 Template/Realestates/viewuser.ctp:88
+msgid "floor area"
+msgstr "Szobák száma"
+
+#: Template/Realestates/view.ctp:87 Template/Realestates/viewuser.ctp:89
+msgid "land area"
+msgstr "Terület"
+
+#: Template/Realestates/view.ctp:88 Template/Realestates/viewuser.ctp:90
+msgid "balcony size"
+msgstr "Terasz méret"
+
+#: Template/Realestates/view.ctp:89 Template/Realestates/viewuser.ctp:91
+msgid "elevator"
+msgstr "Lift"
+
+#: Template/Realestates/view.ctp:94 Template/Realestates/viewuser.ctp:96
+msgid "external_storage"
+msgstr "Tároló"
+
+#: Template/Realestates/view.ctp:100 Template/Realestates/viewuser.ctp:102
+msgid "conveniencegrade"
+msgstr "Kényelmi fokozat"
+
+#: Template/Realestates/view.ctp:101 Template/Realestates/viewuser.ctp:103
+msgid "heatingtype"
+msgstr "Fűtés típus"
+
+#: Template/Realestates/view.ctp:102 Template/Realestates/viewuser.ctp:104
+msgid "built year"
+msgstr "Építés éve"
+
+#: Template/Realestates/view.ctp:103 Template/Realestates/viewuser.ctp:105
+msgid "parking"
+msgstr "Parkolás"
+
+#: Template/Realestates/view.ctp:105 Template/Realestates/viewuser.ctp:107
+msgid "created"
+msgstr "Létrehozva"
+
+#: Template/Realestates/view.ctp:109 Template/Realestates/viewuser.ctp:111
+msgid "created_by"
+msgstr "Létrehozó"
+
+#: Template/Realestates/view.ctp:149;181
+#: Template/Realestates/viewuser.ctp:150;180
+msgid "sendmessages"
+msgstr "üzenet küldés"
+
+#: Template/Plugin/CakeDC/Users/Users/edit.ctp:80
+#: Template/Plugin/CakeDC/Users/Users/profile.ctp:143
+msgid "Edit User"
+msgstr "Felhasználó szerkesztése"
+
+#: Template/Plugin/CakeDC/Users/Users/login.ctp:49
+msgid "Remember me"
+msgstr "Jegyezzen meg"
+
+#: Template/Plugin/CakeDC/Users/Users/register.ctp:21
+msgid "Add User"
+msgstr "Regisztráció"
+
+#: View/Helper/UserHelper.php:50
+msgid "Welcome, {0}"
+msgstr "Üdv"
+
+#: Controller/Component/AuthComponent.php:496
+msgid "You are not authorized to access that location."
+msgstr "Nem jogosult arra, hogy elérje ezt az oldalt."
+
+#: Controller/Component/CsrfComponent.php:155
+msgid "Missing CSRF token cookie"
+msgstr "A CSRF token hiányzik."
+
+#: Controller/Component/CsrfComponent.php:159
+msgid "CSRF token mismatch."
+msgstr "A CSRF token nem egyezik."
+
+#: Error/ExceptionRenderer.php:258
+msgid "Not Found"
+msgstr "Nem található"
+
+#: Error/ExceptionRenderer.php:260
+msgid "An Internal Error Has Occurred."
+msgstr "Belső hiba történt."
+
+#: Http/Response.php:2258
+msgid "The requested file contains `..` and will not be read."
+msgstr "A kért fájl \"..\" -t tartalmaz, és nem olvasható."
+
+#: Http/Response.php:2269
+msgid "The requested file was not found"
+msgstr "Nem található"
+
+#: I18n/Number.php:90
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:92
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:94
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:96
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:88
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} from now"
+msgstr "{0} ma"
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} ago"
+msgstr "ezelőtt"
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} after"
+msgstr "{0} utána"
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} before"
+msgstr "{0} előtte"
+
+#: I18n/RelativeTimeFormatter.php:114
+msgid "just now"
+msgstr "ma"
+
+#: I18n/RelativeTimeFormatter.php:151
+#, fuzzy
+msgid "about a second ago"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:152
+#, fuzzy
+msgid "about a minute ago"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:153
+#, fuzzy
+msgid "about an hour ago"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:154;332
+#, fuzzy
+msgid "about a day ago"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:155;333
+#, fuzzy
+msgid "about a week ago"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:156;334
+#, fuzzy
+msgid "about a month ago"
+msgstr "Hónap"
+
+#: I18n/RelativeTimeFormatter.php:157;335
+#, fuzzy
+msgid "about a year ago"
+msgstr "Év"
+
+#: I18n/RelativeTimeFormatter.php:168
+#, fuzzy
+msgid "in about a second"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:169
+#, fuzzy
+msgid "in about a minute"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:170
+#, fuzzy
+msgid "in about an hour"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:171;346
+#, fuzzy
+msgid "in about a day"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:172;347
+#, fuzzy
+msgid "in about a week"
+msgstr "Rólam"
+
+#: I18n/RelativeTimeFormatter.php:173;348
+#, fuzzy
+msgid "in about a month"
+msgstr "Hónap"
+
+#: I18n/RelativeTimeFormatter.php:174;349
+#, fuzzy
+msgid "in about a year"
+msgstr "Év"
+
+#: I18n/RelativeTimeFormatter.php:304
+msgid "today"
+msgstr "Ma"
+
+#: I18n/RelativeTimeFormatter.php:370
+#, fuzzy
+msgid "%s ago"
+msgstr "ezelőtt"
+
+#: I18n/RelativeTimeFormatter.php:371
+#, fuzzy
+msgid "on %s"
+msgstr "Új %"
+
+#: I18n/RelativeTimeFormatter.php:47;126;316
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:51;129;319
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:57;132;322
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:59;135;325
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:64;138
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:68;141
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:72;144
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ORM/RulesChecker.php:57
+msgid "This value is already in use"
+msgstr "A megadott érték érvénytelen"
+
+#: ORM/RulesChecker.php:104
+msgid "This value does not exist"
+msgstr "A megadott érték érvénytelen"
+
+#: ORM/RulesChecker.php:128
+msgid "The count does not match {0}{1}"
+msgstr ""
+
+#: Utility/Text.php:899
+msgid "and"
+msgstr "és"
+
+#: Validation/Validator.php:103
+msgid "This field is required"
+msgstr "A mező kitöltése kötelező"
+
+#: Validation/Validator.php:104
+msgid "This field cannot be left empty"
+msgstr "A mező nem lehet üres."
+
+#: Validation/Validator.php:1801
+msgid "The provided value is invalid"
+msgstr "A megadott érték érvénytelen"
+
+#: View/Helper/FormHelper.php:1020
+msgid "New %s"
+msgstr "Új %"
+
+#: View/Helper/FormHelper.php:1023
+msgid "Edit %s"
+msgstr "Szerkeztés %"
+
+#: View/Widget/DateTimeWidget.php:540
+msgid "January"
+msgstr "Január"
+
+#: View/Widget/DateTimeWidget.php:541
+msgid "February"
+msgstr "Február"
+
+#: View/Widget/DateTimeWidget.php:542
+msgid "March"
+msgstr "Március"
+
+#: View/Widget/DateTimeWidget.php:543
+msgid "April"
+msgstr "Április"
+
+#: View/Widget/DateTimeWidget.php:544
+msgid "May"
+msgstr "Május"
+
+#: View/Widget/DateTimeWidget.php:545
+msgid "June"
+msgstr "Június"
+
+#: View/Widget/DateTimeWidget.php:546
+msgid "July"
+msgstr "Július"
+
+#: View/Widget/DateTimeWidget.php:547
+msgid "August"
+msgstr "Agusztus"
+
+#: View/Widget/DateTimeWidget.php:548
+msgid "September"
+msgstr "Szeptember"
+
+#: View/Widget/DateTimeWidget.php:549
+msgid "October"
+msgstr "Október"
+
+#: View/Widget/DateTimeWidget.php:550
+msgid "November"
+msgstr "November"
+
+#: View/Widget/DateTimeWidget.php:551
+msgid "December"
+msgstr "December"
+
+msgid "Parkings"
+msgstr "Parkolás"
+
+msgid "Categories"
+msgstr "Kategóriák"
+
+msgid "Conditionofproperties"
+msgstr "Ingatlan állapota"
+
+msgid "Conveniencegrades"
+msgstr "Kényelmi fokozat"
+
+msgid "Types"
+msgstr "Típusok"
+
+msgid "Images"
+msgstr "Képek"
+
+msgid "Pay"
+msgstr "Fizetés"
+
+msgid "Submit Payment"
+msgstr "Fizetés"
+
+msgid "Payment is successful.."
+msgstr "A fizetés sikeres"
+
+
+msgid "<i class='fa fa-outdent'></i> Categories"
+msgstr "<i class='fa fa-outdent'></i> Kategóriák"
+
+msgid "Name <i class='fa fa-sort'></i>"
+msgstr "Név <i class='fa fa-sort'></i>"
+
+msgid "Created by <i class='fa fa-sort'></i>"
+msgstr "Létrehozó <i class='fa fa-sort'></i>"
+
+msgid "Created <i class='fa fa-sort'></i>"
+msgstr "Létrehozva <i class='fa fa-sort'></i>"
+
+msgid "Search..."
+msgstr "Keresés..."
+
+msgid "All"
+msgstr "Össz"
+
+msgid "Inactive"
+msgstr "Törölt"
+
+msgid "Add a Categories"
+msgstr "Kategória fevitele"
+
+msgid "<i class='fas fa-plus'></i> Add Categories"
+msgstr "<i class='fa fa-plus'></i> Kategória fevitele"
+
+msgid "{0} Create Category"
+msgstr "{0} Kategória Mentés"
+
+
+msgid "The category has been saved."
+msgstr "A kategória mentés sikeres"
+
+msgid "The Categories has been saved."
+msgstr "A kategória mentés sikeres"
+
+msgid "The category could not be saved. Please, try again"
+msgstr "A kategória mentés sikerestelen. Próbáld újból."
+
+msgid "<i class='fas fa-plus'></i> Edit Categories"
+msgstr "<i class='fa fa-plus'></i> Kategória módosítás"
+
+msgid "Edit a Categories"
+msgstr "Kategória módosítás"
+
+msgid "Edit a "
+msgstr "Módosítás "
+
+msgid "{0} Save Categories"
+msgstr "{0} Mentés "
+
+msgid "View a Categories"
+msgstr "Kategória"
+
+msgid "modified"
+msgstr "Módosítva"
+
+msgid "modified_by"
+msgstr "Módosította"
+
+msgid "<i class='fas fa-plus'></i> View Categories"
+msgstr "<i class='fas fa-plus'></i> Kategória"
+
+msgid "The Categories has been deleted."
+msgstr "A kategória törlése kész."
+ 
+
+msgid "<i class='fa fa-outdent'></i> Conditionofproperties"
+msgstr " <i class='fa fa-outdent'></i> Ingatlan állapota"
+
+msgid "{0} Create"
+msgstr "{0} Mentés"
+
+msgid "Add a Conditionofproperties"
+msgstr "Ingatlan állapot felvitel"
+
+msgid "<i class='fas fa-plus'></i> Add Conditionofproperties"
+msgstr "<i class='fas fa-plus'></i> Ingatlan állapot felvitel"
+
+msgid "Edit a Conditionofproperties"
+msgstr "Ingatlan állapot módosítás"
+
+msgid "<i class='fas fa-plus'></i> Edit Conditionofproperties"
+msgstr "<i class='fas fa-plus'></i> Ingatlan állapot módosítás"
+
+msgid "{0} Save Conditionofproperties"
+msgstr "{0} Mentés "
+
+msgid "The Conditionofproperties has been saved."
+msgstr "A mentés rendeben megtörtént."
+
+msgid "The Conditionofproperties could not be saved. Please, try again."
+msgstr "Nem sikerült a mentés  próbáld újra."
+
+
+
+msgid "Login"
+msgstr "Belépés"
+
+msgid "forgotpassword"
+msgstr "Elfelejtette jelszavát?"
+
+msgid "User name"
+msgstr "Felhasználónév"
+
+msgid "The register could not be saved. Please, try again."
+msgstr "A regisztráció nem sikerült. Kérlek próbáld újra."
+
+msgid "Username or password is incorrect"
+msgstr "A felhasználó név vagy jelszó helytelen"
+
+msgid "Forgot password"
+msgstr "Elfelejtett jelszó"
+
+msgid "The email address was not found in the database."
+msgstr "Az e-mail cím nem található az adatbázisban."
+
+msgid "The email address was not found in the database."
+msgstr "Az e-mail cím nem található az adatbázisban."
+
+
+
+msgid "The email was successfully sent."
+msgstr "Az e-mail sikeresen elküldve."
+
+msgid "The registration successfully."
+msgstr "A regisztráció sikeresen megtörtént."
+
+msgid "ERROR Please, try again."
+msgstr "HIBA Kérem, próbálkozzon újra."
+
+msgid "Your password has been changed successfully"
+msgstr "A jelszó sikeresen megváltozott"
+
+msgid "Error changing password. Please try again!"
+msgstr "Hiba a jelszó megváltoztatásakor. Kérlek próbáld újra!"
+
+msgid "Sorry your password token has been expired."
+msgstr "Sajnáljuk, hogy tokenje lejárt."
+
+msgid "Error loading password reset."
+msgstr "Hiba történt a jelszó visszaállításakor."
+
+msgid "Your password has been changed successfully"
+msgstr "A jelszó sikeresen megváltozott"
+
+msgid "Error changing password. Please try again!"
+msgstr "Hiba a jelszó megváltoztatásakor. Kérlek próbáld újra!"
+
+msgid "The registration could not be saved. Please, try again."
+msgstr "A regisztrációt nem lehetett elmenteni. Kérlek próbáld újra."
+
+msgid "The verify token is incorrect"
+msgstr "Az ellenőrző token helytelen"
+
+msgid "Profile upload successfully."
+msgstr "Profil feltöltése sikeres."
+
+msgid "The user could not be saved. Please, try again."
+msgstr "Nem sikerült menteni a felhasználót. Kérlek próbáld újra."
+
+msgid "You dont have access"
+msgstr "Nincs hozzáférése"
+
+msgid "The user has been deleted."
+msgstr "A felhasználó törölve lett."
+
+msgid "The user could not be deleted. Please, try again."
+msgstr "A felhasználó nem törölhető. Kérlek próbáld újra."
+
+msgid "Could not upload the file"
+msgstr "Nem sikerült feltölteni a fájlt"
+
+msgid "Ingatlan"
+msgstr "Ingatlan"
+
+msgid "Change Profile Picture"
+msgstr "Profilkép megváltoztatása"
+
+msgid "Old Password"
+msgstr "Régi jelszó"
+
+msgid "Upload Image:"
+msgstr "Kép feltöltés"
+
+msgid "Realestates count: "
+msgstr "Ingatlanok száma: "
+
+msgid "Active Realestates count: "
+msgstr "Aktív Ingatlanok száma: "
+
+msgid "Change password: "
+msgstr "Jelszó módosítás: "
+
+msgid "Edit Phone: "
+msgstr "Telefon szerkeztés: "
+
+msgid "Delete: "
+msgstr "Törlés"
+
+msgid "User Edit"
+msgstr "Felhasználó szerkesztés "
+
+msgid "Edit a Users"
+msgstr "Felhasználó szerkesztés"
+
+msgid "district"
+msgstr "Kerület"
+
+msgid "State"
+msgstr "megye"
+
+msgid "Price: "
+msgstr "Ára: "
+
+msgid "Convenience Grade: "
+msgstr "Kényelmi fokozat: "
+
+msgid "Heating Type: "
+msgstr "Fűtés típus: "
+
+msgid "Condition Of Property: "
+msgstr "Ingatlan állapota: "
+
+msgid "Parking: "
+msgstr "Parkólás: "
+
+msgid "Rooms Rumbers: "
+msgstr "Szobák száma: "
+
+msgid "Half Rooms Numbers: "
+msgstr "Fél szobák száma:"
+
+msgid "Floor Number: "
+msgstr "Emelet száma: "
+
+msgid "Floor Number Sum: "
+msgstr "Emeletek száma: "
+
+msgid "Floor Area: "
+msgstr "Alapterület: "
+
+msgid "Built Year: "
+msgstr "Építés éve: "
+
+msgid "Elevator: "
+msgstr "Lif: "
+
+msgid "External Storage: "
+msgstr "Raktár: "
+
+msgid "Phones: "
+msgstr "Telefon: "
+
+msgid "Comment: "
+msgstr "Megjegyzés: "
+
+msgid "Message: "
+msgstr "Üzenet: "
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Visitors: "
+msgstr "Látogatok: "
+
+msgid "Land Area: "
+msgstr "Telek területe: "
+
+msgid "Address"
+msgstr "Cím"
+
+msgid "Build year"
+msgstr "Építés éve"
+
+msgid "Half Rooms numbers"
+msgstr "Fél szobák száma:"
+
+msgid "Heating Type"
+msgstr "Fűtés típus"
+
+msgid "Condition Of Property"
+msgstr "Ingatlan állapota"
+ 
+msgid "Balcony size"
+msgstr "Erkély mérete"
+
+msgid "Balcony size: "
+msgstr "Erkély mérete"
+
+msgid "Floor numbers"
+msgstr "Emelet száma:"
+
+msgid "Floor numbers numbers"
+msgstr "Emelet száma összesen:"
+
+msgid "Phones"
+msgstr "Telefonszámok"
+
+msgid "My ads"
+msgstr "Ingatlanjaim"
+
+msgid "Citys"
+msgstr "Városok"
+
+
+msgid "Minimum Price"
+msgstr "Minimum ár"
+
+msgid "Maximum Price"
+msgstr "Maximum ár"
+
+msgid "Full name (on the card)"
+msgstr "Teljes név (a kártyán szereplő)"
+
+
+msgid "Card number"
+msgstr "Kártya száma"
+
+msgid "Expiration"
+msgstr "Kártya lejárata"
+
+
+msgid "Submit Payment"
+msgstr "Fizetés elinditása"
+
+msgid "3 digits code on back side of the card"
+msgstr "3 számjegyű kód a kártya hátoldalán"
+
+
+msgid "The payment success."
+msgstr "Sikeres fizetés"
+
+msgid "Try again."
+msgstr "Próbáld újra."
+
+
+msgid "Did you really think you are allowed to see that?"
+msgstr "Nincs hozzáférése "
+
+msgid "ADS"
+msgstr "Hirdetés"
+
+
+msgid "Highlights"
+msgstr "Kiemelt megjelenés"
+
+msgid "The email success send."
+msgstr "Az email sikeresen elküldve"
+
+msgid "ERROR"
+msgstr "HIBA"
+
+msgid "Un a google addres is empty try again."
+msgstr "A google cím üres próbálkozzon újra."
+
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+

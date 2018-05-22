@@ -248,4 +248,11 @@ class RealestatesTable extends Table
                 ->where(['Realestates.user' => $opt["userId"]]) 
                 ->order(['Realestates.crd' => 'ASC']);
     }
+
+    public function findActive(Query $query, array $opt){
+        return       
+            $query                          
+                    ->where(['Realestates.active' => 1])  
+                    ->order(['Realestates.premium' => 'DESC']);
+    }
 }

@@ -84,6 +84,7 @@ class UsersController extends AppController
             $user->token=$token;
             $user->password_reset_count=0;
             $user->language="hu_HU";
+            $user->password_code_expire=$this->now;
             $user->avatar="avatar.png";
             $roles1[0] = $roles;
             $user->roles = $roles1;
@@ -95,7 +96,7 @@ class UsersController extends AppController
                 }
                 return $this->redirect(['controller'=>'realestates','action' => 'index']);
             }
-            $this->Flash->error(__('The register could not be saved. Please, try again.'));
+            $this->Flash->error(__('The registration could not be saved. Please, try again.'));
         }
         $this->set(compact('user', $user));
 
@@ -156,7 +157,7 @@ class UsersController extends AppController
                         if ($this->Users->save($UserLock)) {
                             $UserLock->created_by=$UserLock->id;
                             if ($this->Users->save($UserLock)) {
-                                $this->Flash->success(__('The registration succesfully.'));
+                                $this->Flash->success(__('The registration successfully.'));
                             }
                             return $this->redirect(['controller'=>'realestates','action' => 'index']);
                         }
@@ -443,7 +444,7 @@ class UsersController extends AppController
             
             if ($this->Users->save($user)) {
                 if (isset($this->request->data['avatar'])) {
-                    $this->Flash->success(__('Profile profile upload successfully.'));
+                    $this->Flash->success(__('Profile upload successfully.'));
                     return $this->redirect(['action' => 'edit',$id]);
                 }else{
                     $this->Flash->success(__('The user has been saved.'));
@@ -481,12 +482,22 @@ class UsersController extends AppController
 
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
+        $real = $this->loadModel('Realestates');
+ 
+        $allreal = $real->find()
+             ->where(['user_id' => $user["id"]])->toArray();
+
+       foreach ($allreal as $value) {       
+           $value->active = 0;           
+           $real->save($value);
+        }     
+
         if ($this->Users->delete($user)) {
             $this->Flash->success(__('The user has been deleted.'));
         } else {
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
-
+        $this->logout();
         return $this->redirect(['action' => 'index']);
     }
 

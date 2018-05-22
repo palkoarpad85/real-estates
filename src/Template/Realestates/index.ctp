@@ -17,24 +17,25 @@
     </ul>
     <div class="carousel-inner">
         <div class="carousel-item active">
-        <img src="http://www.puritanlifeinsurance.com/public/images/fjords_wide.jpg" alt="Los Angeles" width="100%" height="200">
+        
+        <?=  $this->Html->image('File/02.jpg', ["width=100%; height=200"]); ?>
         <div class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
+            <h3><?=__("ADS")?></h3>
+            <p></p>
+        </div>  
+        </div>
+        <div class="carousel-item">
+        <?=  $this->Html->image('File/01.jpg', ["width=100%; height=200"]); ?>
+        <div class="carousel-caption">
+            <h3><?=__("ADS")?></h3>
+            <p></p>
         </div>   
         </div>
         <div class="carousel-item">
-        <img src="http://www.puritanlifeinsurance.com/public/images/fjords_wide.jpg" alt="Chicago" width="100%" height="200">
+        <?=  $this->Html->image('File/03.jpg', ["width=100%; height=200"]); ?>
         <div class="carousel-caption">
-            <h3>Chicago</h3>
-            <p>Thank you, Chicago!</p>
-        </div>   
-        </div>
-        <div class="carousel-item">
-        <img src="http://www.puritanlifeinsurance.com/public/images/fjords_wide.jpg" alt="New York" width="100%" height="200">
-        <div class="carousel-caption">
-            <h3>New York</h3>
-            <p>We love the Big Apple!</p>
+            <h3><?=__("ADS")?></h3>
+            <p></p>
         </div>   
         </div>
     </div>
@@ -51,19 +52,19 @@
 <div class="form-group">
     <div class="row">
     <div class="col-lg-2"><?php
-        echo $this->Form->control('categories._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Categories'),'options' => $categories]); ?>
+        echo $this->Form->control('categories._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Categories'),'options' => $categories]); ?>
     </div>
     <div class="col-lg-2"><?php
-        echo $this->Form->control('types._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Types'),'options' => $types]); ?>
+        echo $this->Form->control('types._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Types'),'options' => $types]); ?>
     </div>
     <div class="col-lg-2"><?php
-        echo $this->Form->control('citys._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Citys'), 'options' => $citys]); ?>
+        echo $this->Form->control('citys._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Citys'), 'options' => $citys]); ?>
     </div>
     <div class="col-lg-2"><?php
-        echo $this->Form->control('min_price', ['class' => 'form-control ', 'label' => _('Minimum Price')]); ?>
+        echo $this->Form->control('min_price', ['class' => 'form-control ', 'label' =>__('Minimum Price')]); ?>
     </div>
     <div class="col-lg-2"><?php
-        echo $this->Form->control('max_price', ['class' => 'form-control', 'label' => _('Maximum Price')]); ?>
+        echo $this->Form->control('max_price', ['class' => 'form-control', 'label' =>__('Maximum Price')]); ?>
     </div>
     <div class="col-md-1"><br><button class="btn btn-success"   id="btnsearch" style="position: absolute;top: 33px;" ><i class='fas fa-search'></i> <?=__("Search")?></button></div>
     </div>
@@ -74,7 +75,7 @@
         <?php foreach($realestates as $realestate): ?> 
             <div class="col-md-4">
                 <div class="box-real">
-                <div class="card-body" <?php if($realestate->premium > $now)  echo "style=\"background: yellow;\"" ?> >
+                <div class="card-body" <?php if($realestate->premium > $now) echo "style=\"background: yellow;\"" ?> >
                 <a href="/realestates/view/<?php echo $realestate->id?>">
                     <h3 class='card-title'> <?= h($this->Number->format($realestate->price)) ?> Ft <?= h($realestate->type['name']) ?>  </h3>
                     <p class='card-text'><?= h($realestate->city) ?></p>
@@ -89,7 +90,7 @@
                     
                     </a><br>
                     <?php                    
-                    if($realestate->premium > $now)  echo __('Premium');?>
+                    if($realestate->premium > $now)  echo "<h4>". __('Highlights')."</h4>";?>
                 </div>
                 </div>
             </div>     

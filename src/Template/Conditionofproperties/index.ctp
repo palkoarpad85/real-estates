@@ -62,8 +62,8 @@
                                         ]
                                 );?>
                             </td>
-                            <td><input type="text" class="form-control" style="width:150px" id="name" name="name" value="<?php if(isset($name)) echo $name ?>" placeholder="Search..."></td>
-                            <td><input type="text" class="form-control" style="width:150px"  id="username" name="username" value="<?php if(isset($username)) echo $username ?>"  placeholder="Search..."></td> 
+                            <td><input type="text" class="form-control" style="width:150px" id="name" name="name" value="<?php if(isset($name)) echo $name ?>" placeholder="<?=__("Search...")?>"></td>
+                            <td><input type="text" class="form-control" style="width:150px"  id="username" name="username" value="<?php if(isset($username)) echo $username ?>"  placeholder="<?=__("Search...")?>"></td> 
                             <td></td>  
                             <td colspan="2"><button class="btn btn-success"><i class='fas fa-search'></i> <?=__("Search")?></button> 
                             <?=$this->Html->link(__("<i class='fas fa-times'></i> Reset"),

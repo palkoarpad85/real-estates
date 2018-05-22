@@ -3,8 +3,7 @@
 <?php $this->layout = 'login'; ?>
 
 
-<strong><h1 class=" text-center "><?= __('Welcome to My Site')?></h1>
-
+<strong><br>
 <h2 class=' text-center'><?= __('Register')?></h2></strong>
 <hr>
 
@@ -16,7 +15,7 @@
             'type' => 'text',
             'label' => false,
             'required' => true,
-            'placeholder' => __('Username'),
+            'placeholder' => __('User name'),
             'class' => 'form-control',
             'escape' => false
         )); ?>
@@ -50,7 +49,7 @@
             'type' => 'password',
             'label' => false,
             'required' => true,
-            'placeholder' => __('Password again'),
+            'placeholder' => __('Confirm Passowrd'),
             'class' => 'form-control',
             'escape' => false
         )); ?>

@@ -12,19 +12,19 @@
 <div class="form-group">
     <div class="row">
     <div class="col-sm-2"><?php
-        echo $this->Form->control('categories._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Categories'),'options' => $categories]); ?>
+        echo $this->Form->control('categories._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Categories'),'options' => $categories]); ?>
     </div>
     <div class="col-sm-2"><?php
-        echo $this->Form->control('types._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Types'),'options' => $types]); ?>
+        echo $this->Form->control('types._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Types'),'options' => $types]); ?>
     </div>
     <div class="col-sm-2"><?php
-        echo $this->Form->control('citys._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Citys'),'options' => $citys]); ?>
+        echo $this->Form->control('citys._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Citys'),'options' => $citys]); ?>
     </div>
     <div class="col-sm-2"><?php
-        echo $this->Form->control('min_price', ['class' => 'form-control ', 'label' => _('Minimum Price')]); ?>
+        echo $this->Form->control('min_price', ['class' => 'form-control ', 'label' =>__('Minimum Price')]); ?>
     </div>
     <div class="col-sm-2"><?php
-        echo $this->Form->control('max_price', ['class' => 'form-control', 'label' => _('Maximum Price')]); ?>
+        echo $this->Form->control('max_price', ['class' => 'form-control', 'label' =>__('Maximum Price')]); ?>
     </div>
     </div>
 </div> 

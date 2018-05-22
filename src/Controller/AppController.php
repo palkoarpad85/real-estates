@@ -90,7 +90,6 @@ class AppController extends Controller
             'en_US' => __('English'),
             'hu_HU' => __('Magyar')
         ]);
-
         
 
         //lang
@@ -131,6 +130,7 @@ class AppController extends Controller
     public function isAuthorized($user)
     {
         // jogosultság kezelés
+       // return true;
         $opt["id"] = $user['id'];
         $opt["view"] = $this->request->param("action");
         $opt["controller"] = $this->request->param("controller");

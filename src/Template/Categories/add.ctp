@@ -9,7 +9,7 @@
         
             <section class="content-header">
                 <h2>
-                    <?=__('Add a '.$this->name)?>
+                    <?=__('Add a Categories')?>
                 </h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb ">
@@ -19,7 +19,7 @@
                                 ['class' => 'breadcrumb-item ', 'escape' => false])?>
                         </li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <?=$this->Html->link(__("<i class='fa fa-outdent'></i> ".$this->name),
+                            <?=$this->Html->link("<i class='fa fa-outdent'></i>".__($this->name),
                                 ['plugin' => false, 'controller' => $this->name, 'action' => 'index'],
                                 ['class' => 'breadcrumb-item ', 'escape' => false])?>
                         </li>
@@ -47,11 +47,11 @@
                                 <?=$this->Form->create($entity)?>
                                     <div class="form-group">
                                         <div class="col-sm-5">
-                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Hungary')])?>
+                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => __('Hungary')])?>
                                         </div>
                                     </div>
                                     <div class="form-group">                                     
-                                            <?=$this->I18n->i18nInput($entity, 'name', ['class' => 'form-control']);?>                                    
+                                            <?=$this->I18n->i18nInput($entity, 'name', ['class' => 'form-control', 'label' => __('English')]);?>                                    
                                     
                                     <div class="form-group ">
                                   <?=$this->Form->button(__d('admin', '{0} Create Category', '<i class="fa fa-plus"></i>'), ['class' => ' btn btn-success'])?>

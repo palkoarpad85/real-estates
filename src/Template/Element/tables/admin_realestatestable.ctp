@@ -2,7 +2,7 @@
     <tr>
         <td><?= $this->Number->format($value->id) ?></td>
         <td class="form-group"><?php if (h($value->active)==1) {
-            echo  "<span class='fas fa-check'></span>";
+                echo  "<span class='fas fa-check'></span>";
             }else {
                 echo  "<span class='fas fa-times'></span>";
             } ?> </td>
@@ -63,6 +63,38 @@
                     'style'               =>'width: 44px; height: 38px ',
                         'confirm' => __('Are you sure you want to restore # {0}?', $value->id)]);
             } ?>
+            <?= $this->Html->link(
+                '<i class="fas fa-images"></i>',
+                array(
+                    'controller'=>'realestates',
+                    'action'=>'editImage',
+                    $value->id
+                ),
+                array(
+
+                    'data-original-title' => 'Info',
+                    'class'               => 'btn btn-outline-primary btn-xs',
+                    'style'               =>'width: 44px; height: 38px ',
+                    'escape'              => false
+                )
+            );
+            ?>
+             <?= $this->Html->link(
+                '<i class="fab fa-paypal "></i>',
+                array(
+                    'controller'=>'realestates',
+                    'action'=>'premium',
+                    $value->id
+                ),
+                array(
+
+                    'data-original-title' => 'Info',
+                    'class'               => 'btn btn-outline-primary btn-xs',
+                    'style'               =>'width: 44px; height: 38px ',
+                    'escape'              => false
+                )
+            );
+            ?>
         </td>
     </tr>
 <?php endforeach; ?>

@@ -47,7 +47,7 @@
                                 <?=$this->Form->create($entity)?>
                                     <div class="form-group">
                                             <div class="col-sm-5"><?php
-                                            echo $this->Form->control('roles._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' => _('Roles'),'options' => $roles]); ?>
+                                            echo $this->Form->control('roles._ids', ['class' => 'form-control js-multiple', 'multiple'=>'multiple', 'label' =>__('Roles'),'options' => $roles]); ?>
                                             </div>
 
                                     </div>

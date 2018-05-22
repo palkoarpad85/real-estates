@@ -47,7 +47,7 @@
                                 <?=$this->Form->create($entity)?>
                                     <div class="form-group">
                                         <div class="col-sm-5">
-                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' => _('Hungary')])?>
+                                            <?=$this->Form->input('name', ['class' => 'form-control', 'label' =>__('Hungary')])?>
                                         </div>
                                     </div>
                                     <div class="form-group">                                     

@@ -54,7 +54,7 @@
                 echo  $this->Form->postLink('<i class="far fa-trash-alt"></i>',
                     ['action' => 'delete', $value->id], ['class' => 'btn btn-outline-danger  btn-xs','escape' => false,
                     'style'               =>'width: 44px; height: 38px ',
-                        'confirm' => __('Are you sure you want to delete # {0}?', $value->id)]);
+                        'confirm' => __('Are you sure you want to delete1 # {0}?', $value->id)]);
 
             }else {
                 echo  $this->Form->postLink('<i class="fas fa-reply"></i>',
@@ -62,6 +62,9 @@
                     'style'               =>'width: 44px; height: 38px ',
                         'confirm' => __('Are you sure you want to restore # {0}?', $value->id)]);
             } ?>
+
+
+           
         </td>
     </tr>
 <?php endforeach; ?>

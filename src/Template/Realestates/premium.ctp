@@ -1,5 +1,3 @@
- 
-
 
 <div class="container">
       <div class="col-md-12 text-center">
@@ -21,7 +19,7 @@
              
             <hr />
             <?=     $this->Html->link(
-                    'Pay',
+                    __('Pay'),
                     array(
                         'controller'=> 'Payment',
                         'action'=>'payment',
@@ -55,7 +53,7 @@
             
             <hr />
             <?=     $this->Html->link(
-                    'Pay',
+                     __('Pay'),
                     array(
                         'controller'=> 'Payment',
                         'action'=>'payment',
@@ -91,7 +89,7 @@
              
             <hr />
             <?=     $this->Html->link(
-                    'Pay',
+                     __('Pay'),
                     array(
                         'controller'=> 'Payment',
                         'action'=>'payment',

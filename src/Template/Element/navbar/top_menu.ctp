@@ -1,7 +1,7 @@
 <ul class="navbar-nav  justify-content-end rigth_menu">
 <?php if ($loggedIn) {?>
           <li class="nav-item active">
-                    <?=$this->Html->link( __("<i class='fas fa-plus-circle'></i> Ads"), ['plugin' => false,'controller'=>'Realestates','action' => 'add'], ['class'=>'nav-link ', 'escape' => false])?>
+                    <?=$this->Html->link("<i class='fas fa-plus-circle'></i> ". __("New realestates"), ['plugin' => false,'controller'=>'Realestates','action' => 'add'], ['class'=>'nav-link ', 'escape' => false])?>
                 
           </li>
 <?php }?> 
@@ -53,14 +53,14 @@
              <?php echo $current_user["username"]; ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
-              <?=$this->Html->link( __("<i class='far fa-user'></i> Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'dropdown-item', 'escape' => false])?>     
-              <?=$this->Html->link( __("<i class='far fa-share-square'></i> Logout"), ['plugin' => false,'controller'=>'Users','action' => 'logout'], ['class'=>'dropdown-item', 'escape' => false])?>
+              <?=$this->Html->link("<i class='far fa-user'></i> ".__("Profile"), ['plugin' => false,'controller'=>'Users','action' => 'profile'], ['class'=>'dropdown-item', 'escape' => false])?>     
+              <?=$this->Html->link("<i class='far fa-share-square'></i> ". __("Logout"), ['plugin' => false,'controller'=>'Users','action' => 'logout'], ['class'=>'dropdown-item', 'escape' => false])?>
               </div>
           </li>
           <?php }
             else{ ?>
           <li class="nav-item active">
-          <?=$this->Html->link( __("<i class='far fa-user'></i> Login"), ['plugin' => false,'controller'=>'Users','action' => 'login'], ['class'=>'nav-link', 'escape' => false])?>     
+          <?=$this->Html->link("<i class='far fa-user'></i>". __("Login"), ['plugin' => false,'controller'=>'Users','action' => 'login'], ['class'=>'nav-link', 'escape' => false])?>     
           </li>
             <?php }?>
         </ul>
